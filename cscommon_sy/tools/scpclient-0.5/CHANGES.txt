@@ -1,0 +1,30 @@
+Change log
+==========
+
+0.5 2014-04-27 Eric V. Smith
+----------------------------
+* Fixed issue #5, Not all files included in sdist.
+* Fixed issue #6, Rename bdist RPM to python-scpclient.
+* No code changes.
+
+0.4 2012-11-28 Eric V. Smith
+----------------------------
+* Fixed issue #2, Missing contextlib import. Thanks Olivier CARRERE.
+
+0.3 2011-10-31 Eric V. Smith
+----------------------------
+* Improved documentation, including how to create a paramiko
+  connection.
+
+0.2 2011-10-31 Eric V. Smith
+----------------------------
+* Removed useless tests.
+* Fixed embarassing last minute typo which broke the code.
+* Included trivial examples in README.txt. Needs much work.
+* Forbid files that contain '..' in the filename. This is an attempt
+  to prevent path traversal. This approach is simplistic, but it's a
+  reasonable first step and gets the job done.
+
+0.1 2011-10-31 Eric V. Smith
+----------------------------
+* Initial release.
