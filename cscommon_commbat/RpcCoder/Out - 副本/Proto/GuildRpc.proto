@@ -1,0 +1,415 @@
+import "PublicStruct.proto";
+
+message  GuildRpcSyncDataAsk
+{
+
+}
+
+message  GuildRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional GuildInfoObj GuildData = 2;
+
+}
+
+message  GuildRpcCreateGuildAsk
+{
+	optional string GuildName = 1;
+	optional string Announcement = 2;
+
+}
+
+message  GuildRpcCreateGuildReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional GuildInfoObj GuildData = 2;
+
+}
+
+message  GuildRpcApplyGuildAsk
+{
+	optional sint32 Guild = 1[default=-1];
+	optional sint32 Oper = 2[default=0];
+
+}
+
+message  GuildRpcApplyGuildReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcQuickApplyAsk
+{
+
+}
+
+message  GuildRpcQuickApplyReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcChangeGuildNameAsk
+{
+	optional string GuildName = 1;
+
+}
+
+message  GuildRpcChangeGuildNameReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcChangeAnnouncementAsk
+{
+	optional string Announcement = 1;
+
+}
+
+message  GuildRpcChangeAnnouncementReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcReqGuildListAsk
+{
+
+}
+
+message  GuildRpcReqGuildListReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated GuildListObj GuildList = 2;
+
+}
+
+message  GuildRpcAppointDutyAsk
+{
+	optional sint64 UserId = 1[default=-1];
+	optional sint32 Duty = 2[default=-1];
+
+}
+
+message  GuildRpcAppointDutyReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcKickoutAsk
+{
+	optional sint64 UserId = 1[default=-1];
+
+}
+
+message  GuildRpcKickoutReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcExitGuildAsk
+{
+
+}
+
+message  GuildRpcExitGuildReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcBreakUpAsk
+{
+
+}
+
+message  GuildRpcBreakUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcInviteToJoinAsk
+{
+	optional sint64 UserId = 1[default=-1];
+
+}
+
+message  GuildRpcInviteToJoinReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcBeInvitedNoticeNotify
+{
+	optional sint64 UserId = 1[default=-1];
+	optional sint32 Guild = 2[default=-1];
+	optional string GuildName = 3;
+
+}
+
+message  GuildRpcBeInvitedHandleAsk
+{
+	optional sint32 Guild = 1[default=-1];
+	optional sint32 Oper = 3[default=0];
+
+}
+
+message  GuildRpcBeInvitedHandleReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcResignDutyAsk
+{
+
+}
+
+message  GuildRpcResignDutyReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcSyncMyTeamDataNotify
+{
+	optional GuildInfoObj GuildData = 1;
+
+}
+
+message  GuildRpcSyncNoticeOfGuildBaseDataNotify
+{
+	optional string GuildName = 1;
+	optional sint32 Level = 2[default=1];
+	optional sint64 CaptainId = 3[default=-1];
+	optional string CaptainName = 4;
+	optional sint32 Funds = 5[default=-1];
+	optional sint32 LeagueMatchesRank = 7[default=-1];
+
+}
+
+message  GuildRpcSyncNoticeOfGuildMemberChangeNotify
+{
+	optional GuildMemberObj GuildMember = 5;
+
+}
+
+message  GuildRpcSyncNoticeOfAddMemberNotify
+{
+	optional GuildMemberObj GuildMember = 1;
+
+}
+
+message  GuildRpcSyncNoticeOfDelMemberNotify
+{
+	optional sint64 UserId = 1[default=-1];
+
+}
+
+message  GuildRpcSyncNoticeOfAddEventNotify
+{
+	optional sint32 EventId = 2[default=-1];
+	optional string Param1 = 3;
+	optional string Param2 = 5;
+
+}
+
+message  GuildRpcSyncNoticeOfAddApplyListNotify
+{
+	optional ApplyListRoleInfoObj ApplyPlayer = 2;
+
+}
+
+message  GuildRpcSyncNoticeOfDelApplyListNotify
+{
+	optional sint64 UserId = 1[default=-1];
+
+}
+
+message  GuildRpcSyncNoticeOfChangeAnnouncementNotify
+{
+	optional string Announcement = 1;
+
+}
+
+message  GuildRpcSyncNoticeOfBreakupNotify
+{
+
+}
+
+message  GuildRpcHallLvUpAsk
+{
+
+}
+
+message  GuildRpcHallLvUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcHouseLvUpAsk
+{
+
+}
+
+message  GuildRpcHouseLvUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcStoreroomLvUpAsk
+{
+
+}
+
+message  GuildRpcStoreroomLvUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcKongfuHallLvUpAsk
+{
+
+}
+
+message  GuildRpcKongfuHallLvUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcSyncNoticeOfHallLvUpNotify
+{
+	optional sint32 Lv = 1[default=-1];
+	optional sint32 Time = 2[default=-1];
+
+}
+
+message  GuildRpcSyncNoticeOfHouseLvUpNotify
+{
+	optional sint32 Lv = 1[default=-1];
+	optional sint32 Time = 2[default=-1];
+
+}
+
+message  GuildRpcSyncNoticeOfStorerommLvUpNotify
+{
+	optional sint32 Lv = 1[default=-1];
+	optional sint32 Time = 2[default=-1];
+
+}
+
+message  GuildRpcSyncNoticeOfKongfuHallLvUpNotify
+{
+	optional sint32 Lv = 1[default=-1];
+	optional sint32 Time = 2[default=-1];
+
+}
+
+message  GuildRpcApplyGuildHandleAsk
+{
+	optional sint64 UserId = 1[default=-1];
+	optional sint32 Oper = 2[default=0];
+
+}
+
+message  GuildRpcApplyGuildHandleReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcCreateGuildDungeonAsk
+{
+	optional sint32 DungeonNum = 2[default=-1];
+
+}
+
+message  GuildRpcCreateGuildDungeonReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 DungeonNum = 4[default=-1];
+
+}
+
+message  GuildRpcEnterGuildDungeonAsk
+{
+	optional sint32 Index = 1[default=-1];
+
+}
+
+message  GuildRpcEnterGuildDungeonReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcRpcSyncNoticeOfCreateGuildDungeonNotify
+{
+	repeated GuildDungeonObj DungeonList = 1;
+
+}
+
+message  GuildRpcCreateGuildWarAsk
+{
+	optional sint32 Guild = 1[default=-1];
+
+}
+
+message  GuildRpcCreateGuildWarReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcSyncNoticeOfOpenGuildWarNotify
+{
+	optional GuildWarObj GuildWar = 2;
+
+}
+
+message  GuildRpcEnterGuildWarAsk
+{
+
+}
+
+message  GuildRpcEnterGuildWarReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcOpenScienceAttrAsk
+{
+	optional sint32 ScienceId = 1[default=-1];
+
+}
+
+message  GuildRpcOpenScienceAttrReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  GuildRpcGuildScienceLvUpAsk
+{
+	optional sint32 ScienceId = 2[default=-1];
+	optional bool IsKeyUpLv = 3[default=false];
+
+}
+
+message  GuildRpcGuildScienceLvUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+

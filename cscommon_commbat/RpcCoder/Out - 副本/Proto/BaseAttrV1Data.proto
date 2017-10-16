@@ -1,0 +1,110 @@
+import "PublicStruct.proto";
+
+message  BaseAttrUserDataV1
+{
+	optional sint32 HeadID = 1[default=-1];
+	optional sint32 Exp = 2[default=-1];
+	optional sint32 CreateTime = 3[default=-1];
+	optional sint32 LastLoginTime = 4[default=-1];
+	optional sint32 Last2LoginDate = 5[default=-1];
+	optional sint32 LastLogoutTime = 6[default=-1];
+	optional sint32 Money = 7[default=0];
+	optional sint32 Diamond = 8[default=0];
+	optional sint32 Strength = 10[default=-1];
+	optional sint32 Feats = 11[default=-1];
+	optional sint32 GotRankRewardTime = 12[default=-1];
+	optional sint32 MaxMilitary = 14[default=-1];
+	repeated sint32 MasterAttrs = 15;
+	optional sint32 CurMilitary = 18[default=-1];
+	optional string UserName = 19;
+	optional sint64 UserId = 20[default=-1];
+	optional string PlatName = 21;
+	optional sint64 AccountId = 22[default=-1];
+	optional sint32 Level = 23[default=-1];
+	optional sint32 Rank = 24[default=-1];
+	optional sint32 FightPower = 25[default=-1];
+	optional sint32 Sec = 26[default=-1];
+	optional sint32 Military = 27[default=-1];
+	optional sint32 TeamId = 28[default=-1];
+	optional sint32 Prof = 29[default=-1];
+	optional sint32 DungeonRemainCount = 30[default=-1];
+	optional sint32 MapId = 31[default=-1];
+	optional float PosX = 32[default=-1];
+	optional float PosY = 33[default=-1];
+	optional float PosZ = 34[default=-1];
+	optional sint32 Ry = 35[default=-1];
+	repeated BaseAttrSkillCdInfoV1 SkillCdArr = 36;
+	repeated BaseAttrBuffCdInfoV1 BuffCdArr = 37;
+	optional BaseAttrSceneInfoV1 CurrentScene = 38;
+	optional sint32 GuildId = 39[default=-1];
+	optional sint32 ExitGuildTime = 40[default=-1];
+	repeated sint32 ApplyGuildId = 41;
+	optional sint32 CurGuildContribution = 42[default=0];
+	optional sint32 MaxGuildContribution = 43[default=0];
+	optional sint32 BindMoney = 44[default=0];
+	optional sint32 Gem = 45[default=0];
+	optional sint32 ServerTime = 47[default=-1];
+	repeated KeyValue2IntInt NewbieGuide = 48;
+	optional sint32 ThiefRewardNum = 49[default=0];
+	optional sint32 SubdueMonsterRewardNum = 50[default=0];
+	optional sint32 WorldBossRemainTimes = 51[default=0];
+	optional sint32 WorldBossHurt = 52[default=0];
+	repeated BaseAttrIconOpenInfoV1 FunctionOpenList = 54;
+	optional sint32 TotalEnergyValue = 55[default=0];
+	repeated BaseAttrEnergyInfoV1 EnergyArray = 57;
+	optional sint32 PKState = 58[default=-1];
+	repeated KeyValue2IntBool PKProtect = 59;
+	repeated BaseAttrScienceInfoV1 GuildScienArray = 60;
+	optional sint32 ScienceTotalMoney = 61[default=0];
+
+}
+
+message  BaseAttrSkillCdInfoV1
+{
+	optional sint32 SkillId = 1[default=-1];
+	optional sint32 EndTime = 2[default=-1];
+
+}
+
+message  BaseAttrBuffCdInfoV1
+{
+	optional sint32 BuffId = 1[default=-1];
+	optional sint32 EndTime = 2[default=-1];
+
+}
+
+message  BaseAttrSceneInfoV1
+{
+	optional sint64 RelateUserId = 9[default=-1];
+	optional sint32 ReviveNeedMoney = 10[default=-1];
+	optional sint32 ReviveNeedMoneyType = 12[default=0];
+	optional string DungeonKey = 15;
+
+}
+
+message  BaseAttrIconOpenInfoV1
+{
+	optional sint32 IconId = 1[default=-1];
+	optional bool IsOpen = 6[default=false];
+	optional bool IsShow = 7[default=false];
+	optional bool IsNew = 8[default=false];
+
+}
+
+message  BaseAttrEnergyInfoV1
+{
+	optional sint32 EnergyId = 1[default=-1];
+	optional sint32 EnergyValue = 2[default=0];
+	optional sint32 ReceivedEnergy = 3[default=0];
+
+}
+
+message  BaseAttrScienceInfoV1
+{
+	optional sint32 ScienceId = 1[default=-1];
+	optional sint32 ScienceCurExp = 2[default=0];
+	optional sint32 ScienceLv = 3[default=-1];
+	optional sint32 ScienceCurMoney = 4[default=0];
+
+}
+

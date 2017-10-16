@@ -1,0 +1,9 @@
+import "PublicStruct.proto";
+
+//掉落物品数据
+message  DropItemDropItemV1
+{
+	repeated DropItemObj DropItem = 1;	//掉落的物品
+	repeated BagEquipObj EquipAllData = 4;	//装备全部数据
+}
+

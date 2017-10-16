@@ -1,0 +1,43 @@
+import "PublicStruct.proto";
+
+message  ShopRpcSyncDataAsk
+{
+
+}
+
+message  ShopRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  ShopRpcBuyAsk
+{
+	optional sint32 ShopType = 1[default=-1];
+	optional sint32 ItemId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+
+}
+
+message  ShopRpcBuyReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ShopType = 2[default=-1];
+	optional sint32 ItemId = 3[default=-1];
+	optional sint32 Pos = 4[default=-1];
+
+}
+
+message  ShopRpcRefreshItemAsk
+{
+	optional sint32 ShopType = 2[default=-1];
+
+}
+
+message  ShopRpcRefreshItemReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ShopType = 2[default=-1];
+
+}
+

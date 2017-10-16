@@ -1,0 +1,31 @@
+import "PublicStruct.proto";
+
+message  TransportGoodsDataV1
+{
+	repeated TransportGoodsObjV1 GoodsArray = 1;
+	optional sint32 AskNum = 2[default=-1];
+	optional sint32 HelpNum = 3[default=-1];
+	repeated TransportRewardObjV1 RewardArry = 4;
+	optional bool RewardFlag = 6[default=false];
+	optional bool PickTaskFlag = 7[default=false];
+
+}
+
+message  TransportGoodsObjV1
+{
+	optional sint32 GoodId = 1[default=-1];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 ItemNum = 3[default=-1];
+	optional sint32 CateGory = 4[default=-1];
+	optional bool IsHelp = 5[default=false];
+
+}
+
+message  TransportRewardObjV1
+{
+	optional sint32 RewardId = 1[default=-1];
+	optional sint32 LV = 4[default=-1];
+	optional sint32 GoodType = 5[default=-1];
+
+}
+

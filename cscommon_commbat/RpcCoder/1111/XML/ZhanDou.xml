@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Root Module="ZhanDou" CName="战斗" MsgNumStart="1" SyncDataVersion="1" Comment="">
+    <Operate Name="Move" CName="zou" Comment="">
+        <OP_ASK Name="Ask" CName="请求" MsgID="1" DataStruct="RpcMoveAsk" Comment="" />
+        <OP_REPLY Name="Reply" CName="回应" MsgID="2" DataStruct="RpcMoveReply" Comment="" />
+    </Operate>
+    <Operate Name="Talk" CName="聊天" Comment="">
+        <OP_SERVER_NOTIFY Name="Notify" CName="通知" MsgID="3" DataStruct="RpcTalkNotify" Comment="" />
+    </Operate>
+    <Struct Name="MoveData" CName="行走数据" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Dir" CName="方向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="RpcMoveAsk" CName="zou请求" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="RpcMoveReply" CName="zou回应" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Result" CName="返回结果" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-9999" Comment="-9999 模块未启动&#xD;&#xA;-9998 请求字段值范围出错" />
+    </Struct>
+    <Struct Name="RpcTalkNotify" CName="聊天通知" ProtoType="RpcProto" Comment="" DataType="RPCData" SaveToDB="False" SyncToClient="False" MaxFieldId="0" />
+    <Struct Name="UserData" CName="用户数据" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="0" />
+</Root>

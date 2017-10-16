@@ -1,0 +1,39 @@
+package SY;
+message CL_Connect
+{
+	 required int32 type = 1;
+};
+message LC_Connect
+{
+	 required int32 type = 1;
+};
+message CL_Login
+{
+	 required string username = 1;
+	 required string passwd = 2;
+};
+
+enum Ret_Code
+{
+	Ret_Login_Succeed = 0;
+	Ret_Connect_Succeed = 1;
+};
+message LC_RetLogin
+{
+	 required int64	roleid = 1;
+	 required Ret_Code ret_code = 2;
+};
+
+enum Error_Code
+{
+	State_Error = 0;
+	DB_Busy = 1;
+	ASK_LOGIN_TIMES = 2;
+	ASK_CHARLIST_NOT_OWER = 3;
+	ASK_CREATECHAR_INVLID_NAME = 4;
+};
+message LC_LoginError
+{
+	 required int64	roleid = 1;
+	 required Error_Code erroe_code = 2;
+};

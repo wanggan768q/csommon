@@ -1,0 +1,19 @@
+import "PublicStruct.proto";
+
+message  TalismanDataFabaoV1
+{
+	repeated TalismanFabaoInfoV1 FabaoArr = 1;
+
+}
+
+message  TalismanFabaoInfoV1
+{
+	optional sint32 ID = 1[default=-1];
+	optional sint32 Lv = 2[default=1];
+	optional sint32 IsActived = 3[default=0];
+	repeated sint32 ActivedCondID = 4;
+	optional sint32 Exp = 5[default=0];
+	optional sint32 HitType = 6[default=-1];
+
+}
+

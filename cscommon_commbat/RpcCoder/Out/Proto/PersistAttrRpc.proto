@@ -1,0 +1,13 @@
+import "PublicStruct.proto";
+
+message  PersistAttrRpcSyncDataAsk
+{
+
+}
+
+message  PersistAttrRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+

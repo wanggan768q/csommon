@@ -1,0 +1,50 @@
+import "PublicStruct.proto";
+
+message  BagPackageDataV1
+{
+	repeated BagGridInfoV1 GridArray = 1;
+	repeated BagEquipObj EquipAllData = 4;
+	repeated BagGridInfoV1 WearEquipContainer = 5;
+	repeated BagGridInfoV1 StorageBagGrid = 7;
+	optional sint32 StorageBank = 8[default=0];
+	repeated BagTalismanObjV1 TalismanData = 9;
+	repeated sint32 TalismanForeverAttr = 10;
+	repeated KeyValue2IntBool AutoPickup = 11;
+	repeated KeyValue2IntInt UseItemDay = 15;
+	repeated KeyValue2IntInt UseItemWeek = 16;
+
+}
+
+message  BagGridInfoV1
+{
+	optional sint32 TemplateID = 2[default=-1];
+	optional sint32 Num = 3[default=0];
+	optional sint32 ItemType = 5[default=-1];
+	optional sint32 Pos = 6[default=-1];
+	optional sint32 Value = 8[default=-1];
+	optional sint64 Index = 11[default=-1];
+	optional bool Bind = 12[default=false];
+
+}
+
+message  BagTalismanObjV1
+{
+	optional sint64 ItemID = 2[default=-1];
+	optional sint32 TemplateId = 3[default=-1];
+	optional sint32 CurExp = 5[default=0];
+	optional sint32 EquipScore = 6[default=0];
+	optional sint32 StarLevel = 7[default=0];
+	repeated BagSlotInfoV1 GatherSpriteSlot = 8;
+	optional sint32 TailsManLevel = 9[default=-1];
+	repeated sint32 TalismanAttr = 10;
+
+}
+
+message  BagSlotInfoV1
+{
+	optional sint32 SlotId = 1[default=-1];
+	optional sint32 SlotType = 2[default=-1];
+	optional sint32 SlotSkillId = 3[default=-1];
+
+}
+

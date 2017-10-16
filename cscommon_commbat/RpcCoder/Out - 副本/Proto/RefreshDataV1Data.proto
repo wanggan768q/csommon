@@ -1,0 +1,8 @@
+import "PublicStruct.proto";
+
+message  RefreshDataRefreshDataV1
+{
+	optional sint32 LastRefreshTime = 1[default=0];
+
+}
+

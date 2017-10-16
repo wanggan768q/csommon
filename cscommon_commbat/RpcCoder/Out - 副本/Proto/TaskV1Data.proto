@@ -1,0 +1,48 @@
+import "PublicStruct.proto";
+
+message  TaskTaskObjV1
+{
+	optional sint32 TaskId = 1[default=-1];
+	optional sint32 TaskState = 2[default=-1];
+	repeated TaskTaskTargetObjV1 TaskTarget = 3;
+	optional sint32 TaskType = 4[default=-1];
+	optional bool IsOrder = 5[default=true];
+	optional bool IsAutoSubmit = 6[default=false];
+	optional sint32 CollectionId = 7[default=-1];
+	optional sint32 DungeonId = 9[default=-1];
+	optional sint32 Guild = 10[default=-1];
+	optional sint32 ObjId = 11[default=-1];
+
+}
+
+message  TaskTaskDataV1
+{
+	repeated TaskTaskObjV1 AllTaskArray = 2;
+	repeated TaskUnacceptedTaskObjV1 UnacceptedTaskArray = 3;
+	optional sint32 ProfTaskId = 4[default=0];
+	optional sint32 ProfTaskCompCount = 5[default=0];
+	repeated sint32 OneDragonTaskId = 6;
+	optional sint32 OneDragonRingNum = 7[default=0];
+	optional sint32 OneDragonComplateCount = 8[default=0];
+	optional sint32 OneDragonDungeonId = 9[default=-1];
+	optional sint32 GuildSpyComplateCount = 10[default=0];
+
+}
+
+message  TaskTaskTargetObjV1
+{
+	optional sint32 TargetType = 1[default=-1];
+	optional sint32 TargetId = 2[default=-1];
+	optional sint32 CurNum = 3[default=-1];
+	optional sint32 TotalNum = 4[default=-1];
+	optional sint32 Id = 6[default=-1];
+
+}
+
+message  TaskUnacceptedTaskObjV1
+{
+	optional sint32 TaskId = 1[default=-1];
+	optional sint32 TaskType = 2[default=-1];
+
+}
+

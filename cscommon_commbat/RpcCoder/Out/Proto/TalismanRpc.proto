@@ -1,0 +1,40 @@
+import "PublicStruct.proto";
+
+message  TalismanRpcSyncDataAsk
+{
+
+}
+
+message  TalismanRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  TalismanRpcUpgradeAsk
+{
+	optional sint32 ID = 1[default=-1];
+	optional sint32 Type = 3[default=-1];
+
+}
+
+message  TalismanRpcUpgradeReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ID = 2[default=-1];
+
+}
+
+message  TalismanRpcActiveAsk
+{
+	optional sint32 ID = 1[default=-1];
+
+}
+
+message  TalismanRpcActiveReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ID = 2[default=-1];
+
+}
+

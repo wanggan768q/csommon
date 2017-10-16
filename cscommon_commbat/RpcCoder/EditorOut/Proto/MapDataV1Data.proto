@@ -1,0 +1,215 @@
+import "PublicStruct.proto";
+
+message  MapDataUselessV1
+{
+	optional sint32 X1 = 1[default=-1];
+
+}
+
+message  MapDataLayerInfoV1
+{
+	repeated MapDataVector2V1 WalkArea = 2;
+	repeated MapDataVector2V1 LostArea = 3;
+	optional float ClientHight = 4[default=0];
+	optional float X = 5[default=0];
+	optional float Z = 6[default=0];
+	optional float Y = 7[default=0];
+	optional float MinHeightLimit = 9[default=0];
+	optional float MaxHeightLimit = 10[default=0];
+
+}
+
+message  MapDataInfoV1
+{
+	repeated MapDataLayerInfoV1 LayerArr = 1;
+	repeated MapDataSpawnInfoV1 SpawnArr = 2;
+	optional MapDataDefeatInfoV1 Defeat = 3;
+	repeated MapDataPerfectInfoV1 PerfectArr = 4;
+	repeated MapDataPortalInfoV1 PortalArr = 5;
+	repeated MapDataTrapInfoV1 TrapArr = 6;
+	repeated MapDataNpcInfoV1 NpcArr = 7;
+	repeated MapDataNodeInfoV1 NodeArr = 8;
+	optional string Name = 9;
+	repeated MapDataTerritorialInfoV1 StormBaseArr = 10;
+	optional MapDataTerritorialInfoV1 StormFlag = 11;
+	optional MapDataBaseConfigV1 BaseConfig = 12;
+	repeated MapDataGatherInfoV1 GatherArr = 13;
+	repeated MapDataEventInfoV1 EventArr = 14;
+
+}
+
+message  MapDataVector2V1
+{
+	optional float X1 = 1[default=0];
+	optional float X2 = 2[default=0];
+	optional float Z1 = 4[default=0];
+	optional float Z2 = 5[default=0];
+	optional float OrgAngle = 7[default=0];
+	optional float FinAngle = 8[default=0];
+	optional float Radius = 11[default=0];
+	repeated MapDataContourLineInfoV1 ContourLineArr = 12;
+
+}
+
+message  MapDataSpawnInfoV1
+{
+	optional float X = 1[default=0];
+	optional sint32 Layer = 2[default=0];
+	optional sint32 SpawnDirection = 3[default=1];
+	optional float Z = 4[default=0];
+	optional float Radius = 5[default=0];
+	optional float Angle = 6[default=0];
+
+}
+
+message  MapDataDefeatInfoV1
+{
+	optional sint32 Condition = 1[default=0];
+	optional float TimeLimit = 4[default=0];
+
+}
+
+message  MapDataPerfectInfoV1
+{
+	optional sint32 Condition = 1[default=-1];
+	optional sint32 DeathCountNum = 2[default=0];
+	optional sint32 KillEnemyID = 3[default=0];
+	optional sint32 KillEnemyCount = 4[default=0];
+	optional sint32 HpPercent = 5[default=0];
+	optional float TimeLimit = 6[default=0];
+
+}
+
+message  MapDataPortalInfoV1
+{
+	optional float SourceX = 1[default=0];
+	optional sint32 SourceLayer = 2[default=0];
+	optional float TargetX = 3[default=-1];
+	optional sint32 TargetLayer = 4[default=-1];
+	optional sint32 UseCount = 5[default=1];
+	optional bool Channel = 6[default=false];
+	optional sint32 PortalType = 7[default=0];
+	optional sint32 TargetDungeonId = 8[default=0];
+	optional sint32 TargetSpawnIndex = 9[default=0];
+	optional sint32 TargetDirection = 10[default=0];
+	optional float SourceZ = 11[default=0];
+	optional float TargetZ = 12[default=0];
+	optional float SourceAngle = 13[default=0];
+	optional float TargetAngle = 14[default=0];
+	optional float SourceRadius = 15[default=0];
+	optional float TargetRadius = 16[default=0];
+
+}
+
+message  MapDataTrapInfoV1
+{
+	optional sint32 TrapID = 1[default=0];
+	optional float X = 2[default=0];
+	optional float Y = 4[default=0];
+	optional sint32 Direction = 5[default=1];
+	optional float Z = 6[default=0];
+
+}
+
+message  MapDataNpcInfoV1
+{
+	optional sint32 NpcID = 1[default=0];
+	optional float X = 2[default=0];
+	optional sint32 Layer = 3[default=0];
+	optional float Z = 4[default=0];
+	optional sint32 Direction = 5[default=1];
+	optional float Angle = 6[default=0];
+	optional float Radius = 7[default=0];
+
+}
+
+message  MapDataMonsterInfoV1
+{
+	optional sint32 MonsterID = 1[default=0];
+	optional float X = 2[default=0];
+	optional sint32 Layer = 3[default=0];
+	optional sint32 RepeatCount = 4[default=1];
+	optional sint32 SpawmTriggerType = 5[default=0];
+	optional sint32 RespawmTriggerType = 6[default=0];
+	optional float PatrolX1 = 11[default=-1];
+	optional float PatrolX2 = 13[default=-1];
+	optional float SpawnNodeTime = 14[default=0];
+	optional sint32 SpawnKillEnemyID = 15[default=0];
+	optional sint32 SpawnKillEnemyCount = 16[default=0];
+	optional float SpawnAfterDeathTime = 17[default=0];
+	optional float RespawnNodeTime = 18[default=0];
+	optional sint32 RespawnKillEnemyID = 19[default=0];
+	optional sint32 RespawnKillEnemyCount = 20[default=0];
+	optional float RespawnAfterDeathTime = 21[default=0];
+	optional sint32 CreateMonsterType = 22[default=0];
+	repeated MapDataNodeMonsterInfoV1 NodeMonsterInfoArr = 24;
+	optional float Z = 25[default=0];
+	optional sint32 Direction = 26[default=1];
+
+}
+
+message  MapDataNodeInfoV1
+{
+	optional float X = 1[default=0];
+	optional sint32 Layer = 2[default=0];
+	optional sint32 PassCondition = 3[default=0];
+	optional sint32 KillEnemyID = 4[default=0];
+	optional sint32 KillEnemyCount = 5[default=0];
+	repeated MapDataMonsterInfoV1 MonsterArr = 6;
+	optional float TimeLimit = 7[default=0];
+	optional sint32 NodeType = 8[default=0];
+	optional sint32 NodeArrowDisplayType = 9[default=0];
+
+}
+
+message  MapDataTerritorialInfoV1
+{
+	optional sint32 Layer = 1[default=0];
+	optional MapDataVector2V1 Area = 2;
+	optional float X = 3[default=0];
+	optional sint32 ID = 4[default=0];
+	optional string ModelName = 5;
+
+}
+
+message  MapDataNodeMonsterInfoV1
+{
+	optional sint32 MonsterId = 1[default=-1];
+	optional sint32 RandomWeight = 2[default=-1];
+
+}
+
+message  MapDataBaseConfigV1
+{
+	optional sint32 MapType = 1[default=0];
+
+}
+
+message  MapDataGatherInfoV1
+{
+	optional sint32 GatherId = 1[default=0];
+	optional float X = 2[default=0];
+	optional sint32 Layer = 3[default=0];
+	optional float Z = 4[default=0];
+	optional sint32 Direction = 5[default=1];
+
+}
+
+message  MapDataContourLineInfoV1
+{
+	optional float Y = 1[default=-1];
+
+}
+
+message  MapDataEventInfoV1
+{
+	optional float X1 = 1[default=0];
+	optional float Z1 = 2[default=0];
+	optional float X2 = 3[default=0];
+	optional float Z2 = 4[default=0];
+	optional sint32 Type = 5[default=0];
+	optional sint32 EventId = 6[default=0];
+	optional sint32 Layer = 7[default=0];
+
+}
+

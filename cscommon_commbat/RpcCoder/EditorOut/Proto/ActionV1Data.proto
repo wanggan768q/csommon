@@ -1,0 +1,127 @@
+import "PublicStruct.proto";
+
+message  ActionSkillInfoV1
+{
+	optional string Name = 1;
+	repeated ActionCommandInfoV1 CommandList = 2;
+	optional float TotalTime = 3[default=0];
+	optional bool IsSing = 4[default=false];
+	optional float SingTime = 5[default=0];
+
+}
+
+message  ActionCommandInfoV1
+{
+	optional sint32 CommandType = 2[default=-1];
+	optional float StartTime = 3[default=0];
+	optional float DurationTime = 4[default=0];
+	optional sint32 AnimationTriggerCondition = 5[default=0];
+	optional string EffectName = 6;
+	optional sint32 EffectBoneHook = 7[default=0];
+	optional ActionV3V1 EffectPositionOffset = 8;
+	optional bool EffectStayInLocalSpace = 9[default=false];
+	optional sint32 EffectControlObjectId = 10[default=0];
+	optional sint32 TranslateControlId = 11[default=0];
+	optional ActionV3V1 TranslateOffset = 12;
+	repeated sint32 ActorAttackPart = 13;
+	optional sint32 TranslateEase = 14[default=1];
+	optional bool AttackShowHitEffect = 15[default=false];
+	optional string AttackHitEffectName = 16;
+	optional float AttackHitEffectDuration = 17[default=1.6];
+	optional sint32 AttackFragmentCount = 18[default=1];
+	optional float AttackFragmentIntervalTime = 19[default=0];
+	optional float AttackDamageRadio = 20[default=1];
+	optional bool BuffSelfActive = 21[default=false];
+	optional bool BuffTargetActive = 22[default=false];
+	optional float AttackBehaviourBackDistance = 24[default=0];
+	optional float AttackBehaviourAirHeight = 25[default=0];
+	optional ActionV3V1 EffectRotationOffset = 27;
+	optional sint32 FlashControlObjectId = 28[default=0];
+	optional float AttackStiffTime = 29[default=0];
+	optional bool AttackShake = 30[default=false];
+	optional bool AttackFlash = 31[default=false];
+	optional float AttackBehaviourBackSpeed = 32[default=1];
+	optional float AttackBehaviourAirSpeed = 33[default=1];
+	optional bool AttackBehaviourBack = 35[default=false];
+	optional bool AttackBehaviourAir = 36[default=false];
+	optional bool AttackBehaviourZoom = 37[default=false];
+	optional string SoundName = 38;
+	optional bool Trigger = 39[default=false];
+	optional sint32 TriggerIndex = 40[default=1];
+	optional sint32 AttackHitDummy = 41[default=0];
+	optional string AttackHitSound = 42;
+	optional float HitShakeCameraXRange = 44[default=0];
+	optional float HitShakeCameraYRange = 45[default=0];
+	optional sint32 HitShakeCameraCount = 46[default=1];
+	optional float HitShakeCameraDurationTime = 47[default=0.1];
+	optional sint32 HiddenWeaponMode = 50[default=0];
+	optional string NextActionName = 51;
+	optional sint32 TranslateWrapMode = 52[default=0];
+	optional bool IsTriggerSecondAttack = 53[default=false];
+	optional bool IsHitGround = 54[default=false];
+	optional string SkillActionName = 55;
+	optional string WarningRes1 = 56;
+	optional string WarningRes2 = 57;
+	optional ActionV3V1 WarningMaxScale = 58;
+	optional sint32 WarningScaleMode = 59[default=0];
+	optional sint32 WarningLockAxle = 60[default=0];
+	optional ActionV3V1 WarningPositionOffset = 61;
+	optional bool IsEffectFollow = 62[default=false];
+	optional bool IsWarningTarget = 63[default=false];
+	optional float AttackBehaviourAirDurationTime = 64[default=0];
+	optional bool IsColliderDestroy = 66[default=false];
+	optional bool IsAttackRangeFollow = 70[default=false];
+	optional bool IsAnimationLoop = 71[default=false];
+	optional float TranslateAngle = 72[default=0];
+	optional bool IsAttackRangeShade = 73[default=false];
+	optional float AttackInterval = 75[default=0];
+	optional bool IsShowAttackRect = 76[default=false];
+	optional float EffectBulletLaunchAngle = 78[default=0];
+	optional float EffectBulletSpeed = 79[default=0];
+	optional ActionRangeV1 EffectBulletLaunchTimeIntervalRange = 80;
+	optional sint32 EffectBulletMaxCout = 82[default=0];
+	optional ActionRangeV1 EffectBulletLifeTimeInteralRange = 83;
+	optional sint32 EffectBulletType = 84[default=0];
+	repeated ActionV3V1 EffectBulletInitPosList = 85;
+	optional sint32 EffectBulletLaunchMaxCount = 86[default=0];
+	optional bool EffectBulletIsFollow = 88[default=false];
+	optional float AttackBehaviourAirDownSpeed = 89[default=0];
+	optional sint32 EffectDirectionLockType = 90[default=0];
+	optional bool IsIrregularityEffect = 91[default=false];
+	optional ActionV3V1 EffectSize = 92;
+	optional ActionV3V1 AttackRangePostion = 93;
+	optional ActionV3V1 AttackRangeSize = 94;
+	optional sint32 AttackShape = 95[default=0];
+	optional ActionV3V1 AttackCircleOrigin = 96;
+	optional float AttackCircleRadius = 97[default=0];
+	optional float AttackCircleAngle = 98[default=0];
+
+}
+
+message  ActionUselessV1
+{
+
+}
+
+message  ActionV2V1
+{
+	optional float X = 1[default=0];
+	optional float Y = 2[default=0];
+
+}
+
+message  ActionV3V1
+{
+	optional float X = 1[default=0];
+	optional float Y = 2[default=0];
+	optional float Z = 3[default=0];
+
+}
+
+message  ActionRangeV1
+{
+	optional float MinValue = 3[default=0];
+	optional float MaxValue = 5[default=0];
+
+}
+

@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<Root>
+    <Struct Name="BagRecycleGridObj" CName="背包回收格子" ProtoType="CommProto" Comment="" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint64" Name="ItemId" CName="道具id" Comment="" FieldId="1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="TemplateId" CName="模板id" Comment="" FieldId="2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Num" CName="数量" Comment="" FieldId="3" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="ItemType" CName="物品类型" Comment="" FieldId="4" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Pos" CName="位置" Comment="" FieldId="5" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+    </Struct>
+    <Struct Name="KeyValue2" CName="键值对" ProtoType="CommProto" Comment="" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" Name="Key" CName="键" Comment="" FieldId="1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="float" Name="Value" CName="值" Comment="" FieldId="2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+    </Struct>
+    <Struct Name="BagGridObj" CName="背包格子对象" ProtoType="CommProto" Comment="" MaxFieldId="7">
+        <Field PreDefine="optional" FieldType="sint32" Name="TemplateID" CName="物品的配置Id" Comment="" FieldId="1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Num" CName="物品数量" Comment="" FieldId="2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" />
+        <Field PreDefine="optional" FieldType="sint32" Name="ItemType" CName="物品类型" Comment="" FieldId="3" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Pos" CName="位置" Comment="" FieldId="4" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Value" CName="客户端通用数据" Comment="" FieldId="5" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint64" Name="Index" CName="ItemId，唯一id" Comment="" FieldId="6" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="bool" Name="Bind" CName="绑定" Comment="" FieldId="7" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" />
+    </Struct>
+    <Struct Name="BagEquipObj" CName="背包装备对象" ProtoType="CommProto" Comment="" MaxFieldId="18">
+        <Field PreDefine="optional" FieldType="sint64" Name="ItemID" CName="物品实例id, 唯一id" Comment="" FieldId="1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="repeated" FieldType="BagAttrIntObj" Name="BaseAttr" CName="基础属性值(包括附加的加成)" Comment="" FieldId="2" ValueSet="" MinValue="6" MaxValue="128" />
+        <Field PreDefine="repeated" FieldType="BagExtraAttrObj" Name="ExtraAttr" CName="额外属性" Comment="" FieldId="3" ValueSet="" MinValue="6" MaxValue="128" />
+        <Field PreDefine="repeated" FieldType="sint32" Name="EnhanceLv" CName="强化等级" Comment="" FieldId="4" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="repeated" FieldType="BagExtraAttrObj" Name="EquipPolishedResult" CName="装备洗炼结果" Comment="" FieldId="5" ValueSet="" MinValue="6" MaxValue="128" />
+        <Field PreDefine="optional" FieldType="sint32" Name="PolishedScore" CName="洗炼积分" Comment="" FieldId="6" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" />
+        <Field PreDefine="optional" FieldType="sint64" Name="Index" CName="用于索引道具具体数据" Comment="" FieldId="7" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="repeated" FieldType="BagAttrIntObj" Name="InitBaseAttr" CName="初始基础属性" Comment="" FieldId="8" ValueSet="" MinValue="6" MaxValue="128" />
+        <Field PreDefine="optional" FieldType="sint32" Name="BagContainerType" CName="物品容器类型" Comment="" FieldId="9" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="GridIndex" CName="装备格子的索引" Comment="" FieldId="10" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="repeated" FieldType="BagExtraAttrIdObj" Name="PlishedAttrId" CName="洗炼属性id" Comment="" FieldId="11" ValueSet="" MinValue="6" MaxValue="128" />
+        <Field PreDefine="repeated" FieldType="BagGemObj" Name="GemArray" CName="宝石数组" Comment="" FieldId="12" ValueSet="" MinValue="6" MaxValue="128" />
+        <Field PreDefine="repeated" FieldType="BagAttrIntObj" Name="PolishedBaseAttrResult" CName="基础属性洗炼结果" Comment="" FieldId="13" ValueSet="" MinValue="6" MaxValue="128" />
+        <Field PreDefine="optional" FieldType="sint32" Name="TemplateId" CName="模板id" Comment="" FieldId="14" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="GemSuitId" CName="宝石组合id" Comment="" FieldId="15" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="EquipScore" CName="装备评分" Comment="" FieldId="16" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" />
+        <Field PreDefine="optional" FieldType="sint32" Name="PolishedEquipScore" CName="洗炼装备评分" Comment="" FieldId="17" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" />
+        <Field PreDefine="repeated" FieldType="BagAttrIntObj" Name="BaseAttrPolishedInitAttr" CName="基础属性洗炼初始属性" Comment="" FieldId="18" ValueSet="" MinValue="6" MaxValue="128" />
+    </Struct>
+    <Struct Name="BagAttrIntObj" CName="装备属性" ProtoType="CommProto" Comment="" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" Name="AttrId" CName="属性Id" Comment="" FieldId="1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="AttrValue" CName="属性值" Comment="" FieldId="2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="MaxAttrValue" CName="最大属性值" Comment="" FieldId="3" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+    </Struct>
+    <Struct Name="BagAttrFloatObj" CName="装备属性对象" ProtoType="CommProto" Comment="" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="sint32" Name="AttrId" CName="属性Id" Comment="" FieldId="1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="float" Name="AttrValue" CName="属性值" Comment="" FieldId="2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Index" CName="索引" Comment="" FieldId="3" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+    </Struct>
+    <Struct Name="BagGemObj" CName="装备宝石对象" ProtoType="CommProto" Comment="" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" Name="GemId" CName="宝石id" Comment="" FieldId="1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Pos" CName="位置" Comment="" FieldId="2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="bool" Name="IsLock" CName="锁着， 未打孔" Comment="" FieldId="3" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Level" CName="宝石等级" Comment="" FieldId="4" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Type" CName="配置的type" Comment="" FieldId="5" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+    </Struct>
+    <Struct Name="KeyValue2IntInt" CName="键值对" ProtoType="CommProto" Comment="" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" Name="Key" CName="键" Comment="" FieldId="1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Value" CName="值" Comment="" FieldId="2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+    </Struct>
+    <Struct Name="KeyValue2IntBool" CName="键值对" ProtoType="CommProto" Comment="" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" Name="Key" CName="键" Comment="" FieldId="1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="bool" Name="Value" CName="值" Comment="" FieldId="2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" />
+    </Struct>
+    <Struct Name="BagExtraAttrObj" CName="背包装备附加属性" ProtoType="CommProto" Comment="" MaxFieldId="2">
+        <Field PreDefine="repeated" FieldType="BagAttrFloatObj" Name="ExtraAttr" CName="附加属性" Comment="" FieldId="1" ValueSet="" MinValue="6" MaxValue="128" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Id" CName="词条Id" Comment="" FieldId="2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+    </Struct>
+    <Struct Name="BagExtraAttrIdObj" CName="附加属性Id" ProtoType="CommProto" Comment="" MaxFieldId="2">
+        <Field PreDefine="repeated" FieldType="sint32" Name="AttrId" CName="属性Id" Comment="" FieldId="1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+        <Field PreDefine="optional" FieldType="sint32" Name="Id" CName="词条Id" Comment="" FieldId="2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" />
+    </Struct>
+</Root>

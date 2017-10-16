@@ -1,0 +1,13 @@
+import "PublicStruct.proto";
+
+message  ZhanDouMoveDataV1
+{
+	optional sint32 Dir = 1[default=-1];
+
+}
+
+message  ZhanDouUserDataV1
+{
+
+}
+

@@ -1,0 +1,18 @@
+import "PublicStruct.proto";
+
+message  AchievementAchiObjV1
+{
+	optional sint32 GroupId = 1[default=-1];
+	optional sint32 Star = 3[default=-1];
+	optional sint32 Status = 4[default=-1];
+	optional sint32 Id = 5[default=-1];
+	optional sint32 Type = 6[default=-1];
+
+}
+
+message  AchievementAchiDataV1
+{
+	repeated AchievementAchiObjV1 AchiData = 1;
+
+}
+

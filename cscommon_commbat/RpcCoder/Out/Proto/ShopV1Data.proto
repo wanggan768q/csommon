@@ -1,0 +1,25 @@
+import "PublicStruct.proto";
+
+message  ShopShopDataV1
+{
+	repeated ShopShopObjV1 ShopArray = 1;
+
+}
+
+message  ShopShopObjV1
+{
+	optional sint32 ShopType = 2[default=-1];
+	repeated ShopItemObjV1 ItemArray = 3;
+	optional sint64 LastRefreshTime = 4[default=-1];
+	optional sint32 RefreshTimes = 5[default=-1];
+
+}
+
+message  ShopItemObjV1
+{
+	optional sint32 ItemId = 1[default=-1];
+	optional sint32 Count = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+
+}
+

@@ -1,0 +1,15 @@
+import "PublicStruct.proto";
+
+message  GMRpcActionAsk
+{
+	optional string Value = 1;
+
+}
+
+message  GMRpcActionReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional string Value = 2;
+
+}
+

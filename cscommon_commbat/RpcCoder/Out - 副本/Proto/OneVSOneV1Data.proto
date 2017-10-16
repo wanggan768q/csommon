@@ -1,0 +1,13 @@
+import "PublicStruct.proto";
+
+//一对一的数据
+message  OneVSOneOneVSOneDateV1
+{
+	repeated OneSData SkillDate = 4;	//技能数据
+	repeated ActMessage Log = 5;	//log日志
+	optional sint32 OneVSOneNum = 6[default=-1];	//一对一的剩余次数
+	optional sint64 SaveTime = 7[default=-1];	//格林威治时间服务器用
+	optional sint32 Ranking = 8[default=0];	//排行名次
+	repeated TimeTop RankingTimes = 10;	//排行名次 时间段的
+}
+

@@ -1,0 +1,2 @@
+\\Out\\Proto\\ 
+protoc  --lua_out=F:\\COMBAT\\Coder\\RpcCoder\\bin\\Debug\\Out\\LUA\\BaseAttr\\ --plugin=protoc-gen-lua=protoc-gen-lua.bat BaseAttrRpc.proto

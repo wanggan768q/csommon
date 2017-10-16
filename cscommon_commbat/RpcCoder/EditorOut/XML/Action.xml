@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<Root Module="Action" CName="Action" MsgNumStart="1" SyncDataVersion="1" Comment="">
+    <Struct Name="SkillInfo" CName="SkillInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="8">
+        <Field PreDefine="optional" FieldType="string" FieldId="1" Name="Name" CName="Name" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="Action" Comment="" />
+        <Field PreDefine="repeated" FieldType="CommandInfo" FieldId="2" Name="CommandList" CName="CommandList" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="TotalTime" CName="TotalTime" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="4" Name="IsSing" CName="IsSing" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="5" Name="SingTime" CName="SingTime" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="CommandInfo" CName="CommandInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="99">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="CommandType" CName="CommandType" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="StartTime" CName="StartTime" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="4" Name="DurationTime" CName="DurationTime" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="AnimationTriggerCondition" CName="AnimationTriggerCondition" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="6" Name="EffectName" CName="EffectName" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="EffectBoneHook" CName="EffectBoneHook" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="8" Name="EffectPositionOffset" CName="EffectPositionOffset" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="9" Name="EffectStayInLocalSpace" CName="EffectStayInLocalSpace" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="EffectControlObjectId" CName="EffectControlObjectId" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="TranslateControlId" CName="TranslateControlId" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="12" Name="TranslateOffset" CName="TranslateOffset" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="sint32" FieldId="13" Name="ActorAttackPart" CName="ActorAttackPart" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="14" Name="TranslateEase" CName="TranslateEase" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="15" Name="AttackShowHitEffect" CName="AttackShowHitEffect" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="16" Name="AttackHitEffectName" CName="AttackHitEffectName" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="17" Name="AttackHitEffectDuration" CName="AttackHitEffectDuration" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1.6" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="18" Name="AttackFragmentCount" CName="AttackFragmentCount" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="19" Name="AttackFragmentIntervalTime" CName="AttackFragmentIntervalTime" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="20" Name="AttackDamageRadio" CName="AttackDamageRadio" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="21" Name="BuffSelfActive" CName="BuffSelfActive" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="22" Name="BuffTargetActive" CName="BuffTargetActive" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="24" Name="AttackBehaviourBackDistance" CName="AttackBehaviourBackDistance" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="25" Name="AttackBehaviourAirHeight" CName="AttackBehaviourAirHeight" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="27" Name="EffectRotationOffset" CName="EffectRotationOffset" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="28" Name="FlashControlObjectId" CName="FlashControlObjectId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="29" Name="AttackStiffTime" CName="AttackStiffTime" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="30" Name="AttackShake" CName="AttackShake" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="31" Name="AttackFlash" CName="AttackFlash" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="32" Name="AttackBehaviourBackSpeed" CName="AttackBehaviourBackSpeed" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="33" Name="AttackBehaviourAirSpeed" CName="AttackBehaviourAirSpped" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="35" Name="AttackBehaviourBack" CName="AttackBehaviourBack" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="36" Name="AttackBehaviourAir" CName="AttackBehaviourAir" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="37" Name="AttackBehaviourZoom" CName="AttackBehaviourZoom" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="38" Name="SoundName" CName="SoundName" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="39" Name="Trigger" CName="Trigger" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="40" Name="TriggerIndex" CName="TriggerIndex" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="41" Name="AttackHitDummy" CName="受击挂载点 1原点 2头 3 胸" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="42" Name="AttackHitSound" CName="受击音效" ValueSet="" MinValue="1" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="44" Name="HitShakeCameraXRange" CName="受击震动X范围" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="45" Name="HitShakeCameraYRange" CName="受击震动Y范围" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="46" Name="HitShakeCameraCount" CName="震屏次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="47" Name="HitShakeCameraDurationTime" CName="震屏时长" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0.1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="50" Name="HiddenWeaponMode" CName="隐藏武器" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="0.空&#xD;&#xA;1.左&#xD;&#xA;2.右&#xD;&#xA;3.双手&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="string" FieldId="51" Name="NextActionName" CName="下个技能名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="52" Name="TranslateWrapMode" CName="位移类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="53" Name="IsTriggerSecondAttack" CName="是否触发触发器" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="54" Name="IsHitGround" CName="受击是否倒地" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="55" Name="SkillActionName" CName="技能编辑文件名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="56" Name="WarningRes1" CName="预警资源1" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="57" Name="WarningRes2" CName="预警资源2" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="58" Name="WarningMaxScale" CName="预警最大缩放" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="59" Name="WarningScaleMode" CName="预警缩放模式" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0.Centre 中心缩放&#xD;&#xA;1.Progress 进度缩放" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="60" Name="WarningLockAxle" CName="锁定轴向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0.不锁&#xD;&#xA;1.X&#xD;&#xA;2.Y&#xD;&#xA;3.Z&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="61" Name="WarningPositionOffset" CName="预警偏移" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="62" Name="IsEffectFollow" CName="是否跟随旋转" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="63" Name="IsWarningTarget" CName="预警是否需要目标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="64" Name="AttackBehaviourAirDurationTime" CName="浮空 空中持续时间" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="66" Name="IsColliderDestroy" CName="特效碰撞之后是否删除" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="70" Name="IsAttackRangeFollow" CName="攻击范围是否跟随移动" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="71" Name="IsAnimationLoop" CName="动画是否循环" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="72" Name="TranslateAngle" CName="运动角度（0-360）" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="73" Name="IsAttackRangeShade" CName="是否是遮罩范围" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="75" Name="AttackInterval" CName="攻击间隔时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="76" Name="IsShowAttackRect" CName="是否显示攻击矩形" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="78" Name="EffectBulletLaunchAngle" CName="子弹发射角度" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="79" Name="EffectBulletSpeed" CName="子弹速度" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="Range" FieldId="80" Name="EffectBulletLaunchTimeIntervalRange" CName="每个弹道子弹发射时间间隔" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="82" Name="EffectBulletMaxCout" CName="子弹总数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="Range" FieldId="83" Name="EffectBulletLifeTimeInteralRange" CName="子弹存活时间间隔" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="84" Name="EffectBulletType" CName="子弹类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0.normal&#xD;&#xA;1.one&#xD;&#xA;2.multiple&#xD;&#xA;" />
+        <Field PreDefine="repeated" FieldType="V3" FieldId="85" Name="EffectBulletInitPosList" CName="子弹初始位置" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="86" Name="EffectBulletLaunchMaxCount" CName="单个弹道发射最大数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="88" Name="EffectBulletIsFollow" CName="子弹是否跟随人物方向转向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="89" Name="AttackBehaviourAirDownSpeed" CName="浮空降落速度" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="90" Name="EffectDirectionLockType" CName="特效方向锁定类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0.不记录&#xD;&#xA;1.锁定&#xD;&#xA;2.解锁&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="91" Name="IsIrregularityEffect" CName="是否是不规则特效" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="92" Name="EffectSize" CName="特效size" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="93" Name="AttackRangePostion" CName="攻击范围起点(右上点)" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="94" Name="AttackRangeSize" CName="攻击范围的宽高" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="95" Name="AttackShape" CName="攻击形状" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="0.无效&#xD;&#xA;1.矩形&#xD;&#xA;2.圆形" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="96" Name="AttackCircleOrigin" CName="圆形攻击形状原点" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="97" Name="AttackCircleRadius" CName="半径" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="98" Name="AttackCircleAngle" CName="角度" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="Useless" CName="Useless" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="0" />
+    <Struct Name="V2" CName="V2" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="float" FieldId="1" Name="X" CName="X" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="Y" CName="Y" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="V3" CName="V3" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="float" FieldId="1" Name="X" CName="X" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="Y" CName="Y" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="Z" CName="Z" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="Range" CName="Range" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="MinValue" CName="最小数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="5" Name="MaxValue" CName="最大数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+</Root>

@@ -1,0 +1,89 @@
+import "PublicStruct.proto";
+
+message  ActivityScheduleRpcSyncDataAsk
+{
+
+}
+
+message  ActivityScheduleRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated ActivityNpcData ThiefData = 2;
+	repeated ActivityNpcData SubdueMonsterData = 3;
+	repeated WorldBossObj WorldBossData = 4;
+	repeated WorldBossRankObj WorldBossRank = 5;
+
+}
+
+message  ActivityScheduleRpcThiefBeOpenedNotify
+{
+	optional ActivityNpcData ThiefData = 1;
+
+}
+
+message  ActivityScheduleRpcThiefRefreshNotify
+{
+	repeated ActivityNpcData ThiefData = 1;
+
+}
+
+message  ActivityScheduleRpcThiefOpenMonsterAsk
+{
+	optional ActivityNpcData ThiefData = 1;
+
+}
+
+message  ActivityScheduleRpcThiefOpenMonsterReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  ActivityScheduleRpcSubdueMonsterEnterAsk
+{
+	optional ActivityNpcData SubdueMonsterData = 2;
+
+}
+
+message  ActivityScheduleRpcSubdueMonsterEnterReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  ActivityScheduleRpcSubdueMonsterBeOpenedNotify
+{
+	optional ActivityNpcData SubdueMonsterData = 1;
+
+}
+
+message  ActivityScheduleRpcSubdueMonsterRefreshNotify
+{
+	repeated ActivityNpcData SubdueMonsterData = 1;
+
+}
+
+message  ActivityScheduleRpcWorldBossEnterDungeonAsk
+{
+
+}
+
+message  ActivityScheduleRpcWorldBossEnterDungeonReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  ActivityScheduleRpcWorldBossSyncDataAsk
+{
+
+}
+
+message  ActivityScheduleRpcWorldBossSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated WorldBossObj WorldBossData = 2;
+	repeated WorldBossRankObj WorldBossRank = 3;
+
+}
+

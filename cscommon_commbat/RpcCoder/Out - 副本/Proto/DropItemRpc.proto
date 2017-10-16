@@ -1,0 +1,26 @@
+import "PublicStruct.proto";
+
+message  DropItemRpcDropItemNoticeNotify
+{
+	repeated DropItemObj DropItem = 1;
+
+}
+
+message  DropItemRpcPickupItemAsk
+{
+	optional sint32 UId = 2[default=-1];
+
+}
+
+message  DropItemRpcPickupItemReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  DropItemRpcDelDropItemNotify
+{
+	optional sint32 UId = 1[default=-1];
+
+}
+

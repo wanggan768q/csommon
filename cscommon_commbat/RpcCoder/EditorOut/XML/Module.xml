@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<xml>
+    <module>
+        <sub_module name="Action" cname="Action" fileName="Action.xml" />
+        <sub_module name="MapData" cname="场景数据" fileName="MapData.xml" />
+        <sub_module name="MMOMapData" cname="45度MMO地图数据" fileName="MMOMapData.xml" />
+    </module>
+</xml>

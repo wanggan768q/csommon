@@ -1,0 +1,106 @@
+message  BagRecycleGridObj
+{
+	optional sint64 ItemId = 1[default=-1];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Num = 3[default=-1];
+	optional sint32 ItemType = 4[default=-1];
+	optional sint32 Pos = 5[default=-1];
+
+}
+
+message  KeyValue2
+{
+	optional sint32 Key = 1[default=-1];
+	optional float Value = 2[default=-1];
+
+}
+
+message  BagGridObj
+{
+	optional sint32 TemplateID = 1[default=-1];
+	optional sint32 Num = 2[default=0];
+	optional sint32 ItemType = 3[default=-1];
+	optional sint32 Pos = 4[default=-1];
+	optional sint32 Value = 5[default=-1];
+	optional sint64 Index = 6[default=-1];
+	optional bool Bind = 7[default=false];
+
+}
+
+message  BagEquipObj
+{
+	optional sint64 ItemID = 1[default=-1];
+	repeated BagAttrIntObj BaseAttr = 2;
+	repeated BagExtraAttrObj ExtraAttr = 3;
+	repeated sint32 EnhanceLv = 4;
+	repeated BagExtraAttrObj EquipPolishedResult = 5;
+	optional sint32 PolishedScore = 6[default=0];
+	optional sint64 Index = 7[default=-1];
+	repeated BagAttrIntObj InitBaseAttr = 8;
+	optional sint32 BagContainerType = 9[default=-1];
+	optional sint32 GridIndex = 10[default=-1];
+	repeated BagExtraAttrIdObj PlishedAttrId = 11;
+	repeated BagGemObj GemArray = 12;
+	repeated BagAttrIntObj PolishedBaseAttrResult = 13;
+	optional sint32 TemplateId = 14[default=-1];
+	optional sint32 GemSuitId = 15[default=-1];
+	optional sint32 EquipScore = 16[default=0];
+	optional sint32 PolishedEquipScore = 17[default=0];
+	repeated BagAttrIntObj BaseAttrPolishedInitAttr = 18;
+
+}
+
+message  BagAttrIntObj
+{
+	optional sint32 AttrId = 1[default=-1];
+	optional sint32 AttrValue = 2[default=-1];
+	optional sint32 MaxAttrValue = 3[default=-1];
+
+}
+
+message  BagAttrFloatObj
+{
+	optional sint32 AttrId = 1[default=-1];
+	optional float AttrValue = 2[default=-1];
+	optional sint32 Index = 3[default=-1];
+
+}
+
+message  BagGemObj
+{
+	optional sint32 GemId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional bool IsLock = 3[default=false];
+	optional sint32 Level = 4[default=-1];
+	optional sint32 Type = 5[default=-1];
+
+}
+
+message  KeyValue2IntInt
+{
+	optional sint32 Key = 1[default=-1];
+	optional sint32 Value = 2[default=-1];
+
+}
+
+message  KeyValue2IntBool
+{
+	optional sint32 Key = 1[default=-1];
+	optional bool Value = 2[default=false];
+
+}
+
+message  BagExtraAttrObj
+{
+	repeated BagAttrFloatObj ExtraAttr = 1;
+	optional sint32 Id = 2[default=-1];
+
+}
+
+message  BagExtraAttrIdObj
+{
+	repeated sint32 AttrId = 1;
+	optional sint32 Id = 2[default=-1];
+
+}
+

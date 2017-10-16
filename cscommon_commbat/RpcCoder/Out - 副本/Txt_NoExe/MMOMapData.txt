@@ -1,0 +1,187 @@
+MMOMapDataBaseData
+	DataName:string	;地图文件名称
+
+MMOMapDataSpawnInfo
+	SpawnPos:MDVector3	;出生点的位置
+	[MDVector3]
+		X:float = 0	;X
+		Y:float = 0	;Y
+		Z:float = 0	;Z
+	SpawnRot:MDVector3	;出生后的朝向
+	[MDVector3]
+		X:float = 0	;X
+		Y:float = 0	;Y
+		Z:float = 0	;Z
+	SpawnIndex:int32 = 0	;出生点编号
+
+MMOMapDataMDVector3
+	X:float = 0	;X
+	Y:float = 0	;Y
+	Z:float = 0	;Z
+
+MMOMapDataPortalInfo
+	SourcePos:MDVector3	;起点位置
+	[MDVector3]
+		X:float = 0	;X
+		Y:float = 0	;Y
+		Z:float = 0	;Z
+	TargetPos:MDVector3	;目标的位置
+	[MDVector3]
+		X:float = 0	;X
+		Y:float = 0	;Y
+		Z:float = 0	;Z
+	TargetRot:MDVector3	;传送后的
+	[MDVector3]
+		X:float = 0	;X
+		Y:float = 0	;Y
+		Z:float = 0	;Z
+	TargetDungeonID:int32 = 0	;目标场景ID
+	TargetSpawnIndex:int32 = 0	;目标场景的出生点索引
+	PortalType:int32 = 0	;传送类型
+
+MMOMapDataNodeInfo
+	RelevanceArea:int32 = 0	;关联坑点区域
+	PassKillEnemyID:int32 = 0	;敌人ID
+	PassKillEnemyNum:int32 = 0	;杀掉敌人数量
+	PassTime:int32 = 0	;通过节点的时间
+	PassUseItemID:int32 = 0	;使用道具的ID
+	PassUseItemNum:int32 = 0	;使用道具的数量
+	PassCollectItemID:int32 = 0	;收集道具的ID
+	PassCollectItemNum:int32 = 0	;收集道具的数量
+	PassConditionType:int32 = 0	;通过条件类型
+	NodePos1:MDVector3	;节点位置1
+	[MDVector3]
+		X:float = 0	;X
+		Y:float = 0	;Y
+		Z:float = 0	;Z
+	NodePos2:MDVector3	;节点位置2
+	[MDVector3]
+		X:float = 0	;X
+		Y:float = 0	;Y
+		Z:float = 0	;Z
+
+MMOMapDataPointInfo
+	SpriteType:int32 = 0	;精灵类型
+	SpriteID:int32 = 0	;精灵ID
+	Area:int32 = 0	;隶属区域
+	PointPos:MDVector3	;坑点位置
+	[MDVector3]
+		X:float = 0	;X
+		Y:float = 0	;Y
+		Z:float = 0	;Z
+	PointRot:MDVector3	;坑点朝向
+	[MDVector3]
+		X:float = 0	;X
+		Y:float = 0	;Y
+		Z:float = 0	;Z
+	RefreshType:int32 = 0	;刷新类型
+	UnlockTime:int32 = 0	;开启时间
+	EnemyID:int32 = 0	;杀死敌人的ID
+	EnemyNum:int32 = 0	;杀死敌人个数
+	RebirthType:int32 = 0	;重生类型
+	RebirthEnemyID:int32 = 0	;重生的敌人ID
+	RebirthEnemyNum:int32 = 0	;重生的敌人数量
+	AfterDeathTime:int32 = 0	;怪物死亡后的时间
+	RebirthNum:int32 = -1	;重生次数
+
+MMOMapDataInfo
+	BaseInfo:BaseData	;基础信息
+	[BaseData]
+		DataName:string	;地图文件名称
+	SpawnArr:SpawnInfo*	;出生点信息
+	[SpawnInfo]
+		SpawnPos:MDVector3	;出生点的位置
+		[MDVector3]
+			X:float = 0	;X
+			Y:float = 0	;Y
+			Z:float = 0	;Z
+		SpawnRot:MDVector3	;出生后的朝向
+		[MDVector3]
+			X:float = 0	;X
+			Y:float = 0	;Y
+			Z:float = 0	;Z
+		SpawnIndex:int32 = 0	;出生点编号
+	PortalArr:PortalInfo*	;传送信息
+	[PortalInfo]
+		SourcePos:MDVector3	;起点位置
+		[MDVector3]
+			X:float = 0	;X
+			Y:float = 0	;Y
+			Z:float = 0	;Z
+		TargetPos:MDVector3	;目标的位置
+		[MDVector3]
+			X:float = 0	;X
+			Y:float = 0	;Y
+			Z:float = 0	;Z
+		TargetRot:MDVector3	;传送后的
+		[MDVector3]
+			X:float = 0	;X
+			Y:float = 0	;Y
+			Z:float = 0	;Z
+		TargetDungeonID:int32 = 0	;目标场景ID
+		TargetSpawnIndex:int32 = 0	;目标场景的出生点索引
+		PortalType:int32 = 0	;传送类型
+	DefeatInfo:DefeatInfo	;失败条件
+	[DefeatInfo]
+		DefeatConditionSpared:bool = false	;所有角色死亡
+		DefeatConditionTimeOver:bool = false	;失败条件到时
+		DefeatConditionHP:bool = false	;失败条件血量
+		DefeatTime:int32 = 0	;失败条件时间
+		DefeatID:int32 = 0	;失败条件ID
+		DefeatHP:int32 = 0	;失败条件血量
+	NodeArr:NodeInfo*	;节点信息
+	[NodeInfo]
+		RelevanceArea:int32 = 0	;关联坑点区域
+		PassKillEnemyID:int32 = 0	;敌人ID
+		PassKillEnemyNum:int32 = 0	;杀掉敌人数量
+		PassTime:int32 = 0	;通过节点的时间
+		PassUseItemID:int32 = 0	;使用道具的ID
+		PassUseItemNum:int32 = 0	;使用道具的数量
+		PassCollectItemID:int32 = 0	;收集道具的ID
+		PassCollectItemNum:int32 = 0	;收集道具的数量
+		PassConditionType:int32 = 0	;通过条件类型
+		NodePos1:MDVector3	;节点位置1
+		[MDVector3]
+			X:float = 0	;X
+			Y:float = 0	;Y
+			Z:float = 0	;Z
+		NodePos2:MDVector3	;节点位置2
+		[MDVector3]
+			X:float = 0	;X
+			Y:float = 0	;Y
+			Z:float = 0	;Z
+	PointArr:PointInfo*	;坑点信息
+	[PointInfo]
+		SpriteType:int32 = 0	;精灵类型
+		SpriteID:int32 = 0	;精灵ID
+		Area:int32 = 0	;隶属区域
+		PointPos:MDVector3	;坑点位置
+		[MDVector3]
+			X:float = 0	;X
+			Y:float = 0	;Y
+			Z:float = 0	;Z
+		PointRot:MDVector3	;坑点朝向
+		[MDVector3]
+			X:float = 0	;X
+			Y:float = 0	;Y
+			Z:float = 0	;Z
+		RefreshType:int32 = 0	;刷新类型
+		UnlockTime:int32 = 0	;开启时间
+		EnemyID:int32 = 0	;杀死敌人的ID
+		EnemyNum:int32 = 0	;杀死敌人个数
+		RebirthType:int32 = 0	;重生类型
+		RebirthEnemyID:int32 = 0	;重生的敌人ID
+		RebirthEnemyNum:int32 = 0	;重生的敌人数量
+		AfterDeathTime:int32 = 0	;怪物死亡后的时间
+		RebirthNum:int32 = -1	;重生次数
+
+MMOMapDataDefeatInfo
+	DefeatConditionSpared:bool = false	;所有角色死亡
+	DefeatConditionTimeOver:bool = false	;失败条件到时
+	DefeatConditionHP:bool = false	;失败条件血量
+	DefeatTime:int32 = 0	;失败条件时间
+	DefeatID:int32 = 0	;失败条件ID
+	DefeatHP:int32 = 0	;失败条件血量
+
+MMOMapDataUseless
+

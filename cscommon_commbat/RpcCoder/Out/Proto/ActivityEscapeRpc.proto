@@ -1,0 +1,14 @@
+import "PublicStruct.proto";
+
+message  ActivityEscapeRpcSignUpAsk
+{
+
+}
+
+message  ActivityEscapeRpcSignUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated sint64 LosePeopleID = 2;
+
+}
+

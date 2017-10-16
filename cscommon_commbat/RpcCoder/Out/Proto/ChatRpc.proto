@@ -1,0 +1,39 @@
+import "PublicStruct.proto";
+
+message  ChatRpcSendChatAsk
+{
+	optional ChatMsgObj ChatMsg = 1;
+
+}
+
+message  ChatRpcSendChatReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  ChatRpcSyncChatNotify
+{
+	optional ChatObj ChatData = 4;
+
+}
+
+message  ChatRpcSyncPrivateChatMsgNotify
+{
+	repeated ChatObj ChatData = 3;
+
+}
+
+message  ChatRpcSvrChatNotify
+{
+	optional ChatNetData ChatData = 1;
+
+}
+
+message  ChatRpcChatFun1
+{
+	optional sint64 TargetUserId = 2[default=-1];
+	optional sint32 TemplateId = 3[default=-1];
+
+}
+

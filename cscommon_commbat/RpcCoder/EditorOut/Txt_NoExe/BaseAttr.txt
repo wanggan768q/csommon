@@ -1,0 +1,32 @@
+BaseAttrRpcSyncDataAsk↑ 同步玩家数据请求
+
+BaseAttrRpcSyncDataReply↓ 同步玩家数据回应
+	Result:int32 = -9999	;返回结果
+
+BaseAttrUserData
+	HeadID:int32 = -1	;头像id
+	Exp:int32 = -1	;经验
+	CreateTime:int32 = -1	;创建时间
+	LastLoginTime:int32 = -1	;最后登录时间
+	Last2LoginDate:int32 = -1	;倒数第二登录日期
+	LastLogoutTime:int32 = -1	;最后登出时间
+	Money:int32 = -1	;游戏币
+	Diamond:int32 = -1	;钻石
+	GMDiamond:int32 = -1	;GM钻石
+	Strength:int32 = -1	;体力
+	Feats:int32 = -1	;功勋
+	GotRankRewardTime:int32 = -1	;领取官阶奖励时间
+	MaxMilitary:int32 = -1	;历史最大战力
+	MasterAttrs:int32* = -1	;主公基础属性
+	CurMilitary:int32 = -1	;当前玩家战力
+
+BaseAttrRpcGetRankRewardAsk↑ 领取官阶奖励请求
+
+BaseAttrRpcGetRankRewardReply↓ 领取官阶奖励回应
+	Result:int32 = -9999	;返回结果
+
+BaseAttrRpcUpGradeRankAsk↑ 提升官阶请求
+
+BaseAttrRpcUpGradeRankReply↓ 提升官阶回应
+	Result:int32 = -9999	;返回结果
+

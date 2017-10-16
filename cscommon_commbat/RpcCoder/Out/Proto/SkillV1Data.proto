@@ -1,0 +1,38 @@
+import "PublicStruct.proto";
+
+message  SkillSkillObjV1
+{
+	optional sint32 SkillId = 1[default=-1];
+	optional sint32 Lv = 2[default=1];
+	optional bool IsLearn = 4[default=false];
+
+}
+
+message  SkillSkillDataV1
+{
+	repeated SkillSkillObjV1 SkillArray = 1;
+	repeated SkillShortcutObjV1 ShortcutArray = 2;
+	optional sint32 ShortcutId = 3[default=-1];
+	repeated SkillTalentSlotV1 TalentSkill = 4;
+	optional sint32 TotalCostExp = 5[default=0];
+	optional sint32 TalentLevel = 6[default=0];
+	optional sint32 TalentPoint = 7[default=0];
+	repeated SkillSkillObjV1 LifeSkillArray = 8;
+
+}
+
+message  SkillShortcutObjV1
+{
+	repeated sint32 SkillId = 1;
+	optional sint32 Type = 2[default=-1];
+
+}
+
+message  SkillTalentSlotV1
+{
+	optional sint32 SkillId = 2[default=-1];
+	optional sint32 Level = 3[default=0];
+	optional bool IsLock = 4[default=true];
+
+}
+

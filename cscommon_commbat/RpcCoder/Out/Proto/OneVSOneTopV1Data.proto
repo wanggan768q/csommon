@@ -1,0 +1,9 @@
+import "PublicStruct.proto";
+
+//一对一的数据
+message  OneVSOneTopOneVSOneDateV1
+{
+	repeated TopMess TopMesses = 1;	//排行榜数据
+	optional sint64 Time = 6[default=-1];	//格林时间
+}
+

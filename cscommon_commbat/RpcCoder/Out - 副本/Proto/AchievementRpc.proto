@@ -1,0 +1,26 @@
+import "PublicStruct.proto";
+
+message  AchievementRpcGetTheRewardsAsk
+{
+	optional sint32 GroupId = 2[default=-1];
+
+}
+
+message  AchievementRpcGetTheRewardsReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 GroupId = 2[default=-1];
+
+}
+
+message  AchievementRpcSyncDataAsk
+{
+
+}
+
+message  AchievementRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+

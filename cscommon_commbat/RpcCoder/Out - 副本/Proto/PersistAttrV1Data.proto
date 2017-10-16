@@ -1,0 +1,22 @@
+import "PublicStruct.proto";
+
+message  PersistAttrPersistAttrV1
+{
+	optional string UserName = 1;
+	optional sint64 UserId = 3[default=-1];
+	optional string PlatName = 4;
+	optional sint64 AccountId = 21[default=-1];
+	optional sint32 Level = 30[default=-1];
+	optional sint32 Rank = 31[default=-1];
+	optional sint32 FightPower = 32[default=-1];
+	optional sint32 Sec = 33[default=-1];
+	optional sint32 Prof = 35[default=-1];
+	optional sint32 OnlineState = 36[default=-1];
+	optional sint32 TeamId = 37[default=-1];
+	optional sint32 ShopScore = 39[default=-1];
+	optional sint32 DungeonId = 42[default=-1];
+	optional string SessionKey = 43;
+	optional sint32 GuildId = 44[default=-1];
+
+}
+

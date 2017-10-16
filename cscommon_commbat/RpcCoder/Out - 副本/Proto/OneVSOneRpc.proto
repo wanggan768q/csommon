@@ -1,0 +1,147 @@
+import "PublicStruct.proto";
+
+message  OneVSOneRpcFlushAsk
+{
+	optional sint32 IsOpen = 1[default=0];
+
+}
+
+message  OneVSOneRpcFlushReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 Ranking = 2[default=-1];
+	optional sint32 FightingCapacity = 3[default=-1];
+	optional sint32 OneVSOneNum = 4[default=-1];
+	repeated TimeTop TimeRankings = 5;
+	repeated OneVSOneActPeo ActPeos = 6;
+	optional sint32 IsOpen = 7[default=0];
+	optional sint32 LockTime = 8[default=-1];
+
+}
+
+message  OneVSOneActPeo
+{
+	optional string PlanName = 1;
+	optional sint32 Ranking = 3[default=-1];
+	optional sint32 FightingCapacity = 4[default=-1];
+	optional sint64 UserId = 5[default=-1];
+	optional sint32 MardID = 7[default=-1];
+	optional sint32 LV = 8[default=-1];
+	optional string HeadPath = 9;
+
+}
+
+message  OneVSOneRpcActAsk
+{
+	optional sint64 UserId = 2[default=-1];
+	optional sint32 Ranking = 4[default=-1];
+
+}
+
+message  OneVSOneRpcActReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint64 UserId = 2[default=-1];
+	optional string PlanName = 4;
+	optional sint32 OneVSOneNum = 6[default=-1];
+	optional sint32 Ranking = 7[default=-1];
+	optional sint32 IsCopy = 8[default=0];
+
+}
+
+message  OneVSOneRpcActMessageNotify
+{
+	optional sint64 UserId = 1[default=-1];
+	optional string PlanName = 2;
+
+}
+
+message  OneVSOneRpcReplyActAsk
+{
+	optional sint64 UserId = 1[default=-1];
+	optional sint32 IsOK = 2[default=-1];
+
+}
+
+message  OneVSOneRpcReplyActReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint64 UserId = 2[default=-1];
+	optional sint32 IsOK = 4[default=-1];
+	optional string PlanName = 5;
+
+}
+
+message  OneVSOneRpcGetTopAsk
+{
+
+}
+
+message  OneVSOneRpcGetTopReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated TopMess TopMesses = 2;
+
+}
+
+message  OneVSOneRpcAdjustmentSkillAsk
+{
+	repeated OneSData SkillDate = 1;
+
+}
+
+message  OneVSOneRpcAdjustmentSkillReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated OneSData SkillDate = 2;
+
+}
+
+message  OneVSOneRpcGetSkillAsk
+{
+
+}
+
+message  OneVSOneRpcGetSkillReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated OneSData SkillDate = 2;
+
+}
+
+message  OneVSOneRpcGetActMessageAsk
+{
+
+}
+
+message  OneVSOneRpcGetActMessageReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated ActMessage ActMessages = 2;
+
+}
+
+message  OneVSOneRpcACTResultNotifyNotify
+{
+	optional sint32 IsChanllengorWon = 1[default=0];
+	optional OneVSOneOVOResultInfo Chanllengor = 2;
+	optional OneVSOneOVOResultInfo BeAttacked = 3;
+
+}
+
+message  OneVSOneOVOResultInfo
+{
+	optional sint64 UserId = 1[default=-1];
+	optional sint32 Damage = 2[default=0];
+	optional sint32 BeHurted = 3[default=0];
+	optional sint32 Healed = 4[default=0];
+	optional string Name = 5;
+	optional sint32 Ranking = 7[default=0];
+	optional sint32 BeforeRanking = 8[default=-1];
+	optional sint32 JobID = 11[default=-1];
+	optional string HeadICO = 12;
+	optional sint32 LV = 13[default=-1];
+	optional sint32 IsWin = 14[default=0];
+
+}
+

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<xml>
+    <module>
+        <sub_module name="Bag" cname="背包" fileName="Bag.xml" />
+    </module>
+</xml>

@@ -1,0 +1,22 @@
+import "PublicStruct.proto";
+
+message  OnlineDataOnlineDataV1
+{
+	repeated BagRecycleGridObj BagRecycleBin = 1;
+	repeated OnlineDataRoleAttrObjV1 RoleAttr = 2;
+	optional sint32 RecommendFriendOffset = 4[default=0];
+	optional sint32 RecommendFriendFlushTime = 5[default=-1];
+	repeated sint64 RecommendFriendLastList = 6;
+	repeated sint64 FollowmeUserId = 7;
+	optional sint64 FollowWho = 9[default=-1];
+	optional sint64 ThiefObjId = 10[default=-1];
+
+}
+
+message  OnlineDataRoleAttrObjV1
+{
+	optional sint32 Id = 1[default=-1];
+	optional float Value = 2[default=-1];
+
+}
+

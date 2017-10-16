@@ -1,0 +1,18 @@
+import "PublicStruct.proto";
+
+message  ZhanDouRpcMoveAsk
+{
+
+}
+
+message  ZhanDouRpcMoveReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  ZhanDouRpcTalkNotify
+{
+
+}
+

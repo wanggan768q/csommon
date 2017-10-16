@@ -1,0 +1,26 @@
+DungeonRpcEnterAsk↑ 进入请求
+	DungeonId:int32 = -1	;副本ID
+	HeroList:int32* = -1	;选择英雄列表
+	PVPType:int32 = -1	;pvp类型
+
+DungeonRpcEnterReply↓ 进入回应
+	Result:int32 = -9999	;返回结果
+
+DungeonRpcBeginPVEAsk↑ 开始单人PVE请求
+	DungeonId:int32 = -1	;副本ID
+
+DungeonRpcBeginPVEReply↓ 开始单人PVE回应
+	Result:int32 = -9999	;返回结果
+	RandSeed:int32 = -1	;随机数种子
+
+
+DungeonRpcOpenNotify↓ 打开副本通知通知
+	DungeonKey:string	;Key
+	Host:string	;Host
+	Port:int32 = -1	;Port
+	RandSeed:int32 = -1	;RandSeed
+	Side:int32 = -1	;Side
+	LeftSideList:int32* = -1	;LeftSideList
+	RightSideList:int32* = -1	;RightSideList
+	PVPType:int32 = -1	;pvp类型
+

@@ -1,0 +1,154 @@
+import "PublicStruct.proto";
+
+message  BaseAttrRpcSyncDataAsk
+{
+
+}
+
+message  BaseAttrRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BaseAttrRpcGetRankRewardAsk
+{
+
+}
+
+message  BaseAttrRpcGetRankRewardReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BaseAttrRpcUpGradeRankAsk
+{
+
+}
+
+message  BaseAttrRpcUpGradeRankReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BaseAttrRpcChooseRoleAsk
+{
+	optional sint32 Prof = 1[default=-1];
+
+}
+
+message  BaseAttrRpcChooseRoleReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 Prof = 2[default=-1];
+
+}
+
+message  BaseAttrRpcLevelUpAsk
+{
+
+}
+
+message  BaseAttrRpcLevelUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BaseAttrRpcGetTimerAsk
+{
+
+}
+
+message  BaseAttrRpcGetTimerReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint64 Timer = 2[default=-1];
+
+}
+
+message  BaseAttrRpcReviveAsk
+{
+
+}
+
+message  BaseAttrRpcReviveReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BaseAttrRpcQueryEquipAsk
+{
+	optional sint64 UserId = 2[default=-1];
+	optional sint32 Pos = 6[default=-1];
+	optional sint32 TemplateID = 7[default=-1];
+	optional sint64 Index = 8[default=-1];
+
+}
+
+message  BaseAttrRpcQueryEquipReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional BagEquipObj EquipData = 2;
+	optional BaseAttrRpcGridInfo GridData = 3;
+
+}
+
+message  BaseAttrRpcUpdateNewbieGuideAsk
+{
+	optional sint32 GroupId = 1[default=-1];
+	optional sint32 Step = 2[default=-1];
+
+}
+
+message  BaseAttrRpcUpdateNewbieGuideReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BaseAttrRpcGridInfo
+{
+	optional sint32 TemplateID = 1[default=-1];
+	optional sint32 Num = 2[default=0];
+	optional sint32 ItemType = 3[default=-1];
+	optional sint32 Pos = 4[default=-1];
+	optional sint32 Value = 5[default=-1];
+	optional sint64 Index = 6[default=-1];
+	optional bool Bind = 7[default=false];
+
+}
+
+message  BaseAttrRpcSysTipsNotify
+{
+	optional sint32 Id = 1[default=-1];
+
+}
+
+message  BaseAttrRpcChangPKStateAsk
+{
+	optional sint32 ChangState = 1[default=-1];
+
+}
+
+message  BaseAttrRpcChangPKStateReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BaseAttrRpcChangePKProtectAsk
+{
+	repeated KeyValue2IntBool ProtectList = 1;
+
+}
+
+message  BaseAttrRpcChangePKProtectReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+

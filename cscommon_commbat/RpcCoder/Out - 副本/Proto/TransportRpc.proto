@@ -1,0 +1,84 @@
+import "PublicStruct.proto";
+
+message  TransportRpcSyncDataAsk
+{
+
+}
+
+message  TransportRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  TransportRpcFillAsk
+{
+	optional sint32 FillID = 1[default=-1];
+
+}
+
+message  TransportRpcFillReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 FillID = 2[default=-1];
+
+}
+
+message  TransportRpcHelpOtherAsk
+{
+	optional sint32 ItemID = 1[default=-1];
+	optional sint64 UserId = 3[default=-1];
+
+}
+
+message  TransportRpcHelpOtherReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ItemID = 2[default=-1];
+	optional sint64 UserId = 4[default=-1];
+
+}
+
+message  TransportRpcAskHelpAsk
+{
+	optional sint32 ItemID = 1[default=-1];
+
+}
+
+message  TransportRpcAskHelpReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ItemID = 3[default=-1];
+
+}
+
+message  TransportRpcSetSailAsk
+{
+
+}
+
+message  TransportRpcSetSailReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  TransportRpcAddTransportAsk
+{
+	optional sint32 Lv = 1[default=-1];
+
+}
+
+message  TransportRpcAddTransportReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 Lv = 2[default=-1];
+
+}
+
+message  TransportRpcIsHelpedNotify
+{
+	optional sint32 TemplateId = 1[default=-1];
+
+}
+

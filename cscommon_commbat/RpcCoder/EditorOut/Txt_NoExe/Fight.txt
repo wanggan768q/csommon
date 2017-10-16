@@ -1,0 +1,181 @@
+FightRpcReadyAsk↑ 准备就绪请求
+
+FightRpcReadyReply↓ 准备就绪回应
+	Result:int32 = -9999	;返回结果
+	HostId:sint64 = -1	;主机Id
+
+FightRpcActionNotify↑↓ 动作通知
+	Data:bytes	;动作数据
+	Frame:int32 = -1	;当前帧号
+
+FightRpcResultNotify↓ 战斗结果通知
+	Result:int32 = -1	;结果
+	DengeonId:int32 = -1	;副本Id
+	Star:int32 = -1	;星级
+	FightTime:int32 = -1	;战斗时间
+	PrizeList:PrizeInfo*	;奖励列表
+	[PrizeInfo]
+		Id:int32 = -1	;奖励ID
+		Count:int32 = -1	;奖励数量
+	KillList:KillInfo*	;杀戮列表
+	[KillInfo]
+		Id:int32 = -1	;对方Id
+		Count:int32 = -1	;数量
+	FirstStarLight:int32 = -1	;第一颗星是否亮了
+	SecondStarLight:int32 = -1	;第二颗星是否亮了
+	ThirdStarLight:int32 = -1	;第三颗星是否亮了
+
+FightRpcEnterAsk↑ 进入副本请求
+	UserId:sint64 = -1	;用户id
+	DungeonKey:string	;副本钥匙
+
+FightRpcEnterReply↓ 进入副本回应
+	Result:int32 = -9999	;返回结果
+
+FightPrizeInfo
+	Id:int32 = -1	;奖励ID
+	Count:int32 = -1	;奖励数量
+
+FightKillInfo
+	Id:int32 = -1	;对方Id
+	Count:int32 = -1	;数量
+
+FightRpcStartNotify↓ 战斗开始通知
+
+FightCreateObjAction
+	UserId:sint64 = -1	;用户ID
+	ConfigId:int32 = -1	;配置文件中的ID
+	ObjId:int32 = -1	;内核中用到的对像ID
+	PosInfo:bytes	;位置信息
+	CreateType:int32 = -1	;创建类型 
+	CampId:int32 = -1	;阵营ID
+	PosInfo2:bytes	;位置信息
+	IntParaArr:int32* = -1	;整数参数列表
+	StrParaArr:string*	;字符串参数列表
+
+FightUseSkillAction
+	ObjId:int32 = -1	;obj id
+	SkillId:int32 = -1	;技能ID
+	PosInfo:bytes	;位置信息
+	TargetObjId:int32 = -1	;主目标ID
+	TargetPos:bytes	;目标位置信息
+
+FightBuffAction
+	ObjId:int32 = -1	;obj id
+	AttackerId:int32 = -1	;攻击者ObjId
+	OpType:int32 = -1	;操作类型
+	BuffId:int32 = -1	;BuffId
+
+FightCharHitAction
+	ObjId:int32 = -1	;obj id
+	SkillId:int32 = -1	;技能ID
+	Ratio:float = 1	;伤害系数
+	TagetList:int32* = -1	;目标列表
+
+FightCharStateAction
+	Type:int32 = -1	;状态类型
+	Data:bytes	;状态数据
+	PosInfo:bytes	;位置信息
+	ObjId:int32 = -1	;obj id
+
+FightRpcPlayerNotify↓ 玩家信息通知
+	UserId:sint64 = -1	;玩家Id
+	HeroId:int32 = -1	;英雄Id
+	Type:int32 = 0	;类型
+
+FightRpcRetryAsk↑ 重连请求
+	DungeonKey:string	;key
+	UserId:sint64 = -1	;玩家Id
+
+FightRpcRetryReply↓ 重连回应
+	Result:int32 = -9999	;返回结果
+
+FightMonsterInfo
+	ObjId:int32 = -1	;obj Id
+	CurHp:int32 = -1	;当前血量
+	PosInfo:bytes	;位置信息
+	IsActive:int32 = 0	;激活状态
+	CampId:int32 = -1	;阵营ID
+
+FightPlayerInfo
+	ObjId:int32 = -1	;obj Id
+	CurHp:int32 = -1	;当前血量
+	PosInfo:bytes	;位置信息
+	HeroId:int32 = -1	;英雄ID
+	UserId:sint64 = -1	;用户ID
+	Level:int32 = -1	;等级
+	Rank:int32 = -1	;品阶
+	Star:int32 = -1	;星级
+	IsOffline:int32 = 0	;是否离线
+	CampId:int32 = -1	;阵营ID
+
+FightRpcKernelMappingAsk↑ Kernel映像请求
+
+FightRpcKernelMappingReply↓ Kernel映像回应
+	Result:int32 = -9999	;返回结果
+	Tick:int32 = -1	;当前TICK
+	IdHelperDyn:int32 = -1	;ID生成器的值
+	Seed:int32 = -1	;当前随机数
+	MonsterList:MonsterInfo*	;怪物列表
+	[MonsterInfo]
+		ObjId:int32 = -1	;obj Id
+		CurHp:int32 = -1	;当前血量
+		PosInfo:bytes	;位置信息
+		IsActive:int32 = 0	;激活状态
+		CampId:int32 = -1	;阵营ID
+	PlayerList:PlayerInfo*	;玩家列表
+	[PlayerInfo]
+		ObjId:int32 = -1	;obj Id
+		CurHp:int32 = -1	;当前血量
+		PosInfo:bytes	;位置信息
+		HeroId:int32 = -1	;英雄ID
+		UserId:sint64 = -1	;用户ID
+		Level:int32 = -1	;等级
+		Rank:int32 = -1	;品阶
+		Star:int32 = -1	;星级
+		IsOffline:int32 = 0	;是否离线
+		CampId:int32 = -1	;阵营ID
+	MainCtrlUserId:sint64 = -1	;主机的USER ID
+	CheckerList:CheckerInfo*	;检测器列表
+	[CheckerInfo]
+		ObjId:int32 = -1	;obj Id
+		CheckerOK:int32 = -1	;已检测通过
+	TriggerList:TriggerInfo*	;触发器列表
+	[TriggerInfo]
+		ObjId:int32 = -1	;obj Id
+		Triggered:int32 = -1	;是否已触发
+		Type:int32 = -1	;类型
+		BuffId:int32 = -1	;BuffId
+
+FightOfflineAction
+	ObjId:int32 = -1	;obj Id
+
+FightCheckerInfo
+	ObjId:int32 = -1	;obj Id
+	CheckerOK:int32 = -1	;已检测通过
+
+FightTriggerInfo
+	ObjId:int32 = -1	;obj Id
+	Triggered:int32 = -1	;是否已触发
+	Type:int32 = -1	;类型
+	BuffId:int32 = -1	;BuffId
+
+FightRpclogActionNotify↑ logAction通知
+	FileName:string	;fileName
+	LogData:string	;logData
+
+FightStateAction
+	Type:int32 = -1	;状态类型
+	ObjId:int32 = -1	;obj id
+	PosInfo:bytes	;位置信息
+	TargetPos:bytes	;目标位置信息
+
+FightCharDeadAction
+	ObjId:int32 = -1	;obj id
+	PosInfo:bytes	;位置信息
+
+FightCharReviveAction
+	ObjId:int32 = -1	;obj id
+	PosInfo:bytes	;位置信息
+	CurHp:int32 = -1	;当前血量
+

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<Root Module="DramaModule" CName="剧情模块" MsgNumStart="999" SyncDataVersion="1" Comment="">
+    <Struct Name="DramaInfo" CName="剧情信息" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="7">
+        <Field PreDefine="optional" FieldType="string" FieldId="5" Name="Name" CName="名字" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="6" Name="TotalTime" CName="总时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="repeated" FieldType="CommandInfo" FieldId="7" Name="CommandList" CName="Actions" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="UseLess" CName="UseLess" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="1" />
+    <Struct Name="CommandInfo" CName="ActionInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="31">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="CommandType" CName="Action类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="StartTime" CName="开始时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="DurationTime" CName="持续时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="CreateObjectType" CName="创建资源类型" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="0.创建NPC&#xD;&#xA;1.指定NPC&#xD;&#xA;2.创建模型&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="CreateNPCid" CName="创建NPC" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="Transform" FieldId="9" Name="CreateNpcTransform" CName="CreateNpcTransform" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="10" Name="Trigger" CName="是否触发" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="SubtitleStyle" CName="字幕类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="12" Name="SubtitleID" CName="字幕id" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="13" Name="SubtitleTargetType" CName="字幕目标类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="14" Name="SubtitleTargetConfigId" CName="目标配置id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="15" Name="TranslatePostion" CName="最终位置" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="16" Name="TranslateTime" CName="位移的时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="17" Name="TranslateCurve" CName="曲线" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="18" Name="TranslateTargetType" CName="位移目标类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="19" Name="TranslateTargetId" CName="TranslateTargetId" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="20" Name="SkillId" CName="技能id" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="21" Name="SkllTargetId" CName="释放技能者id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="22" Name="SkillPostion" CName="技能释放位置" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="23" Name="SkillTargetType" CName="释放技能" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="24" Name="MusicFileName" CName="音乐" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="25" Name="SoundFileName" CName="音效" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="26" Name="CameraPointType" CName="摄像机点类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="0.分镜&#xD;&#xA;1.固定视角&#xD;&#xA;2.贝塞尔" />
+        <Field PreDefine="repeated" FieldType="CameraPoint" FieldId="27" Name="CameraPoints" CName="视点" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="31" Name="FreeType" CName="释放类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="V3" CName="V3" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="float" FieldId="1" Name="X" CName="X" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="Y" CName="Y" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="Z" CName="Z" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="Transform" CName="Transform" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="V3" FieldId="1" Name="Postion" CName="Postion" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="2" Name="Rotation" CName="rotation" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="3" Name="Scale" CName="Scale" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+    </Struct>
+    <Struct Name="CameraPoint" CName="摄像机点" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="V3" FieldId="1" Name="Pos" CName="位置" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="V3" FieldId="2" Name="Angle" CName="角度" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="Time" CName="时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+</Root>

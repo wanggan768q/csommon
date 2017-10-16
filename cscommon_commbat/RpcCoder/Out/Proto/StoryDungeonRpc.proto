@@ -1,0 +1,52 @@
+import "PublicStruct.proto";
+
+message  StoryDungeonRpcSyncDataAsk
+{
+
+}
+
+message  StoryDungeonRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  StoryDungeonRpcChallengeAsk
+{
+	optional sint32 Id = 1[default=-1];
+
+}
+
+message  StoryDungeonRpcChallengeReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional string ErrorUserName = 3;
+
+}
+
+message  StoryDungeonRpcWaitForConfirmationNotify
+{
+	optional sint32 Id = 1[default=-1];
+
+}
+
+message  StoryDungeonRpcConfirmEnterAsk
+{
+	optional bool IsAgree = 1[default=false];
+
+}
+
+message  StoryDungeonRpcConfirmEnterReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  StoryDungeonRpcPlayerConfirmResultNotify
+{
+	optional sint64 UserId = 2[default=-1];
+	optional string UserName = 3;
+	optional bool IsAgree = 4[default=false];
+
+}
+

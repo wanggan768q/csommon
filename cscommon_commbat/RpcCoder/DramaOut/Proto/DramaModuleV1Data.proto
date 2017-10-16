@@ -1,0 +1,82 @@
+import "PublicStruct.proto";
+
+//剧情信息
+message  DramaModuleDramaInfoV1
+{
+	optional string Name = 5;	//名字
+	optional float TotalTime = 6[default=0];	//总时间
+	repeated DramaModuleCommandInfoV1 CommandList = 7;	//Actions
+}
+
+//UseLess
+message  DramaModuleUseLessV1
+{
+}
+
+//ActionInfo
+message  DramaModuleCommandInfoV1
+{
+	optional sint32 CommandType = 1[default=-1];	//Action类型
+	optional float StartTime = 2[default=0];	//开始时间
+	optional float DurationTime = 3[default=0];	//持续时间
+	/*
+	创建资源类型
+	0.创建NPC
+	1.指定NPC
+	2.创建模型
+	
+	*/
+	optional sint32 CreateObjectType = 4[default=0];
+	optional sint32 CreateNPCid = 5[default=-1];	//创建NPC
+	optional DramaModuleTransformV1 CreateNpcTransform = 9;	//CreateNpcTransform
+	optional bool Trigger = 10[default=false];	//是否触发
+	optional sint32 SubtitleStyle = 11[default=0];	//字幕类型
+	optional sint32 SubtitleID = 12[default=-1];	//字幕id
+	optional sint32 SubtitleTargetType = 13[default=0];	//字幕目标类型
+	optional sint32 SubtitleTargetConfigId = 14[default=-1];	//目标配置id
+	optional DramaModuleV3V1 TranslatePostion = 15;	//最终位置
+	optional float TranslateTime = 16[default=0];	//位移的时间
+	optional sint32 TranslateCurve = 17[default=0];	//曲线
+	optional sint32 TranslateTargetType = 18[default=0];	//位移目标类型
+	optional sint32 TranslateTargetId = 19[default=-1];	//TranslateTargetId
+	optional sint32 SkillId = 20[default=-1];	//技能id
+	optional sint32 SkllTargetId = 21[default=-1];	//释放技能者id
+	optional DramaModuleV3V1 SkillPostion = 22;	//技能释放位置
+	optional sint32 SkillTargetType = 23[default=0];	//释放技能
+	optional string MusicFileName = 24;	//音乐
+	optional string SoundFileName = 25;	//音效
+	/*
+	摄像机点类型
+	0.分镜
+	1.固定视角
+	2.贝塞尔
+	*/
+	optional sint32 CameraPointType = 26[default=0];
+	repeated DramaModuleCameraPointV1 CameraPoints = 27;	//视点
+	optional sint32 FreeType = 31[default=0];	//释放类型
+}
+
+//V3
+message  DramaModuleV3V1
+{
+	optional float X = 1[default=0];	//X
+	optional float Y = 2[default=0];	//Y
+	optional float Z = 3[default=0];	//Z
+}
+
+//Transform
+message  DramaModuleTransformV1
+{
+	optional DramaModuleV3V1 Postion = 1;	//Postion
+	optional DramaModuleV3V1 Rotation = 2;	//rotation
+	optional DramaModuleV3V1 Scale = 3;	//Scale
+}
+
+//摄像机点
+message  DramaModuleCameraPointV1
+{
+	optional DramaModuleV3V1 Pos = 1;	//位置
+	optional DramaModuleV3V1 Angle = 2;	//角度
+	optional float Time = 3[default=0];	//时间
+}
+

@@ -1,0 +1,13 @@
+import "PublicStruct.proto";
+
+//NewDataStruct
+message  TestModuleDataV1
+{
+	optional sint32 Field = 1[default=-1];	//Field
+}
+
+//Useless
+message  TestModuleUselessV1
+{
+}
+

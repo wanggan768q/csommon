@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<Root Module="TestModule" CName="TestModule" MsgNumStart="1" SyncDataVersion="1" Comment="">
+    <Struct Name="Data" CName="NewDataStruct" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Field" CName="Field" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="Useless" CName="Useless" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="0" />
+</Root>

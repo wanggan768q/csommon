@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<Root Module="MapData" CName="场景数据" MsgNumStart="20" SyncDataVersion="1" Comment="">
+    <Struct Name="Useless" CName="无用" ProtoType="SyncProto" Comment="" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="X1" CName="X1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+    </Struct>
+    <Struct Name="LayerInfo" CName="层数据" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="10">
+        <Field PreDefine="repeated" FieldType="Vector2" FieldId="2" Name="WalkArea" CName="可行走区" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="Vector2" FieldId="3" Name="LostArea" CName="可掉落区" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="4" Name="ClientHight" CName="ClientHight" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="5" Name="X" CName="X轴" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="X轴坐标" />
+        <Field PreDefine="optional" FieldType="float" FieldId="6" Name="Z" CName="Z轴" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="Z轴坐标" />
+        <Field PreDefine="optional" FieldType="float" FieldId="7" Name="Y" CName="Y轴" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="Y轴坐标" />
+        <Field PreDefine="optional" FieldType="float" FieldId="9" Name="MinHeightLimit" CName="最小高度限制" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="最小高度限制" />
+        <Field PreDefine="optional" FieldType="float" FieldId="10" Name="MaxHeightLimit" CName="最大高度限制" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="最大高度限制" />
+    </Struct>
+    <Struct Name="Info" CName="场景信息" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="14">
+        <Field PreDefine="repeated" FieldType="LayerInfo" FieldId="1" Name="LayerArr" CName="层" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="SpawnInfo" FieldId="2" Name="SpawnArr" CName="SpawnArr" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="DefeatInfo" FieldId="3" Name="Defeat" CName="Defeat" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="PerfectInfo" FieldId="4" Name="PerfectArr" CName="PerfectArr" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="PortalInfo" FieldId="5" Name="PortalArr" CName="PortalArr" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="TrapInfo" FieldId="6" Name="TrapArr" CName="TrapArr" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="NpcInfo" FieldId="7" Name="NpcArr" CName="NpcArr" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="repeated" FieldType="NodeInfo" FieldId="8" Name="NodeArr" CName="NodeArr" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="9" Name="Name" CName="Name" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+        <Field PreDefine="repeated" FieldType="TerritorialInfo" FieldId="10" Name="StormBaseArr" CName="领地" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="TerritorialInfo" FieldId="11" Name="StormFlag" CName="旗子" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="BaseConfig" FieldId="12" Name="BaseConfig" CName="基础配置" ValueSet="" MinValue="6" MaxValue="128" Comment="基础配置" />
+        <Field PreDefine="repeated" FieldType="GatherInfo" FieldId="13" Name="GatherArr" CName="采集物数据" ValueSet="" MinValue="6" MaxValue="128" Comment="采集物数据" />
+        <Field PreDefine="repeated" FieldType="EventInfo" FieldId="14" Name="EventArr" CName="事件信息" ValueSet="" MinValue="6" MaxValue="128" Comment="事件信息" />
+    </Struct>
+    <Struct Name="Vector2" CName="Vector2" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="12">
+        <Field PreDefine="optional" FieldType="float" FieldId="1" Name="X1" CName="X1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="X2" CName="X2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="4" Name="Z1" CName="Z1" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="Z1" />
+        <Field PreDefine="optional" FieldType="float" FieldId="5" Name="Z2" CName="Z2" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="Z2" />
+        <Field PreDefine="optional" FieldType="float" FieldId="7" Name="OrgAngle" CName="起始角度" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="起始角度" />
+        <Field PreDefine="optional" FieldType="float" FieldId="8" Name="FinAngle" CName="终点角度" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="终点角度" />
+        <Field PreDefine="optional" FieldType="float" FieldId="11" Name="Radius" CName="半径" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="半径" />
+        <Field PreDefine="repeated" FieldType="ContourLineInfo" FieldId="12" Name="ContourLineArr" CName="等高线信息" ValueSet="" MinValue="6" MaxValue="128" Comment="等高线信息" />
+    </Struct>
+    <Struct Name="SpawnInfo" CName="SpawnInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="float" FieldId="1" Name="X" CName="X" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Layer" CName="Layer" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="SpawnDirection" CName="出生时的朝向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="出生时的朝向" />
+        <Field PreDefine="optional" FieldType="float" FieldId="4" Name="Z" CName="Z轴" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="Z轴" />
+        <Field PreDefine="optional" FieldType="float" FieldId="5" Name="Radius" CName="半径" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="半径" />
+        <Field PreDefine="optional" FieldType="float" FieldId="6" Name="Angle" CName="角度" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="角度" />
+    </Struct>
+    <Struct Name="DefeatInfo" CName="DefeatInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="4">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Condition" CName="Condition" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="4" Name="TimeLimit" CName="TimeLimit" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="PerfectInfo" CName="PerfectInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Condition" CName="Condition" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="DeathCountNum" CName="DeathCountNum" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="KillEnemyID" CName="KillEnemyID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="KillEnemyCount" CName="KillEnemyCount" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="HpPercent" CName="HpPercent" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="6" Name="TimeLimit" CName="TimeLimit" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+    </Struct>
+    <Struct Name="PortalInfo" CName="PortalInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="16">
+        <Field PreDefine="optional" FieldType="float" FieldId="1" Name="SourceX" CName="SourceX" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="SourceLayer" CName="SourceLayer" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="TargetX" CName="TargetX" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="TargetLayer" CName="TargetLayer" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="UseCount" CName="UseCount" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="6" Name="Channel" CName="Channel" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="PortalType" CName="PortalType" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="TargetDungeonId" CName="目标副本id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="目标副本id(0为所有其他值代表id)" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="9" Name="TargetSpawnIndex" CName="目标出生点索引" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="目标出生点索引" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="TargetDirection" CName="传送目标点朝向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="传送到目标点后的朝向" />
+        <Field PreDefine="optional" FieldType="float" FieldId="11" Name="SourceZ" CName="源Z轴" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="源Z轴" />
+        <Field PreDefine="optional" FieldType="float" FieldId="12" Name="TargetZ" CName="目标Z轴" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="目标Z轴" />
+        <Field PreDefine="optional" FieldType="float" FieldId="13" Name="SourceAngle" CName="源角度" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="源角度" />
+        <Field PreDefine="optional" FieldType="float" FieldId="14" Name="TargetAngle" CName="目标角度" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="目标角度" />
+        <Field PreDefine="optional" FieldType="float" FieldId="15" Name="SourceRadius" CName="源半径" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="源半径" />
+        <Field PreDefine="optional" FieldType="float" FieldId="16" Name="TargetRadius" CName="目标半径" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="目标半径" />
+    </Struct>
+    <Struct Name="TrapInfo" CName="TrapInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="TrapID" CName="TrapID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="X" CName="X" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="4" Name="Y" CName="Y" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Direction" CName="朝向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="朝向" />
+        <Field PreDefine="optional" FieldType="float" FieldId="6" Name="Z" CName="Z轴" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="Z轴" />
+    </Struct>
+    <Struct Name="NpcInfo" CName="NpcInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="7">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="NpcID" CName="NpcID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="X" CName="X" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Layer" CName="Layer" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="4" Name="Z" CName="Z轴" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="Z轴" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Direction" CName="朝向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="朝向" />
+        <Field PreDefine="optional" FieldType="float" FieldId="6" Name="Angle" CName="角度" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="角度" />
+        <Field PreDefine="optional" FieldType="float" FieldId="7" Name="Radius" CName="半径" ValueSet="" MinValue="0" MaxValue="10000000" DefaultValue="0" Comment="半径" />
+    </Struct>
+    <Struct Name="MonsterInfo" CName="MonsterInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="26">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="MonsterID" CName="MonsterID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="X" CName="X" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Layer" CName="Layer" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="RepeatCount" CName="RepeatCount" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="SpawmTriggerType" CName="SpawmTriggerType" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="RespawmTriggerType" CName="RespawmTriggerType" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="11" Name="PatrolX1" CName="PatrolX1" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="13" Name="PatrolX2" CName="PatrolX2" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="14" Name="SpawnNodeTime" CName="SpawnNodeTime" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="15" Name="SpawnKillEnemyID" CName="SpawnKillEnemyID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="16" Name="SpawnKillEnemyCount" CName="SpawnKillEnemyCount" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="17" Name="SpawnAfterDeathTime" CName="SpawnAfterDeathTime" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="18" Name="RespawnNodeTime" CName="RespawnNodeTime" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="19" Name="RespawnKillEnemyID" CName="RespawnKillEnemyID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="20" Name="RespawnKillEnemyCount" CName="RespawnKillEnemyCount" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="21" Name="RespawnAfterDeathTime" CName="RespawnAfterDeathTime" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="22" Name="CreateMonsterType" CName="出怪类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="枚举(0.单个id.1.全部id.2.随机id)" />
+        <Field PreDefine="repeated" FieldType="NodeMonsterInfo" FieldId="24" Name="NodeMonsterInfoArr" CName="坑点中怪物节点列表" ValueSet="" MinValue="6" MaxValue="128" Comment="坑点中怪物节点列表" />
+        <Field PreDefine="optional" FieldType="float" FieldId="25" Name="Z" CName="Z轴" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="Z轴" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="26" Name="Direction" CName="朝向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="朝向" />
+    </Struct>
+    <Struct Name="NodeInfo" CName="NodeInfo" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="9">
+        <Field PreDefine="optional" FieldType="float" FieldId="1" Name="X" CName="X" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="Layer" CName="Layer" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="PassCondition" CName="PassCondition" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="KillEnemyID" CName="KillEnemyID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="KillEnemyCount" CName="KillEnemyCount" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="repeated" FieldType="MonsterInfo" FieldId="6" Name="MonsterArr" CName="MonsterArr" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="7" Name="TimeLimit" CName="TimeLimit" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="NodeType" CName="NodeType" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="9" Name="NodeArrowDisplayType" CName="节点箭头显示模式" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="节点箭头显示模式" />
+    </Struct>
+    <Struct Name="TerritorialInfo" CName="领地" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="Layer" CName="层" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="Vector2" FieldId="2" Name="Area" CName="区域" ValueSet="" MinValue="6" MaxValue="128" Comment="" />
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="X" CName="X" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="ID" CName="ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="" />
+        <Field PreDefine="optional" FieldType="string" FieldId="5" Name="ModelName" CName="ModelName" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="NodeMonsterInfo" CName="怪物坑点数据" ProtoType="SyncProto" Comment="怪物坑点数据" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="MonsterId" CName="怪物ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="怪物ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="RandomWeight" CName="怪物随机权重" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="怪物随机权重" />
+    </Struct>
+    <Struct Name="BaseConfig" CName="基础配置" ProtoType="SyncProto" Comment="基础配置" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="2">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="MapType" CName="地图类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="地图类型" />
+    </Struct>
+    <Struct Name="GatherInfo" CName="采集物" ProtoType="SyncProto" Comment="采集物" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="5">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="GatherId" CName="采集物ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="采集物ID" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="X" CName="X" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="X" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Layer" CName="层" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="层" />
+        <Field PreDefine="optional" FieldType="float" FieldId="4" Name="Z" CName="Z" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="Z" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Direction" CName="朝向" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="1" Comment="朝向" />
+    </Struct>
+    <Struct Name="ContourLineInfo" CName="等高线信息" ProtoType="SyncProto" Comment="等高线信息" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="float" FieldId="1" Name="Y" CName="Y" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="Y" />
+    </Struct>
+    <Struct Name="EventInfo" CName="事件信息" ProtoType="SyncProto" Comment="事件信息" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="7">
+        <Field PreDefine="optional" FieldType="float" FieldId="1" Name="X1" CName="X1坐标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="X1坐标" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="Z1" CName="Z1坐标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="Z1坐标" />
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="X2" CName="X2坐标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="X2坐标" />
+        <Field PreDefine="optional" FieldType="float" FieldId="4" Name="Z2" CName="Z2坐标" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="Z2坐标" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="Type" CName="类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="类型" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="EventId" CName="事件Id" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="事件Id" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="Layer" CName="层信息" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="层信息" />
+    </Struct>
+</Root>

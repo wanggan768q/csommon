@@ -1,0 +1,15 @@
+import "PublicStruct.proto";
+
+//五行旗数据
+message  ActivityStormActivityStormV1
+{
+	/*
+	类型
+	0正常1报名中2报名中点了同意
+	*/
+	optional sint32 Type = 1[default=-1];
+	optional sint32 Time = 2[default=-1];	//倒计时时间
+	optional sint32 ActID = 3[default=-1];	//战斗id 需要确认时候带回
+	optional sint32 LvD = 4[default=-1];	//等级段
+}
+

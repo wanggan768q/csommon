@@ -1,0 +1,22 @@
+import "PublicStruct.proto";
+
+message  LoginRpcKeyAuthAsk
+{
+	optional sint32 DistId = 2[default=-1];
+	optional string RsaData = 3;
+
+}
+
+message  LoginRpcKeyAuthReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint64 UserId = 2[default=-1];
+	optional string PlatName = 4;
+
+}
+
+message  LoginRpcKickOffNotify
+{
+
+}
+

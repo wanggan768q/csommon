@@ -1,0 +1,16 @@
+import "PublicStruct.proto";
+
+message  StoryDungeonStoryDungeonObjV1
+{
+	optional sint32 Id = 1[default=-1];
+	optional bool IsLock = 3[default=true];
+
+}
+
+message  StoryDungeonStoryDungeonV1
+{
+	repeated StoryDungeonStoryDungeonObjV1 StoryDungeon = 1;
+	optional sint32 ChallengeNum = 2[default=0];
+
+}
+

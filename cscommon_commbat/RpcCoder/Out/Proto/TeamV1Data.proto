@@ -1,0 +1,9 @@
+import "PublicStruct.proto";
+
+//组队对象
+message  TeamTeamDataV1
+{
+	optional TeamObj TeamData = 7;	//组队数据
+	repeated TeamApplyUserObj ApplyList = 13;	//申请列表
+}
+

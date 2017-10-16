@@ -1,0 +1,153 @@
+import "PublicStruct.proto";
+
+message  FriendRpcSyncFriendDataAsk
+{
+
+}
+
+message  FriendRpcSyncFriendDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  FriendRpcAddFriendAsk
+{
+	optional sint64 UserId = 1[default=-1];
+
+}
+
+message  FriendRpcAddFriendReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  FriendRpcDelFriendAsk
+{
+	repeated sint64 UserId = 1;
+
+}
+
+message  FriendRpcDelFriendReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  FriendRpcAddBlackListAsk
+{
+	optional sint64 UserId = 1[default=-1];
+
+}
+
+message  FriendRpcAddBlackListReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  FriendRpcDelBlackListAsk
+{
+	optional sint64 UserId = 1[default=-1];
+
+}
+
+message  FriendRpcDelBlackListReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  FriendRpcAddContactAsk
+{
+	optional sint64 UserId = 1[default=-1];
+
+}
+
+message  FriendRpcAddContactReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  FriendRpcDelContactAsk
+{
+	optional sint64 UserId = 1[default=-1];
+
+}
+
+message  FriendRpcDelContactReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  FriendRpcSearchPlayerAsk
+{
+	optional string SearchString = 1;
+
+}
+
+message  FriendRpcSearchPlayerReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint64 UserId = 2[default=-1];
+	optional string UserName = 3;
+	optional sint32 Level = 4[default=-1];
+	optional sint32 Prof = 5[default=-1];
+
+}
+
+message  FriendRpcRecommendObj
+{
+	optional sint64 UserId = 1[default=-1];
+	optional string UserName = 2;
+	optional sint32 Level = 3[default=-1];
+	optional sint32 Prof = 4[default=-1];
+
+}
+
+message  FriendRpcRecommendAsk
+{
+
+}
+
+message  FriendRpcRecommendReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated FriendRpcRecommendObj RecommendList = 2;
+
+}
+
+message  FriendRpcViewUserSimpleInfoAsk
+{
+	optional sint64 UserId = 1[default=-1];
+
+}
+
+message  FriendRpcViewUserSimpleInfoReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint64 UserId = 2[default=-1];
+	optional string UserName = 3;
+	optional sint32 Level = 4[default=-1];
+	optional sint32 Prof = 5[default=-1];
+	optional sint32 TeamId = 6[default=-1];
+	optional sint32 TeamMemberNum = 7[default=-1];
+	optional sint32 GuildId = 8[default=-1];
+	optional string Signature = 9;
+	optional bool Online = 10[default=false];
+	optional sint32 GoodFeeling = 11[default=0];
+	optional string GuildName = 12;
+
+}
+
+message  FriendRpcOnlineOfflineNotify
+{
+	optional sint64 UserId = 1[default=-1];
+	optional string UserName = 2;
+	optional bool Online = 3[default=false];
+
+}
+

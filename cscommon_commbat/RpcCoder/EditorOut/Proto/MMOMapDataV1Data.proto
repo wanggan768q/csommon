@@ -1,0 +1,97 @@
+import "PublicStruct.proto";
+
+message  MMOMapDataBaseDataV1
+{
+	optional string DataName = 1;
+
+}
+
+message  MMOMapDataSpawnInfoV1
+{
+	optional MMOMapDataMDVector3V1 SpawnPos = 4;
+	optional MMOMapDataMDVector3V1 SpawnRot = 5;
+	optional sint32 SpawnIndex = 6[default=0];
+
+}
+
+message  MMOMapDataMDVector3V1
+{
+	optional float X = 1[default=0];
+	optional float Y = 2[default=0];
+	optional float Z = 3[default=0];
+
+}
+
+message  MMOMapDataPortalInfoV1
+{
+	optional MMOMapDataMDVector3V1 SourcePos = 1;
+	optional MMOMapDataMDVector3V1 TargetPos = 2;
+	optional MMOMapDataMDVector3V1 TargetRot = 3;
+	optional sint32 TargetDungeonID = 4[default=0];
+	optional sint32 TargetSpawnIndex = 6[default=0];
+	optional sint32 PortalType = 7[default=0];
+
+}
+
+message  MMOMapDataNodeInfoV1
+{
+	optional sint32 RelevanceArea = 8[default=0];
+	optional sint32 PassKillEnemyID = 10[default=0];
+	optional sint32 PassKillEnemyNum = 11[default=0];
+	optional sint32 PassTime = 13[default=0];
+	optional sint32 PassUseItemID = 16[default=0];
+	optional sint32 PassUseItemNum = 17[default=0];
+	optional sint32 PassCollectItemID = 18[default=0];
+	optional sint32 PassCollectItemNum = 19[default=0];
+	optional sint32 PassConditionType = 20[default=0];
+	optional MMOMapDataMDVector3V1 NodePos1 = 21;
+	optional MMOMapDataMDVector3V1 NodePos2 = 22;
+
+}
+
+message  MMOMapDataPointInfoV1
+{
+	optional sint32 SpriteType = 1[default=0];
+	optional sint32 SpriteID = 2[default=0];
+	optional sint32 Area = 3[default=0];
+	optional MMOMapDataMDVector3V1 PointPos = 4;
+	optional MMOMapDataMDVector3V1 PointRot = 5;
+	optional sint32 RefreshType = 6[default=0];
+	optional sint32 UnlockTime = 7[default=0];
+	optional sint32 EnemyID = 8[default=0];
+	optional sint32 EnemyNum = 9[default=0];
+	optional sint32 RebirthType = 10[default=0];
+	optional sint32 RebirthEnemyID = 11[default=0];
+	optional sint32 RebirthEnemyNum = 12[default=0];
+	optional sint32 AfterDeathTime = 13[default=0];
+	optional sint32 RebirthNum = 14[default=-1];
+
+}
+
+message  MMOMapDataInfoV1
+{
+	optional MMOMapDataBaseDataV1 BaseInfo = 1;
+	repeated MMOMapDataSpawnInfoV1 SpawnArr = 2;
+	repeated MMOMapDataPortalInfoV1 PortalArr = 3;
+	optional MMOMapDataDefeatInfoV1 DefeatInfo = 5;
+	repeated MMOMapDataNodeInfoV1 NodeArr = 6;
+	repeated MMOMapDataPointInfoV1 PointArr = 7;
+
+}
+
+message  MMOMapDataDefeatInfoV1
+{
+	optional bool DefeatConditionSpared = 1[default=false];
+	optional bool DefeatConditionTimeOver = 2[default=false];
+	optional bool DefeatConditionHP = 3[default=false];
+	optional sint32 DefeatTime = 4[default=0];
+	optional sint32 DefeatID = 5[default=0];
+	optional sint32 DefeatHP = 6[default=0];
+
+}
+
+message  MMOMapDataUselessV1
+{
+
+}
+

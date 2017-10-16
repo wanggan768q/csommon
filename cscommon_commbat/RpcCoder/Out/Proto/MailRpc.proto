@@ -1,0 +1,73 @@
+import "PublicStruct.proto";
+
+message  MailRpcMailHeadAsk
+{
+	optional sint32 Count = 2[default=0];
+	optional sint64 UId = 3[default=-1];
+
+}
+
+message  MailRpcMailHeadReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated MailHeadObj MailHeadList = 2;
+	optional sint32 MaxCount = 3[default=0];
+
+}
+
+message  MailRpcDelMailAsk
+{
+	repeated sint64 UidList = 1;
+
+}
+
+message  MailRpcDelMailReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated sint64 UidList = 2;
+
+}
+
+message  MailRpcOpenMailAsk
+{
+	optional sint64 UId = 1[default=-1];
+
+}
+
+message  MailRpcOpenMailReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional MailBodyObj MailBody = 2;
+
+}
+
+message  MailRpcGetRewardAsk
+{
+	optional sint64 UId = 2[default=-1];
+
+}
+
+message  MailRpcGetRewardReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  MailRpcNewMailNotify
+{
+	repeated MailHeadObj MailHeadList = 1;
+
+}
+
+message  MailRpcOneKeyGetRewardAsk
+{
+
+}
+
+message  MailRpcOneKeyGetRewardReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated sint64 UidList = 2;
+
+}
+

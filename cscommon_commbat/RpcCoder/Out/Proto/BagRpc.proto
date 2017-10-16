@@ -1,0 +1,532 @@
+import "PublicStruct.proto";
+
+message  BagRpcSyncDataAsk
+{
+
+}
+
+message  BagRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BagRpcSellAsk
+{
+	optional sint32 ItemID = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 Num = 3[default=-1];
+
+}
+
+message  BagRpcSellReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ItemID = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 Num = 4[default=-1];
+
+}
+
+message  BagRpcDecomposeAsk
+{
+	optional sint32 ItemID = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+
+}
+
+message  BagRpcDecomposeReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ItemID = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+
+}
+
+message  BagRpcUseAsk
+{
+	optional sint32 ItemID = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+
+}
+
+message  BagRpcUseReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 ItemID = 3[default=-1];
+
+}
+
+message  BagRpcEquipWearAsk
+{
+	optional sint32 ItemId = 1[default=-1];
+	optional sint32 BagPos = 2[default=-1];
+
+}
+
+message  BagRpcEquipWearReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ItemId = 2[default=-1];
+	optional sint32 BagPos = 4[default=-1];
+
+}
+
+message  BagRpcEquipUndressAsk
+{
+	optional sint32 ItemId = 1[default=-1];
+	optional sint32 EquipPos = 3[default=-1];
+
+}
+
+message  BagRpcEquipUndressReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ItemId = 2[default=-1];
+	optional sint32 EquipPos = 4[default=-1];
+
+}
+
+message  BagRpcEquipEnhanceAsk
+{
+	optional sint32 ItemId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 BagContainerType = 3[default=-1];
+	optional sint32 Lv = 4[default=-1];
+
+}
+
+message  BagRpcEquipEnhanceReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ItemId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+	optional sint32 Lv = 5[default=-1];
+	optional bool IsFirstEnhance = 6[default=false];
+
+}
+
+message  BagRpcEquipPolishedAsk
+{
+	optional sint32 ItemId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+
+}
+
+message  BagRpcEquipPolishedReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ItemId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+
+}
+
+message  BagRpcEquipPolishedReplaceAsk
+{
+	optional sint32 ItemId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+
+}
+
+message  BagRpcEquipPolishedReplaceReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 ItemId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+
+}
+
+message  BagRpcBagTidyAsk
+{
+
+}
+
+message  BagRpcBagTidyReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BagRpcBagRecycleBuyAsk
+{
+	optional sint32 GridPos = 1[default=-1];
+
+}
+
+message  BagRpcBagRecycleBuyReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 GridPos = 2[default=-1];
+	repeated BagRecycleGridObj GridList = 3;
+
+}
+
+message  BagRpcUnlockGridAsk
+{
+	optional sint32 GridCount = 1[default=-1];
+
+}
+
+message  BagRpcUnlockGridReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 GridCount = 2[default=-1];
+
+}
+
+message  BagRpcSellGridObj
+{
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Num = 3[default=-1];
+	optional sint32 Pos = 4[default=-1];
+	optional sint64 ItemId = 5[default=-1];
+	optional sint32 ItemType = 6[default=-1];
+
+}
+
+message  BagRpcBagRecycleSellAsk
+{
+	repeated BagRpcSellGridObj GridList = 1;
+
+}
+
+message  BagRpcBagRecycleSellReply
+{
+	optional sint32 Result = 1[default=-9999];
+	repeated BagRecycleGridObj GridList = 2;
+	optional sint32 Money = 4[default=-1];
+
+}
+
+message  BagRpcSplitAsk
+{
+	optional sint32 TemplateId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 Num = 3[default=-1];
+
+}
+
+message  BagRpcSplitReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 Num = 4[default=-1];
+
+}
+
+message  BagRpcEquipBaseAttrPlishedAsk
+{
+	optional sint32 TemplateId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 BagContainerType = 3[default=-1];
+
+}
+
+message  BagRpcEquipBaseAttrPlishedReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TemplateId = 3[default=-1];
+	optional sint32 Pos = 4[default=-1];
+	optional sint32 BagContainerType = 5[default=-1];
+
+}
+
+message  BagRpcEquipBaseAttrPolishedReplaceAsk
+{
+	optional sint32 TemplateId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 BagContainerType = 3[default=-1];
+
+}
+
+message  BagRpcEquipBaseAttrPolishedReplaceReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+
+}
+
+message  BagRpcEquipExAttrModifyAsk
+{
+	optional sint32 TemplateId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 BagContainerType = 3[default=-1];
+
+}
+
+message  BagRpcEquipExAttrModifyReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+	optional sint32 Index = 6[default=-1];
+
+}
+
+message  BagRpcEquipInlayGemAsk
+{
+	optional sint32 TemplateId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 BagContainerType = 3[default=-1];
+	optional sint32 SlotPos = 4[default=-1];
+	optional sint32 GemId = 5[default=-1];
+	optional sint32 GemPos = 6[default=-1];
+
+}
+
+message  BagRpcEquipInlayGemReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+	optional sint32 SlotPos = 5[default=-1];
+	optional sint32 GemId = 6[default=-1];
+	optional sint32 GemPos = 7[default=-1];
+
+}
+
+message  BagRpcEquipGemSlotUnlockAsk
+{
+	optional sint32 TemplateId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 BagContainerType = 3[default=-1];
+	optional sint32 SlotPos = 5[default=-1];
+
+}
+
+message  BagRpcEquipGemSlotUnlockReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+	optional sint32 SlotPos = 6[default=-1];
+
+}
+
+message  BagRpcEquipEnhanceSwapAsk
+{
+	optional sint32 TemplateId1 = 1[default=-1];
+	optional sint32 Pos1 = 2[default=-1];
+	optional sint32 TemplateId2 = 3[default=-1];
+	optional sint32 Pos2 = 4[default=-1];
+	optional sint32 BagContainerType1 = 5[default=-1];
+	optional sint32 BagContainerType2 = 6[default=-1];
+
+}
+
+message  BagRpcEquipEnhanceSwapReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TemplateId1 = 4[default=-1];
+	optional sint32 Pos1 = 5[default=-1];
+	optional sint32 TemplateId2 = 6[default=-1];
+	optional sint32 Pos2 = 7[default=-1];
+	optional sint32 BagContainerType1 = 8[default=-1];
+	optional sint32 BagContainerType2 = 9[default=-1];
+
+}
+
+message  BagRpcEquipGemRemoveAsk
+{
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+	optional sint32 SlotPos = 5[default=-1];
+
+}
+
+message  BagRpcEquipGemRemoveReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 BagContainerType = 4[default=-1];
+	optional sint32 SlotPos = 5[default=-1];
+
+}
+
+message  BagRpcBagPutInStorageAsk
+{
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 Num = 4[default=-1];
+
+}
+
+message  BagRpcBagPutInStorageReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 Num = 4[default=-1];
+
+}
+
+message  BagRpcBagFetchFromStorageAsk
+{
+	optional sint32 TemplateId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 Num = 3[default=-1];
+
+}
+
+message  BagRpcBagFetchFromStorageReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 Num = 4[default=-1];
+
+}
+
+message  BagRpcBagStorageSaveMoneyAsk
+{
+	optional sint32 Money = 1[default=-1];
+
+}
+
+message  BagRpcBagStorageSaveMoneyReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 Money = 2[default=-1];
+
+}
+
+message  BagRpcBagStorageDrawMoneyAsk
+{
+	optional sint32 Money = 1[default=-1];
+
+}
+
+message  BagRpcBagStorageDrawMoneyReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 Money = 2[default=-1];
+
+}
+
+message  BagRpcStorageTidyAsk
+{
+
+}
+
+message  BagRpcStorageTidyReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BagRpcTalismanLvupAsk
+{
+	repeated sint32 CostTalisman = 1;
+
+}
+
+message  BagRpcTalismanLvupReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BagRpcTalismanInheritAsk
+{
+	optional sint32 RightSideTalisman = 1[default=-1];
+
+}
+
+message  BagRpcTalismanInheritReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BagRpcBagAddNewItemNotify
+{
+	repeated BagGridObj NewItem = 1;
+
+}
+
+message  BagRpcBagSetAutoPickupAsk
+{
+	repeated KeyValue2IntBool AutoPick = 1;
+
+}
+
+message  BagRpcBagSetAutoPickupReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BagRpcGetNewItemNotify
+{
+	repeated KeyValue2IntInt Item = 1;
+	optional sint32 ModuleId = 2[default=-1];
+	optional sint32 PathWayId = 3[default=-1];
+	optional sint32 ModuleParam = 4[default=-1];
+
+}
+
+message  BagRpcBagErrorNotify
+{
+	optional sint32 Result = 2[default=-9999];
+
+}
+
+message  BagRpcTalismanRefindStarAsk
+{
+	optional sint64 FabaoId = 1[default=-1];
+
+}
+
+message  BagRpcTalismanRefindStarReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BagRpcTalismanUpSlotSkillLevelAsk
+{
+	optional sint64 FabaoId = 1[default=-1];
+	optional sint32 SlotId = 2[default=-1];
+
+}
+
+message  BagRpcTalismanUpSlotSkillLevelReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  BagRpcTalismanAttrChangeNotify
+{
+	repeated KeyValue2IntInt Attr = 1;
+
+}
+
+message  BagRpcTalismanGatherSpriteAsk
+{
+	optional sint64 FabaoId = 1[default=-1];
+	optional sint32 GatherSpriteId = 2[default=-1];
+	optional sint32 SlotId = 3[default=-1];
+
+}
+
+message  BagRpcTalismanGatherSpriteReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+

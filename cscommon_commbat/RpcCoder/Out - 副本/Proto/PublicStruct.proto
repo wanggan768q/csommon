@@ -1,0 +1,446 @@
+message  TeamUserObj
+{
+	optional sint64 UserId = 1[default=-1];
+	optional string UserName = 2;
+	optional sint32 Level = 3[default=-1];
+	optional bool IsCaptain = 4[default=false];
+	optional sint32 Prof = 5[default=-1];
+	optional sint32 HP = 8[default=-1];
+	optional sint32 MaxHP = 9[default=-1];
+	optional bool IsFollowing = 10[default=false];
+
+}
+
+message  TeamObj
+{
+	optional sint32 TeamId = 1[default=-1];
+	optional sint64 CaptainUserId = 2[default=-1];
+	optional sint32 MemberCount = 3[default=-1];
+	optional sint32 TeamTarget = 4[default=-1];
+	repeated TeamUserObj TeamMember = 5;
+	optional sint32 CaptainProf = 6[default=-1];
+	optional sint32 TargetMinLv = 7[default=-1];
+	optional sint32 TargetMaxLv = 8[default=-1];
+	optional bool IsMatching = 9[default=false];
+	optional sint32 CaptainLevel = 10[default=-1];
+	optional bool IsTeamFollow = 11[default=false];
+
+}
+
+message  TeamApplyUserObj
+{
+	optional sint64 UserId = 1[default=-1];
+	optional string UserName = 2;
+	optional sint32 Level = 3[default=-1];
+	optional sint32 Prof = 4[default=-1];
+	optional sint32 TeamId = 5[default=-1];
+
+}
+
+message  BagRecycleGridObj
+{
+	optional sint64 ItemId = 1[default=-1];
+	optional sint32 TemplateId = 2[default=-1];
+	optional sint32 Num = 3[default=-1];
+	optional sint32 ItemType = 4[default=-1];
+	optional sint32 Pos = 5[default=-1];
+
+}
+
+message  KeyValue2
+{
+	optional sint32 Key = 1[default=-1];
+	optional float Value = 2[default=-1];
+
+}
+
+message  EquipSkillBuff2
+{
+	optional sint32 Id = 1[default=-1];
+	optional sint32 LV = 2[default=-1];
+	optional sint32 Cd = 3[default=-1];
+
+}
+
+message  GuildMemberObj
+{
+	optional sint64 UserId = 1[default=-1];
+	optional string UserName = 2;
+	optional sint32 Level = 3[default=-1];
+	optional sint32 Prof = 9[default=-1];
+	optional sint32 Duty = 10[default=-1];
+	optional sint32 CurContribution = 11[default=-1];
+	optional sint32 MaxContribution = 12[default=-1];
+	optional sint32 LeagueMatchesCount = 13[default=-1];
+	optional sint32 OfflineTime = 14[default=-1];
+	optional sint32 JoinTime = 15[default=-1];
+	repeated sint32 DropItemArray = 16;
+	optional bool IsOnline = 17[default=true];
+	optional bool IsGuildDungeon = 18[default=false];
+
+}
+
+message  GuildInfoObj
+{
+	optional sint32 Guild = 1[default=-1];
+	optional string GuildName = 2;
+	optional sint32 Level = 3[default=1];
+	optional sint64 CaptainId = 5[default=-1];
+	optional string CaptainName = 6;
+	optional sint32 Funds = 7[default=-1];
+	optional sint32 CurMemberNum = 8[default=1];
+	repeated GuildMemberObj GuildMember = 10;
+	optional sint32 MaintenanceCost = 11[default=-1];
+	optional sint32 LeagueMatchesRank = 12[default=-1];
+	optional string Announcement = 13;
+	optional sint32 TotalMilitary = 14[default=-1];
+	repeated ApplyListRoleInfoObj ApplyList = 15;
+	optional sint32 MaxMemberNum = 16[default=-1];
+	optional sint32 HallLv = 17[default=1];
+	optional sint32 HallLvupTime = 18[default=-1];
+	optional sint32 HouseLv = 19[default=1];
+	optional sint32 HouseLvupTime = 20[default=-1];
+	optional sint32 StoreroomLv = 21[default=1];
+	optional sint32 StoreroomLvupTime = 22[default=-1];
+	optional sint32 KongfuHallLv = 23[default=1];
+	optional sint32 KongfuHallLvupTime = 24[default=-1];
+	optional sint32 CreateTime = 25[default=-1];
+	repeated GuildEventObj EventList = 26;
+	repeated GuildDungeonObj GuildDungeonList = 27;
+	optional GuildWarObj GuildWar = 28;
+	repeated sint32 GuildOpenScience = 29;
+
+}
+
+message  ApplyListRoleInfoObj
+{
+	optional sint64 UserId = 1[default=-1];
+	optional string UserName = 2;
+	optional sint32 Level = 3[default=1];
+	optional sint32 Prof = 4[default=0];
+	optional sint32 TalentLevel = 5[default=0];
+	optional sint32 Xiulian = 6[default=0];
+	optional sint32 Military = 7[default=0];
+
+}
+
+message  GuildListObj
+{
+	optional sint32 Guild = 1[default=-1];
+	optional string GuildName = 2;
+	optional sint32 Level = 3[default=1];
+	optional sint32 CurMemberNum = 4[default=1];
+	optional sint32 TotalMilitary = 5[default=0];
+	optional string Announcement = 6;
+
+}
+
+message  HeroFightInfo
+{
+	optional sint64 UserId = 1[default=-1];
+	optional sint32 ObjId = 2[default=-1];
+	optional string Name = 3;
+	optional sint32 DeadTimes = 4[default=0];
+	optional sint32 KilledNum = 5[default=0];
+	optional sint64 TotalDamage = 6[default=-1];
+	optional sint32 TotalEndure = 7[default=-1];
+	repeated sint32 IntParaArr = 8;
+	optional sint32 Level = 9[default=-1];
+	optional sint32 AssistKilled = 10[default=-1];
+	optional sint32 CmapId = 11[default=-1];
+
+}
+
+message  GuildEventObj
+{
+	optional sint32 EventId = 1[default=-1];
+	optional string Param1 = 2;
+	optional string Param2 = 3;
+
+}
+
+message  GuildDungeonObj
+{
+	optional sint32 DungeonId = 1[default=-1];
+	optional string Key = 2;
+	optional sint32 Post = 3[default=-1];
+	optional string Host = 4;
+
+}
+
+message  GuildWarObj
+{
+	optional sint32 Guild_A = 2[default=-1];
+	optional sint32 Guild_B = 3[default=-1];
+	optional sint32 DungeonId = 4[default=-1];
+	optional string Key = 5;
+	optional sint32 Port = 6[default=-1];
+	optional string Host = 7;
+
+}
+
+message  BagGridObj
+{
+	optional sint32 TemplateID = 1[default=-1];
+	optional sint32 Num = 2[default=0];
+	optional sint32 ItemType = 3[default=-1];
+	optional sint32 Pos = 4[default=-1];
+	optional sint32 Value = 5[default=-1];
+	optional sint64 Index = 6[default=-1];
+	optional bool Bind = 7[default=false];
+
+}
+
+message  DropItemObj
+{
+	optional sint32 ConfigId = 1[default=-1];
+	optional sint32 UId = 2[default=-1];
+	optional sint32 Num = 4[default=0];
+	optional sint32 ItemType = 5[default=-1];
+	optional sint32 AttrNum = 8[default=0];
+	optional sint32 MonsterObjId = 9[default=-1];
+	optional bytes PosInfo = 10;
+	optional sint32 CreateTime = 11[default=0];
+	optional bool IsPickup = 12[default=false];
+	optional sint64 ItemId = 13[default=-1];
+	optional sint32 DestroyTime = 14[default=0];
+
+}
+
+message  BagEquipObj
+{
+	optional sint64 ItemID = 1[default=-1];
+	repeated BagAttrIntObj BaseAttr = 2;
+	repeated BagExtraAttrObj ExtraAttr = 3;
+	repeated sint32 EnhanceLv = 4;
+	repeated BagExtraAttrObj EquipPolishedResult = 5;
+	optional sint32 PolishedScore = 6[default=0];
+	optional sint64 Index = 7[default=-1];
+	repeated BagAttrIntObj InitBaseAttr = 8;
+	optional sint32 BagContainerType = 9[default=-1];
+	optional sint32 GridIndex = 10[default=-1];
+	repeated BagExtraAttrIdObj PlishedAttrId = 11;
+	repeated BagGemObj GemArray = 12;
+	repeated BagAttrIntObj PolishedBaseAttrResult = 13;
+	optional sint32 TemplateId = 14[default=-1];
+	optional sint32 GemSuitId = 15[default=-1];
+	optional sint32 EquipScore = 16[default=0];
+	optional sint32 PolishedEquipScore = 17[default=0];
+	repeated BagAttrIntObj BaseAttrPolishedInitAttr = 18;
+
+}
+
+message  BagAttrIntObj
+{
+	optional sint32 AttrId = 1[default=-1];
+	optional sint32 AttrValue = 2[default=-1];
+	optional sint32 MaxAttrValue = 3[default=-1];
+
+}
+
+message  BagAttrFloatObj
+{
+	optional sint32 AttrId = 1[default=-1];
+	optional float AttrValue = 2[default=-1];
+	optional sint32 Index = 3[default=-1];
+
+}
+
+message  BagGemObj
+{
+	optional sint32 GemId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional bool IsLock = 3[default=false];
+	optional sint32 Level = 4[default=-1];
+	optional sint32 Type = 5[default=-1];
+
+}
+
+message  KeyValue2IntInt
+{
+	optional sint32 Key = 1[default=-1];
+	optional sint32 Value = 2[default=-1];
+
+}
+
+message  KeyValue2IntBool
+{
+	optional sint32 Key = 1[default=-1];
+	optional bool Value = 2[default=false];
+
+}
+
+message  BagExtraAttrObj
+{
+	repeated BagAttrFloatObj ExtraAttr = 1;
+	optional sint32 Id = 2[default=-1];
+
+}
+
+message  BagExtraAttrIdObj
+{
+	repeated sint32 AttrId = 1;
+	optional sint32 Id = 2[default=-1];
+
+}
+
+message  ActivityNpcData
+{
+	optional sint32 DungeonId = 1[default=-1];
+	optional bytes PosInfo = 2;
+	optional sint32 NPCId = 3[default=-1];
+	optional sint32 ObjId = 4[default=-1];
+
+}
+
+message  WorldBossObj
+{
+	optional sint32 DungeonId = 1[default=-1];
+	optional sint32 MonsterId = 2[default=-1];
+	optional sint32 CurHP = 3[default=-1];
+	optional bool IsDead = 4[default=false];
+	optional sint32 Level = 7[default=1];
+
+}
+
+message  WorldBossRankObj
+{
+	optional sint32 Rank = 1[default=0];
+	optional sint64 UserId = 2[default=-1];
+	optional string UserName = 3;
+	optional sint32 Level = 5[default=0];
+	optional sint32 Hurt = 6[default=0];
+
+}
+
+message  TopPeoValue
+{
+	optional string PlanName = 1;
+	optional sint64 UserId = 2[default=-1];
+	optional sint32 LV = 3[default=-1];
+	optional sint32 AllRanking = 4[default=-1];
+	optional sint32 MyRanking = 6[default=-1];
+
+}
+
+message  OneSData
+{
+	optional sint32 Type = 1[default=-1];
+	optional sint32 SkillID = 2[default=-1];
+	optional sint32 SkillLv = 3[default=-1];
+	optional sint32 Index = 4[default=-1];
+
+}
+
+message  ActMessage
+{
+	optional sint64 ActUserID = 1[default=-1];
+	optional sint64 DepUserID = 2[default=-1];
+	optional sint32 ActIsCopy = 3[default=-1];
+	optional string ActPlanName = 4;
+	optional string DepPlanName = 5;
+	optional string Time = 6;
+	optional sint32 ActRanking = 7[default=-1];
+	optional sint32 DepRanking = 8[default=-1];
+	optional sint64 WinUserID = 9[default=-1];
+	optional sint32 DepIsCopy = 10[default=-1];
+	optional sint32 ActJobID = 11[default=-1];
+	optional sint32 DepJobID = 12[default=-1];
+	optional sint32 ActChangeSource = 13[default=-1];
+	optional sint32 DepChangeSource = 14[default=-1];
+	optional sint32 ActChangeOver = 15[default=-1];
+	optional sint32 DepChangeOver = 16[default=-1];
+
+}
+
+message  TopJobMess
+{
+	optional sint32 JobID = 1[default=-1];
+	repeated TopPeoValue Top = 2;
+
+}
+
+message  TopMess
+{
+	optional sint32 MyType = 1[default=-1];
+	repeated TopJobMess Top = 2;
+
+}
+
+message  TimeTop
+{
+	optional sint64 ID = 1[default=-1];
+	optional sint32 Ranking = 2[default=-1];
+
+}
+
+message  MailHeadObj
+{
+	optional sint64 UId = 1[default=-1];
+	optional string TiTleString = 2;
+	optional sint32 CreateTime = 3[default=-1];
+	optional sint32 Type = 4[default=-1];
+	optional sint32 Status = 5[default=0];
+	optional bool IsAutoDel = 6[default=false];
+	optional sint64 GUId = 8[default=-1];
+
+}
+
+message  MailBodyObj
+{
+	optional string Text = 2;
+	repeated ChatHyperLink HyperlinkList = 4;
+	repeated KeyValue2IntInt ItemList = 5;
+	optional sint32 Status = 6[default=0];
+
+}
+
+message  ChatHyperLink
+{
+	optional sint64 Uid = 1[default=-1];
+	optional sint32 ConfigID = 2[default=-1];
+	optional sint32 Type = 3[default=-1];
+	optional string Text = 4;
+	optional sint64 Userid = 5[default=-1];
+	optional sint32 FunId = 6[default=-1];
+	optional bytes FunParam = 7;
+
+}
+
+message  ChatObj
+{
+	optional ChatMsgObj ChatMsg = 1;
+	optional ChatUserInfoObj UserInfo = 2;
+
+}
+
+message  ChatMsgObj
+{
+	optional sint32 Channel = 1[default=0];
+	optional string Text = 2;
+	optional bytes Voice = 3;
+	optional sint64 TargetUserId = 4[default=-1];
+	optional bytes URL = 5;
+	optional sint32 ChildChannel = 6[default=-1];
+
+}
+
+message  ChatUserInfoObj
+{
+	optional sint64 UserId = 1[default=-1];
+	optional string UserName = 2;
+	optional sint32 Prof = 3[default=-1];
+	optional sint32 Level = 4[default=-1];
+
+}
+
+message  ChatNetData
+{
+	repeated ChatHyperLink HyperlinkList = 1;
+	optional string Text = 2;
+	optional ChatUserInfoObj UserInfo = 3;
+	optional sint32 Channel = 4[default=0];
+	optional sint32 ChildChannel = 5[default=-1];
+
+}
+

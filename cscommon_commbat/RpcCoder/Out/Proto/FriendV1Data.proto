@@ -1,0 +1,27 @@
+import "PublicStruct.proto";
+
+message  FriendFriendObjV1
+{
+	optional sint64 UserId = 1[default=-1];
+	optional string UserName = 2;
+	optional sint32 Level = 3[default=-1];
+	optional sint32 Prof = 4[default=-1];
+	optional string Signature = 5;
+	optional sint32 TeamId = 6[default=-1];
+	optional sint32 TeamMemberNum = 8[default=0];
+	optional bool Online = 9[default=false];
+	optional sint32 GoodFeeling = 10[default=0];
+	optional sint32 GuildId = 11[default=-1];
+	optional string GuildName = 12;
+
+}
+
+message  FriendFriendDataV1
+{
+	repeated FriendFriendObjV1 FriendList = 1;
+	repeated FriendFriendObjV1 BlackList = 2;
+	repeated FriendFriendObjV1 ContactsList = 3;
+	repeated sint64 StrangerFriendList = 4;
+
+}
+

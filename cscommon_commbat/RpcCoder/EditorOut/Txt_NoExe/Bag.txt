@@ -1,0 +1,52 @@
+BagRpcSyncDataAsk↑ 同步背包数据请求
+
+BagRpcSyncDataReply↓ 同步背包数据回应
+	Result:int32 = -9999	;返回结果
+
+BagRpcSellAsk↑ 出售请求
+	ItemID:int32 = -1	;物品id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;数量
+
+BagRpcSellReply↓ 出售回应
+	Result:int32 = -9999	;返回结果
+	ItemID:int32 = -1	;物品id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;数量
+
+BagRpcDecomposeAsk↑ 分解请求
+	ItemID:int32 = -1	;物品id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;数量
+
+BagRpcDecomposeReply↓ 分解回应
+	Result:int32 = -9999	;返回结果
+	ItemID:int32 = -1	;物品id
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;数量
+
+BagPackageData
+	GridArray:GridInfo*	;格子数组
+	[GridInfo]
+		ItemID:int32 = -1	;物品id
+		Num:int32 = -1	;物品数量
+		ItemType:int32 = -1	;物品类型
+		Pos:int32 = -1	;位置
+		Value:int32 = -1	;客户端通用数据
+
+BagGridInfo
+	ItemID:int32 = -1	;物品id
+	Num:int32 = -1	;物品数量
+	ItemType:int32 = -1	;物品类型
+	Pos:int32 = -1	;位置
+	Value:int32 = -1	;客户端通用数据
+
+BagRpcUseAsk↑ 物品使用请求
+	ItemID:int32 = -1	;物品id
+	Pos:int32 = -1	;位置
+
+BagRpcUseReply↓ 物品使用回应
+	Result:int32 = -9999	;返回结果
+	Pos:int32 = -1	;位置
+	ItemID:int32 = -1	;物品id
+

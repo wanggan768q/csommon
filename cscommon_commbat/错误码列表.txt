@@ -1,0 +1,280 @@
+﻿背包模块 [14]
+	BagError_OK = 0,
+	BagError_SYSTEM = -1,
+	BagError_ARGS = -2,
+	BagError_CONFIGERROR = -3,
+	BagError_POSERROR = -100 * MODULE_ID_BAG - 4,//物品位置错误
+	BagError_NUMNOTFULL = -100 * MODULE_ID_BAG - 5,//数量不足
+	BagError_NOTSELL = -100 * MODULE_ID_BAG - 6,//不能出售
+	BagError_NOTCHAIFEN = -100 * MODULE_ID_BAG - 7,//不能拆分
+	BagError_GRIDNOT = -100 * MODULE_ID_BAG - 8,//背包已满
+	BagError_EQUIP_NOT_EXIST_CANNT_UNDRESS = -100 * MODULE_ID_BAG - 9, // 装备不存在, 无法脱下
+	BagError_EQUIP_ENHANCE_LV_BIGGER_THAN_MAX_ENHANCELV = -100 * MODULE_ID_BAG - 10, // 装备强化, 要强化的等级超过可强化的最大等级
+	BagError_EQUIP_POLISHED_EMPTY_CANNT_REPLACE = -100 * MODULE_ID_BAG - 11, // 装备洗炼属性为空,不可以替换
+	BagError_EQUIP_LEVEL_NOT_ENGOUGH_TO_WEAR = -100 * MODULE_ID_BAG - 12, // 人物等级不足, 无法穿戴
+	BagError_BAG_TIDY_CD_ING = -100 * MODULE_ID_BAG - 13, // 背包整理太频繁
+	BagError_BAG_UNLOCK_GRID_MORE_THAN_MAX = -100 * MODULE_ID_BAG - 14, // 开启格子数量超过上限
+	BagError_BAG_NOT_EQUIP_CANNT_DECOMPOSE = -100 * MODULE_ID_BAG - 15, // 不是装备不能分解
+	BagError_BAG_EQUIP_CANNT_DECOMPOSE = -100 * MODULE_ID_BAG - 16, // 装备不能分解
+	BagError_BAG_EQUIP_CANNT_SPLIT = -100 * MODULE_ID_BAG - 17, // 装备不能拆分
+	BagError_EQUIP_POLISHED_BASE_ATTR_EMPTY_CANNT_REPLACE = -100 * MODULE_ID_BAG - 18, // 基础属性未洗炼，不能替换
+	BagError_EQUIP_GEM_SLOT_UNLOCKED = -100 * MODULE_ID_BAG - 19, // 宝石槽位已经解锁， 无需再次解锁
+	BagError_EQUIP_NOT_ENHANCE_CANNT_SWAP = -100 * MODULE_ID_BAG - 20, // 装备未强化，不能转移
+	BagError_EQUIP_INLAY_GEM_NOT_EXIST = -100 * MODULE_ID_BAG - 21, // 镶嵌的宝石不存在
+	BagError_EQUIP_INLAY_GEM_SLOT_LOCK = -100 * MODULE_ID_BAG - 22, // 宝石槽位未解锁， 不能镶嵌
+	BagError_EQUIP_INLAY_GEM_EQUIP_TYPE_WRONG = -100 * MODULE_ID_BAG - 23, // 宝石镶嵌的装备类型错误
+	BagError_EQUIP_SLOT_NOT_GEM = -100 * MODULE_ID_BAG - 24, // 槽位没有宝石
+	BagError_BAG_STORAGE_MONEY_NOT_ENOUGH = -100 * MODULE_ID_BAG - 25, // 仓库金钱不足，无法取出
+	BagError_BAG_BIND_CANNT_SELL = -100 * MODULE_ID_BAG - 26, // 绑定不能出售
+	BagError_EQUIP_PROF_WEAR_WRONG = -100 * MODULE_ID_BAG - 27, // 装备穿戴的职业不对
+	BagError_EQUIP_GEM_SLOT_EXIST_CANNT_INLAY = -100 * MODULE_ID_BAG - 28, // 宝石槽位已经镶嵌了，不能再次镶嵌
+	BagError_EQUIP_LV_NOT_ENOUGH_CANNT_INLAY_GEM = -100 * MODULE_ID_BAG - 29, // 装备等级不足，不能镶嵌宝石
+	BagError_TALISMAN_NOT_EQUIP_CANNT_OPER = -100 * MODULE_ID_BAG - 30, // 法宝未装备
+	BagError_TALISMAN_MAX_LEVEL = -100 * MODULE_ID_BAG - 31, // 法宝满级
+	BagError_RECYCLE_MONEY_NOT_ENOUGH_CANNT_BUY = -100 * MODULE_ID_BAG - 32, // 银两不足, 不能取回
+	BagError_BAG_CANNT_RECYCLE = -100 * MODULE_ID_BAG -33, //不能回收
+	BagError_USE_ITEM_LOAD = -100 * MODULE_ID_BAG - 34, // 使用道具读条
+	BagError_NOT_ALLOW_USE_DRUG = -100 * MODULE_ID_BAG - 35, // 不允许使用药物
+	BagError_MONEY_NOT_ENOUGH=-100*MODULE_ID_BAG-36,//总银两不足
+	BagError_SUIPIAN_NOT_ENOUGH=-100*MODULE_ID_BAG-37,//碎片数量不足
+	BagError_STAR_NUM_IS_FULL=-100*MODULE_ID_BAG-38,//法宝星级已满
+	BagError_GATHER_SPRITE_SKILL_IS_HAVE=-100*MODULE_ID_BAG-39,//聚灵技能已存在
+	BagError_UP_SKILL_NUM_NOT_ENOUGH=-100*MODULE_ID_BAG-40,//升级法宝技能材料不足
+	BagError_THE_TYPE_SKILL_IS_FULL=-100*MODULE_ID_BAG-41,//该类型聚灵技能已满
+	BagError_GATHER_SPRITE_SKILL_IS_FULL=-100*MODULE_ID_BAG-42,//聚灵技能已满
+	BagError_LOCK_SLOT_IS_NULL=-100*MODULE_ID_BAG-43, //锁定空槽位
+
+
+
+任务模块 [24]
+	TaskError_OK = 0,
+	TaskError_SYSTEM = -1,
+	TaskError_ARGS = -2,
+	TaskError_CONFIGERROR = -3,
+	TaskError_TASK_NOT_COMPLETE_CANNT_ACCEPT = -100 * MODULE_ID_TASK - 4, // 当前任务未完成, 不可以接受任务
+	TaskError_TASK_ACCEPT_CANNT_ACCEPT = -100 * MODULE_ID_TASK - 5, // 任务已经接受了, 不可以再次接受
+	TaskError_ALL_TASK_COMPLETE = -100 * MODULE_ID_TASK - 6, // 任务全部完成, 没有可接的任务
+	TaskError_NOT_COMPLETE_CANNT_SUBMIT = -100 * MODULE_ID_TASK - 7, // 任务未完成, 不能交
+	TaskError_CANNT_COMPLETE_TASK = -100 * MODULE_ID_TASK - 8, // 任务不能完成
+	TaskError_BAG_FULL_CANNT_ACCEPT = -100 * MODULE_ID_TASK - 9, // 背包已满, 不能获得任务道具, 所以不能接任务
+	TaskError_ROLE_LEVEL_NOT_ENOUGH_CANNT_ACCEPT = -100 * MODULE_ID_TASK - 10, // 人物等级足, 不能接受任务
+	TaskError_PROF_TASK_COM_COUNT_NOT_ENOUGH = -100 * MODULE_ID_TASK - 11, // 今日师门任务次数已全部使用
+	TaskError_PROF_TASK_STARTED  = -100 * MODULE_ID_TASK - 12, // 师门任务已经接受
+	TaskError_ONEDRAGON_NO_TEAM = -100 * MODULE_ID_TASK - 13, // 没有队伍
+	TaskError_ONEDRAGON_NOT_CAPATIN = -100 * MODULE_ID_TASK - 14, // 请等待队长操作
+	TaskError_ONEDRAGON_TEAM_MEMBER_NUM_NOT_ENOUGH = -100 * MODULE_ID_TASK - 15, // 队长人数不足
+	TaskError_ONEDRAGON_STARTED = -100 * MODULE_ID_TASK - 16, // 已经接取一条龙任务
+	TaskError_TASK_NOT_EXIST = -100 * MODULE_ID_TASK - 17, // 任务不存在
+	TaskError_ONEDRAGON_TASK_COM_COUNT_NOT_ENOUGH = -100 * MODULE_ID_TASK - 18, // 今日一条龙任务次数已全部使用
+	TaskError_GUILD_SPY_NOT_GUILD = -100 * MODULE_ID_TASK - 19, // 当前没有帮会，不能进行帮会刺探任务
+	TaskError_GUILD_SPY_NOT_ENOUGH_COUNT = -100 * MODULE_ID_TASK - 20, // 帮会刺探任务次数不足
+
+
+组队模块 [26]
+	TeamError_OK = 0,
+	TeamError_SYSTEM = -1,
+	TeamError_ARGS = -2,
+	TeamError_CONFIGERROR = -3,
+	TeamError_TEAM_EXIST_CANNT_CREATE = -100 * MODULE_ID_TEAM - 4, // 已在队伍中, 不可再次创建
+	TeamError_TEAM_NOT_EXIST = -100 * MODULE_ID_TEAM - 5, // 队伍不存在
+	TeamError_IS_NOT_CAPTAIN_CANNT_AGREE = -100 * MODULE_ID_TEAM - 6, // 不是队长, 不能处理同意申请入队
+	TeamError_FULL_MEMBER_COUNT = -100 * MODULE_ID_TEAM - 7, // 队伍满员
+	TeamError_TEAM_QUITED_CANNT_AGAIN = -100 * MODULE_ID_TEAM - 8, // 已经退出队伍了
+	TeamError_APPLY_PLAYER_TEAM_OTHERS = -100 * MODULE_ID_TEAM - 9, // 队长同意申请入队时, 对方已加入其它队伍
+	TeamError_CANNT_APPOINT_CAPTAIN_YOURSELF = -100 * MODULE_ID_TEAM - 10, // 不能任命自己为队长
+	TeamError_NOT_BE_CAPTAIN_PERMISSIONS_NOT_ENOUGH = -100 * MODULE_ID_TEAM - 11, // 不是队长，权限不足
+	TeamError_APPLYED_FOR_TEAM = -100 * MODULE_ID_TEAM - 12, // 已提交过申请
+	TeamError_MEMBER_NOT_EXIST = -100 * MODULE_ID_TEAM - 13, // 队员不存在
+	TeamError_IN_DUNGEON_CANNT_BREAKUP = -100 * MODULE_ID_TEAM - 14, // 当前场景无法解散队伍
+	TeamError_IN_THE_TEAM_CANNT_JOIN = -100 * MODULE_ID_TEAM - 15, // 已经加入其它队伍
+	TeamError_NO_TEAM_TARGET_CANNT_MATCH = -100 * MODULE_ID_TEAM - 16, // 队伍没有选择目标，不能进行匹配
+	TeamError_USER_NOT_FIND = -100 * MODULE_ID_TEAM - 17, // 玩家不在线
+	TeamError_THIEF_OPEN_CANNT_CREATE = -100 * MODULE_ID_TEAM - 18, // 正在进行江洋大盗, 不能创建队伍
+	TeamError_CANNT_KICK_SELF = -100 * MODULE_ID_TEAM - 19, // 不能踢自己
+
+
+成就模块 [2]
+	AchievementError_OK = 0,
+	AchievementError_SYSTEM = -1,
+	AchievementError_ARGS = -2,
+	AchievementError_CONFIGERROR = -3,
+	AchievementError_NOT_COMPLATE = -100 * MODULE_ID_ACHIEVEMENT - 4, // 成就未完成不能领奖
+	AchievementError_GETED_REWARD = -100 * MODULE_ID_ACHIEVEMENT - 5, // 成就已领过奖了
+
+
+
+基础属性 [13]
+	BaseAttrError_OK = 0,
+	BaseAttrError_SYSTEM=-1,
+	BaseAttrError_ARGS=-2,
+	BaseAttrError_CONFIGERROR= -3,							//配置错误
+	BaseAttrError_NOTHAVERANK= -100 * MODULE_ID_BASEATTR -4,//功勋不足
+	BaseAttrError_FULLRANK= -100 * MODULE_ID_BASEATTR -5,//功勋已经满级
+	BaseAttrError_GETREWARDOVER= -100 * MODULE_ID_BASEATTR -6,//已经领取了奖励
+	BaseAttrError_CURRENCY_NOT_ENOUGH = -100 * MODULE_ID_BASEATTR - 7,// 货币不足
+	BaseAttrError_EXP_NOT_ENOUGH_CANNT_LVUP = -100 * MODULE_ID_BASEATTR -8,// 经验不足， 无法升级
+	BaseAttrError_OFFLINE_CAN_SEE_EQUIP = -100 * MODULE_ID_BASEATTR -9, //玩家不在线, 不能查看装备
+	BaseAttrError_EQUIP_NOT_EXIST = -100 * MODULE_ID_BASEATTR -10, // 装备不存在
+
+
+
+技能模块 [29]
+	SkillError_OK = 0,
+	SkillError_SYSTEM = -1,
+	SkillError_ARGS = -2,
+	SkillError_CONFIGERROR = -3,
+	SkillError_SKILL_LEARNED = -100 * MODULE_ID_SKILL - 4, //技能已经学习
+	SkillError_ROLE_LEVEL_NOT_ENOUGH_CANNT_LEARN = -100 * MODULE_ID_SKILL - 5, //角色等级不足， 不能学习技能
+	SkillError_ITEM_NOT_ENOUGH_CANNT_LEARN = -100 * MODULE_ID_SKILL - 6, //技能书不足, 不能学习技能
+	SkillError_PRESKILL_NOT_LEARN = -100 * MODULE_ID_SKILL - 7, //前置技能未学习
+	SkillError_PRESKILL_LV_NOT_ENOUGH = -100 * MODULE_ID_SKILL - 8, //前置技能等级不足
+	SkillError_SKILL_NOT_LEARN_CANNT_LVUP = -100 * MODULE_ID_SKILL - 9, //技能未学习，不能升级
+	SkillError_ROLE_LEVEL_NOT_ENOUGH_CANNT_LVUP = -100 * MODULE_ID_SKILL - 10, //角色等级不足， 不能升级技能
+	SkillError_SKILL_MAX_LV_CANNT_LVUP = -100 * MODULE_ID_SKILL - 11, //技能满级，不能升级
+	SkillError_MONEY_NOT_ENOUGH_TO_LVUP = -100 * MODULE_ID_SKILL - 12, //金钱不足，不能升级
+	SkillError_EXP_NOT_ENOUGH_TO_LVUP = -100 * MODULE_ID_SKILL - 13, //经验不足，不能升级
+	SkillError_TALENT_SLOT_LOCK = -100 * MODULE_ID_SKILL - 14, // 天赋未开启
+	SkillError_MAX_TALENT_LV = -100 * MODULE_ID_SKILL - 15, // 天赋满级
+	SkillError_TALENT_POINT_NOT_ENOUGH = -100 * MODULE_ID_SKILL - 16, // 天赋点不足
+
+
+好友模块 [33]
+	FriendError_OK = 0,
+	FriendError_SYSTEM = -1,
+	FriendError_ARGS = -2,
+	FriendError_CONFIGERROR = -3,
+	FriendError_PLAYER_NOT_FIND = -100 * MODULE_ID_FRIEND - 4, // 玩家不存在
+	FriendError_PLAYER_OFFLINE = -100 * MODULE_ID_FRIEND - 5, // 玩家不在线
+	FriendError_IS_MY_FRIEND_CANNT_ADD = -100 * MODULE_ID_FRIEND - 6, // 已经是好友
+	FriendError_RECOMMEND_CDING = -100 * MODULE_ID_FRIEND - 7, // 提示操作太频繁，请稍等一会
+	FriendError_CANNT_ADD_SELF = -100 * MODULE_ID_FRIEND - 8, // 不可以增加自己
+
+
+
+帮会模块 [34]
+	GuildError_OK = 0,
+	GuildError_SYSTEM = -1,
+	GuildError_ARGS = -2,
+	GuildError_CONFIGERROR = -3,
+	GuildError_IN_THE_GUILD_CANNT_CREATE = -100 * MODULE_ID_GUILD - 4, // 已经在帮会中，不可以创建
+	GuildError_NOT_ENOUGH_MONEY_CANNT_CREATE = -100 * MODULE_ID_GUILD - 5, // 金钱不够，不可以创建
+	GuildError_IN_THE_GUILD_CANNT_APPLY = -100 * MODULE_ID_GUILD - 6, // 已经有帮会了，不可以申请其它帮会
+	GuildError_GUILD_NOT_EXIST = -100 * MODULE_ID_GUILD - 7, // 帮会不存在
+	GuildError_APPLYED_THE_GUILD = -100 * MODULE_ID_GUILD - 8, // 已经申请过了
+	GuildError_NOT_IN_THE_GUILD = -100 * MODULE_ID_GUILD - 9, // 当前没有帮会
+	GuildError_TEAM_MEMBER_NOT_EXIST = -100 * MODULE_ID_GUILD - 10, // 帮会成员不存在
+	GuildError_HE_IS_IN_THE_GUILD_CANNT_INVITE = -100 * MODULE_ID_GUILD - 11, // 对方已经加入其它帮派，不可以邀请
+	GuildError_YOU_IS_INT_THE_GUILD = -100 * MODULE_ID_GUILD - 12, // 你已经加入了一个帮会
+	GuildError_NONE_DEPUTYMAINFACT_CANNT_RESIGN = -100 * MODULE_ID_GUILD - 13, // 没有副帮主，帮主不能辞职
+	GuildError_DUTY_PEOPLE_CANNT_RESIGN = -100 * MODULE_ID_GUILD - 14, // 没有职位，不能辞职
+	GuildError_CANNT_QUICK_APPLY = -100 * MODULE_ID_GUILD - 15, // 当前无合适帮会，请手动申请加入
+	GuildError_EXIT_GUILD_CD = -100 * MODULE_ID_GUILD - 16, // 入帮时间CD中
+	GuildError_APPLY_MORE_THAN_MAX = -100 * MODULE_ID_GUILD - 17, // 帮会申请数量已满
+	GuildError_APPLYED_CANNT_APPLY = -100 * MODULE_ID_GUILD - 18, // 已经申请过了, 不可以再次申请
+	GuildError_BUILDING_LV_UP_ING = -100 * MODULE_ID_GUILD - 19, // 帮会建筑升级中, 现在不能升级
+	GuildError_FUNDS_NOT_ENOUGH_TO_LVUP = -100 * MODULE_ID_GUILD - 20, // 帮会资金不足， 不能升级建筑
+	GuildError_BUILDING_LVUP_LIMIT = -100 * MODULE_ID_GUILD - 21, // 建筑升级限制条件不满足
+	GuildError_GUILD_FULL_OF_MEMBER = -100 * MODULE_ID_GUILD - 22, // 帮会满员
+	GuildError_HE_JOIN_OTHER_GUILD = -100 * MODULE_ID_GUILD - 23, // 对方已经加入了其它帮会
+	GuildError_DO_NOT_HAVE_AUTHORITY = -100 * MODULE_ID_GUILD - 24, // 权限不足， 不能操作
+	GuildError_IS_NOT_PEOPLE_CANNT_KICK = -100 * MODULE_ID_GUILD - 25, // 对方不是帮众，不能请离帮会
+	GuildError_GUILD_NAME_EXIST_CANNT_USE = -100 * MODULE_ID_GUILD - 26, // 帮会重名，请修改后创建
+	GuildError_MAINFACT_APPOINT_DEPUTYMANINFACT = -100 * MODULE_ID_GUILD - 27, // 帮主只能任命副帮主为帮主
+	GuildError_EXIT_GUILD_CD_CANNT_APPLY = -100 * MODULE_ID_GUILD - 28, // 入帮时间CD内，无法申请其他帮会
+	GuildError_MAINFACT_CANNT_EXIT_GUILD  = -100 * MODULE_ID_GUILD - 29, // 帮主不能退出帮会
+	GuildError_GUILD_DUNGEON_CLOSE = -100 * MODULE_ID_GUILD - 30, // 帮会副本已经关闭不能进入
+	GuildError_GUILD_WAR_OPENED = -100 * MODULE_ID_GUILD - 31, // 帮会战已经开启, 不能再次开启
+	GuildError_GUILD_WAR_NOT_OPEN = -100 * MODULE_ID_GUILD - 32, // 帮会战未开启, 不能进入
+	GuildError_GUILD_MONEY_NOT_ENOUGH = -100 * MODULE_ID_GUILD - 33, // 金钱不足
+	GuildError_GUILD_NAME_EXIST = -100 * MODULE_ID_GUILD - 34, // 帮会重名
+	GuildError_GUILD_NAME_LEN_INVALID = -100 * MODULE_ID_GUILD - 35, // 帮会名字长度错误
+	GuildError_GUILD_ANNOUNCEMENT_LEN_INVALID = -100 * MODULE_ID_GUILD - 36, // 帮会公告文字长度错误
+	GuildError_GUILD_FULL_DUTY_CANNT_APPOINT = -100 * MODULE_ID_GUILD - 37, // 帮会职位已满, 不能任命
+
+
+
+聊天模块 [36]
+	ChatError_OK = 0,
+	ChatError_SYSTEM = -1,
+	ChatError_ARGS = -2,
+	ChatError_CONFIGERROR = -3,
+	ChatError_CHANNEL_CD = -100 * MODULE_ID_CHAT - 4, // 聊天说话CD中
+
+
+
+江洋大盗活动 [38]
+	ActivityPlayError_OK = 0,
+	ActivityPlayError_SYSTEM = -1,
+	ActivityPlayError_ARGS = -2,
+	ActivityPlayError_CONFIGERROR = -3,
+	ActivityPlayError_NO_TEAM = -100 * MODULE_ID_ACTIVITYPLAY - 4, // 没有队伍
+	ActivityPlayError_NOT_CAPTAIN = -100 * MODULE_ID_ACTIVITYPLAY - 5, // 不是队长
+	ActivityPlayError_TEAM_MEMBER_NUM_NOT_ENOUGH = -100 * MODULE_ID_ACTIVITYPLAY - 6, // 队伍人数不够
+	ActivityPlayError_NO_NPC = -100 * MODULE_ID_ACTIVITYPLAY - 7, // 没有Npc
+	ActivityPlayError_TEAM_MEMBER_NOT_IN_THE_NEAR = -100 * MODULE_ID_ACTIVITYPLAY - 8, // 队员不在范围内
+	ActivityPlayError_OPEN_MONSTER_FAILED = -100 * MODULE_ID_ACTIVITYPLAY - 9, // 江洋大盗开怪失败
+	ActivityPlayError_TEAM_OPEN_ONE_THIEF_CANNT_OPEN = -100 * MODULE_ID_ACTIVITYPLAY - 10, // 江洋大盗击杀后,才能开启下一个
+	ActivityPlayError_ENTER_SUBDUE_MONSTER_FAILED = -100 * MODULE_ID_ACTIVITYPLAY - 11, // 进入降妖徐魔副本失败
+	ActivityPlayError_WORLD_BOSS_NOT_EXIST = -100 * MODULE_ID_ACTIVITYPLAY - 12, // 世界Boss不存在
+	ActivityPlayError_WORLD_BOSS_TIME_ERROR = -100 * MODULE_ID_ACTIVITYPLAY - 13, // 不在活动时间内
+	ActivityPlayError_WORLD_BOSS_IS_DEAD = -100 * MODULE_ID_ACTIVITYPLAY - 14, // 世界Boss被击杀
+	ActivityPlayError_WORLD_BOSS_NOT_KILL_PRE = -100 * MODULE_ID_ACTIVITYPLAY - 15, // 未击杀前置Boss
+	ActivityPlayError_WORLD_BOSS_NOT_FOLLOW = -100 * MODULE_ID_ACTIVITYPLAY - 16, // 队员未跟随
+	ActivityPlayError_WORLD_BOSS_NO_REMAIN_TIMES = -100 * MODULE_ID_ACTIVITYPLAY - 17, // 没有挑战次数
+	ActivityPlayError_WORLD_BOSS_ALL_DEAD = -100 * MODULE_ID_ACTIVITYPLAY - 18, // 世界Boss全部被击杀
+
+
+
+帮会货运 [40]
+        TransportError_OK = 0,
+	TransportError_SYSTEM=-1,
+	TransportError_ARGS=-2,
+	TransportError_CONFIGERROR=-3,
+	TransportError_FILLFULL=-100*MODULE_ID_TRANSPORT-4,//货物填充满
+	TransportError_BAGERROR=-100*MODULE_ID_TRANSPORT-5,//背包错误
+        TransportError_TIMEERROR=-100*MODULE_ID_TRANSPORT-6,//活动时间错误
+	TransportError_ASKNUMBERERROR=-100*MODULE_ID_TRANSPORT-7,//寻求帮助次数不足
+	TransportError_HELPNUMBERERROE=-100*MODULE_ID_TRANSPORT-8,//帮助次数不足
+	TransportError_ASK_IS_CD_ING=-100*MODULE_ID_TRANSPORT-9,//请求cd
+	TransportError_LV_IS_ERROR=-100*MODULE_ID_TRANSPORT-10,//等级参数错误
+	TransportError_TIME_IS_ERROR=-100*MODULE_ID_TRANSPORT-11,//活动时间错误
+	TransportError_GUILD=-100*MODULE_ID_TRANSPORT-12,//玩家未加入帮会
+
+
+
+1VS1 [41]
+	ModuleOneVSOneError_LVBUUZU = -4100 - 4,//您的等级不足
+	ModuleOneVSOneError_LVBUUZU2 = -4100 - 5,//被攻击方等级不足
+	ModuleOneVSOneError_NUMSISERROR = -4100 - 6,//挑战次数不足了
+	ModuleOneVSOneError_TIMEISTOQULITY = -4100 - 7,//刷新排行榜的时间太快了
+	ModuleOneVSOneError_TIMEISLOCK = -4100 - 8,//打完后系统需要一段时间不允许挑战
+	ModuleOneVSOneError_JISUANZHONGLOCKS = -4100 - 9,//固定时间時間排名中 挑战暂时被鎖定
+	ModuleOneVSOneError_YIJINGTIAOZHANLEERROR = -4100 - 10,//您已經發起或被挑戰的時間鎖定種 不允許繼續操作
+	ModuleOneVSOneError_YIJINGKAISHILEERRROR = -4100 - 11,//您已經開始了挑戰
+	ModuleOneVSOneError_BEDUIFANGYIJINGTIAOZHANLEERROR = -4100 - 12,//對方已經發起或被挑戰的時間鎖定種 不允許繼續操作
+	ModuleOneVSOneError_BEDUIFANGYIJINGKAISHILEERRROR = -4100 - 13,//對方已經開始了挑戰
+	
+
+
+副本 [12]
+	DungeonError_NOT_TEAM_OR_NOT_ENOUGH_NUM = -1204, // 世途险恶，请3人以上组队再来领取任务吧！
+	DungeonError_NOT_FOLLOW = -1205, // 您的队友尚未处于跟随状态！
+	DungeonError_MUST_SAME_DUNGEON = -1206, // 您的队友尚未处于同一地图！
+	DungeonError_NOT_CAPATAIN = -1207, // 只有队长才可以申请进入！
+	DungeonError_NOT_ENOUGH_LEVEL = -1208, // 玩家等级不足，无法进入！
+	DungeonError_NOT_JUMP_MAIN_CITY = -1209, // 1VS1中 无法切换出主城！
+	DungeonError_CANT_OPEN_DUNGEON = -1210, // 不能开副本
+	DungeonError_CANT_ENTER_DUNGEON = -1211, // 不能进入副本
+	DungeonError_CANT_FOLLOW = -1212, // 队长所在区域无法到达
+	DungeonError_GUILD_DUNGEON_NOT_EXIST = -1213, // 帮会场景不存在
+
+
+
+
+邮件 [44]
+	MAILERROR_MAIL_NOT_EXIST = -100 * MODULE_ID_MAIL - 4,	// 邮件不存在
+	MAILERROR_MAIL_GET_ITEM = -100 * MODULE_ID_MAIL -5, // 附件已领取
+	MAILERROR_MAIL_EMPTY_ITEM = -100 * MODULE_ID_MAIL -6, // 没有附件
+	MAILERROR_MAIL_BAG_FULL = -100 * MODULE_ID_MAIL -7, // 背包空间不足，请先清理背包
+
+

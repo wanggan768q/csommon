@@ -1,0 +1,137 @@
+import "PublicStruct.proto";
+
+message  SkillRpcSyncDataAsk
+{
+
+}
+
+message  SkillRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  SkillRpcLearnAsk
+{
+	optional sint32 SkillId = 2[default=-1];
+
+}
+
+message  SkillRpcLearnReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 SkillId = 2[default=-1];
+
+}
+
+message  SkillRpcLvUpAsk
+{
+	optional sint32 SkillId = 1[default=-1];
+
+}
+
+message  SkillRpcLvUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 SkillId = 2[default=-1];
+
+}
+
+message  SkillRpcChangeShortcutAsk
+{
+	optional sint32 SkillId = 1[default=-1];
+	optional sint32 Pos = 2[default=-1];
+	optional sint32 Id = 3[default=-1];
+
+}
+
+message  SkillRpcChangeShortcutReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 SkillId = 2[default=-1];
+	optional sint32 Pos = 3[default=-1];
+	optional sint32 Id = 4[default=-1];
+
+}
+
+message  SkillRpcUseShortcutAsk
+{
+	optional sint32 Id = 1[default=-1];
+
+}
+
+message  SkillRpcUseShortcutReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 Id = 2[default=-1];
+
+}
+
+message  SkillRpcOneKeyLvUpAsk
+{
+	optional sint32 SkillId = 1[default=-1];
+
+}
+
+message  SkillRpcOneKeyLvUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 SkillId = 2[default=-1];
+
+}
+
+message  SkillRpcTalentChangeSkillAsk
+{
+	optional sint32 Index = 1[default=-1];
+	optional sint32 SkillId = 2[default=-1];
+
+}
+
+message  SkillRpcTalentChangeSkillReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  SkillRpcTalentResetAsk
+{
+
+}
+
+message  SkillRpcTalentResetReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  SkillRpcTalentLvObj
+{
+	optional sint32 Index = 1[default=0];
+	optional sint32 Level = 2[default=0];
+
+}
+
+message  SkillRpcTalentLvUpAsk
+{
+	repeated SkillRpcTalentLvObj Talent = 1;
+
+}
+
+message  SkillRpcTalentLvUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  SkillRpcLifeSkillUpAsk
+{
+	optional sint32 LifeSkillId = 1[default=-1];
+
+}
+
+message  SkillRpcLifeSkillUpReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+

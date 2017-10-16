@@ -1,0 +1,54 @@
+import "PublicStruct.proto";
+
+message  DungeonRpcEnterAsk
+{
+	optional sint32 DungeonId = 1[default=-1];
+	optional sint32 DungeonType = 3[default=-1];
+	optional sint32 BirthPoint = 4[default=-1];
+	optional sint32 FaceDir = 5[default=-1];
+	optional sint32 GuildId = 6[default=-1];
+
+}
+
+message  DungeonRpcEnterReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  DungeonRpcOpenNotify
+{
+	optional string DungeonKey = 1;
+	optional string Host = 2;
+	optional sint32 Port = 3[default=-1];
+	optional sint32 DungeonId = 9[default=-1];
+	optional sint32 DungeonType = 10[default=-1];
+	optional sint32 GuildId = 11[default=-1];
+
+}
+
+message  DungeonRpcTryEnterAsk
+{
+	optional sint32 DungeonId = 1[default=-1];
+	optional sint32 BirthPoint = 3[default=-1];
+	optional sint32 FaceDir = 4[default=-1];
+	optional sint32 GuildId = 5[default=-1];
+
+}
+
+message  DungeonRpcTryEnterReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 DungeonId = 2[default=-1];
+	optional sint32 BirthPoint = 3[default=-1];
+	optional sint32 FaceDir = 4[default=-1];
+	optional sint32 GuildId = 5[default=-1];
+
+}
+
+message  DungeonRpcTransferNotify
+{
+	optional sint32 DungeonId = 2[default=-1];
+
+}
+

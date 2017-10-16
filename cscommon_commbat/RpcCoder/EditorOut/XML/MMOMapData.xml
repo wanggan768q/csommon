@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<Root Module="MMOMapData" CName="45度MMO地图数据" MsgNumStart="21" SyncDataVersion="1" Comment="">
+    <Struct Name="BaseData" CName="基础数据" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="1">
+        <Field PreDefine="optional" FieldType="string" FieldId="1" Name="DataName" CName="地图文件名称" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="" Comment="" />
+    </Struct>
+    <Struct Name="SpawnInfo" CName="出生点" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="MDVector3" FieldId="4" Name="SpawnPos" CName="出生点的位置" ValueSet="" MinValue="6" MaxValue="128" Comment="出生点的位置" />
+        <Field PreDefine="optional" FieldType="MDVector3" FieldId="5" Name="SpawnRot" CName="出生后的朝向" ValueSet="" MinValue="6" MaxValue="128" Comment="出生后的朝向" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="SpawnIndex" CName="出生点编号" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="出生点编号" />
+    </Struct>
+    <Struct Name="MDVector3" CName="MDVector3" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="3">
+        <Field PreDefine="optional" FieldType="float" FieldId="1" Name="X" CName="X" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="X" />
+        <Field PreDefine="optional" FieldType="float" FieldId="2" Name="Y" CName="Y" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="Y" />
+        <Field PreDefine="optional" FieldType="float" FieldId="3" Name="Z" CName="Z" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="Z" />
+    </Struct>
+    <Struct Name="PortalInfo" CName="传送门信息" ProtoType="SyncProto" Comment="" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="7">
+        <Field PreDefine="optional" FieldType="MDVector3" FieldId="1" Name="SourcePos" CName="起点位置" ValueSet="" MinValue="6" MaxValue="128" Comment="起点位置" />
+        <Field PreDefine="optional" FieldType="MDVector3" FieldId="2" Name="TargetPos" CName="目标的位置" ValueSet="" MinValue="6" MaxValue="128" Comment="目标的位置" />
+        <Field PreDefine="optional" FieldType="MDVector3" FieldId="3" Name="TargetRot" CName="传送后的" ValueSet="" MinValue="6" MaxValue="128" Comment="传送后的" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="TargetDungeonID" CName="目标场景ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="目标场景ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="TargetSpawnIndex" CName="目标场景的出生点索引" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="目标场景的出生点索引" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="PortalType" CName="传送类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="传送类型&#xD;&#xA;0：同场景传送&#xD;&#xA;1：跨场景传送" />
+    </Struct>
+    <Struct Name="NodeInfo" CName="节点信息" ProtoType="SyncProto" Comment="节点信息" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="22">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="RelevanceArea" CName="关联坑点区域" ValueSet="" MinValue="6" MaxValue="128" DefaultValue="0" Comment="关联坑点区域" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="PassKillEnemyID" CName="敌人ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="敌人ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="PassKillEnemyNum" CName="杀掉敌人数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="杀掉敌人数量" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="13" Name="PassTime" CName="通过节点的时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="通过节点的时间" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="16" Name="PassUseItemID" CName="使用道具的ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="使用道具的ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="17" Name="PassUseItemNum" CName="使用道具的数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="使用道具的数量" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="18" Name="PassCollectItemID" CName="收集道具的ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="收集道具的ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="19" Name="PassCollectItemNum" CName="收集道具的数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="收集道具的数量" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="20" Name="PassConditionType" CName="通过条件类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="通过条件类型&#xD;&#xA;0：杀怪条件 id 数量&#xD;&#xA;1：时间条件&#xD;&#xA;2：收集道具条件 id 数量&#xD;&#xA;3：使用道具条件 id 数量&#xD;&#xA;" />
+        <Field PreDefine="optional" FieldType="MDVector3" FieldId="21" Name="NodePos1" CName="节点位置1" ValueSet="" MinValue="6" MaxValue="128" Comment="节点位置1" />
+        <Field PreDefine="optional" FieldType="MDVector3" FieldId="22" Name="NodePos2" CName="节点位置2" ValueSet="" MinValue="6" MaxValue="128" Comment="节点位置2" />
+    </Struct>
+    <Struct Name="PointInfo" CName="坑点信息" ProtoType="SyncProto" Comment="坑点信息" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="14">
+        <Field PreDefine="optional" FieldType="sint32" FieldId="1" Name="SpriteType" CName="精灵类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="精灵类型&#xD;&#xA;0：Monster&#xD;&#xA;1：NPC&#xD;&#xA;2：Gather&#xD;&#xA;3：Trap" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="2" Name="SpriteID" CName="精灵ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="精灵ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="3" Name="Area" CName="隶属区域" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="隶属区域" />
+        <Field PreDefine="optional" FieldType="MDVector3" FieldId="4" Name="PointPos" CName="坑点位置" ValueSet="" MinValue="6" MaxValue="128" Comment="坑点位置" />
+        <Field PreDefine="optional" FieldType="MDVector3" FieldId="5" Name="PointRot" CName="坑点朝向" ValueSet="" MinValue="6" MaxValue="128" Comment="坑点朝向" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="RefreshType" CName="刷新类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="刷新类型&#xD;&#xA;0：时间条件 副本开启的时间&#xD;&#xA;1：杀敌人条件 id 数量" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="7" Name="UnlockTime" CName="开启时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="开启时间" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="8" Name="EnemyID" CName="杀死敌人的ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="杀死敌人的ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="9" Name="EnemyNum" CName="杀死敌人个数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="杀死敌人个数" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="10" Name="RebirthType" CName="重生类型" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="重生类型&#xD;&#xA;0：杀敌人条件 id 数量&#xD;&#xA;1：怪物死亡后条件 死亡后的时间" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="11" Name="RebirthEnemyID" CName="重生的敌人ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="重生的敌人ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="12" Name="RebirthEnemyNum" CName="重生的敌人数量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="重生的敌人数量" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="13" Name="AfterDeathTime" CName="怪物死亡后的时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="怪物死亡后的时间" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="14" Name="RebirthNum" CName="重生次数" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="-1" Comment="重生次数" />
+    </Struct>
+    <Struct Name="Info" CName="信息" ProtoType="SyncProto" Comment="信息" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="7">
+        <Field PreDefine="optional" FieldType="BaseData" FieldId="1" Name="BaseInfo" CName="基础信息" ValueSet="" MinValue="6" MaxValue="128" Comment="基础信息" />
+        <Field PreDefine="repeated" FieldType="SpawnInfo" FieldId="2" Name="SpawnArr" CName="出生点信息" ValueSet="" MinValue="6" MaxValue="128" Comment="出生点信息" />
+        <Field PreDefine="repeated" FieldType="PortalInfo" FieldId="3" Name="PortalArr" CName="传送信息" ValueSet="" MinValue="6" MaxValue="128" Comment="传送信息" />
+        <Field PreDefine="optional" FieldType="DefeatInfo" FieldId="5" Name="DefeatInfo" CName="失败条件" ValueSet="" MinValue="6" MaxValue="128" Comment="失败条件" />
+        <Field PreDefine="repeated" FieldType="NodeInfo" FieldId="6" Name="NodeArr" CName="节点信息" ValueSet="" MinValue="6" MaxValue="128" Comment="节点信息" />
+        <Field PreDefine="repeated" FieldType="PointInfo" FieldId="7" Name="PointArr" CName="坑点信息" ValueSet="" MinValue="6" MaxValue="128" Comment="坑点信息" />
+    </Struct>
+    <Struct Name="DefeatInfo" CName="失败信息" ProtoType="SyncProto" Comment="失败信息" DataType="ItemData" SaveToDB="False" SyncToClient="False" MaxFieldId="6">
+        <Field PreDefine="optional" FieldType="bool" FieldId="1" Name="DefeatConditionSpared" CName="所有角色死亡" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="所有角色死亡" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="2" Name="DefeatConditionTimeOver" CName="失败条件到时" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="失败条件到时" />
+        <Field PreDefine="optional" FieldType="bool" FieldId="3" Name="DefeatConditionHP" CName="失败条件血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="false" Comment="失败条件血量" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="4" Name="DefeatTime" CName="失败条件时间" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="失败条件时间" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="5" Name="DefeatID" CName="失败条件ID" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="失败条件ID" />
+        <Field PreDefine="optional" FieldType="sint32" FieldId="6" Name="DefeatHP" CName="失败条件血量" ValueSet="" MinValue="-1" MaxValue="10000000" DefaultValue="0" Comment="失败条件血量" />
+    </Struct>
+    <Struct Name="Useless" CName="无用" ProtoType="SyncProto" Comment="无用" DataType="UserData" SaveToDB="True" SyncToClient="True" MaxFieldId="0" />
+</Root>

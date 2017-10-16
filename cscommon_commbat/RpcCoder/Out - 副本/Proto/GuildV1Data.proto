@@ -1,0 +1,8 @@
+import "PublicStruct.proto";
+
+//帮会数据
+message  GuildGuildListV1
+{
+	optional GuildInfoObj GuildData = 1;	//帮会数据
+}
+

@@ -1,0 +1,113 @@
+import "PublicStruct.proto";
+
+message  TaskRpcSyncDataAsk
+{
+
+}
+
+message  TaskRpcSyncDataReply
+{
+	optional sint32 Result = 1[default=-9999];
+
+}
+
+message  TaskRpcCompleteTaskAsk
+{
+	optional sint32 TaskId = 1[default=-1];
+	optional sint32 Target = 2[default=-1];
+
+}
+
+message  TaskRpcCompleteTaskReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TaskId = 2[default=-1];
+	optional sint32 Target = 3[default=-1];
+
+}
+
+message  TaskRpcSubmitTaskAsk
+{
+	optional sint32 TaskId = 1[default=-1];
+
+}
+
+message  TaskRpcSubmitTaskReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TaskId = 2[default=-1];
+	optional sint32 NextTaskId = 3[default=-1];
+
+}
+
+message  TaskRpcUpdateTaskNotify
+{
+	optional sint32 TaskId = 1[default=-1];
+	optional sint32 TaskState = 2[default=-1];
+	repeated sint32 TaskTargetCount = 3;
+
+}
+
+message  TaskRpcAcceptTaskAsk
+{
+	optional sint32 TaskId = 1[default=-1];
+
+}
+
+message  TaskRpcAcceptTaskReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TaskId = 2[default=-1];
+
+}
+
+message  TaskRpcStartProfTaskAsk
+{
+
+}
+
+message  TaskRpcStartProfTaskReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TaskId = 2[default=-1];
+
+}
+
+message  TaskRpcStartOneDragonAsk
+{
+
+}
+
+message  TaskRpcStartOneDragonReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TaskId = 2[default=-1];
+
+}
+
+message  TaskRpcAddTaskNotify
+{
+	optional sint32 TaskId = 1[default=-1];
+	optional sint32 TaskState = 2[default=-1];
+
+}
+
+message  TaskRpcDelTaskNotify
+{
+	optional sint32 TaskId = 1[default=-1];
+	optional sint32 TaskState = 2[default=-1];
+
+}
+
+message  TaskRpcStartGuildSpyAsk
+{
+
+}
+
+message  TaskRpcStartGuildSpyReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 TaskId = 2[default=-1];
+
+}
+

@@ -1,0 +1,541 @@
+import "PublicStruct.proto";
+
+message  FightRpcReadyAsk
+{
+
+}
+
+message  FightRpcReadyReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 Tick = 2[default=-1];
+	optional sint32 RandNum = 3[default=-1];
+	optional sint32 IdHelper = 4[default=-1];
+	repeated bytes ActionArr = 5;
+
+}
+
+message  FightRpcActionNotify
+{
+	optional bytes Data = 1;
+	optional sint32 Frame = 2[default=-1];
+
+}
+
+message  FightRpcResultNotify
+{
+	optional sint32 Result = 1[default=-1];
+	optional sint32 DengeonId = 2[default=-1];
+	optional sint32 Star = 4[default=-1];
+	optional sint32 FightTime = 5[default=-1];
+	repeated FightPrizeInfo PrizeList = 6;
+	repeated FightKillInfo KillList = 7;
+	optional sint32 FirstStarLight = 8[default=-1];
+	optional sint32 SecondStarLight = 9[default=-1];
+	optional sint32 ThirdStarLight = 10[default=-1];
+
+}
+
+message  FightRpcEnterAsk
+{
+	optional sint64 UserId = 1[default=-1];
+	optional string DungeonKey = 2;
+	optional string SessionKey = 3;
+
+}
+
+message  FightRpcEnterReply
+{
+	optional sint32 Result = 1[default=-9999];
+	optional sint32 Tick = 2[default=-1];
+	optional sint32 RandNum = 3[default=-1];
+	optional sint32 IdHelper = 4[default=-1];
+	repeated bytes ActionArr = 5;
+
+}
+
+message  FightPrizeInfo
+{
+	optional sint32 Id = 1[default=-1];
+	optional sint32 Count = 2[default=-1];
+
+}
+
+message  FightKillInfo
+{
+	optional sint32 Id = 1[default=-1];
+	optional sint32 Count = 2[default=-1];
+
+}
+
+message  FightRpcStartNotify
+{
+
+}
+
+message  FightUseSkillAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional sint32 SkillId = 2[default=-1];
+	optional bytes PosInfo = 3;
+	optional sint32 TargetObjId = 4[default=-1];
+	optional bytes TargetPos = 5;
+	optional sint32 Type = 6[default=0];
+	repeated float V3Pos = 7;
+	optional sint32 Time = 8[default=-1];
+
+}
+
+message  FightBuffAction
+{
+	optional sint32 ObjId = 2[default=-1];
+	optional sint32 AttackerId = 3[default=-1];
+	optional sint32 OpType = 4[default=-1];
+	optional sint32 BuffId = 5[default=-1];
+	optional sint32 RemainTime = 7[default=-1];
+	optional sint32 BuffLv = 8[default=-1];
+
+}
+
+message  FightCharHitAction
+{
+	optional sint32 ObjId = 2[default=-1];
+	optional sint32 SkillId = 3[default=-1];
+	repeated FightHitTargetInfo TargetList = 7;
+	optional sint32 Seq = 8[default=-1];
+	optional bytes PosInfo = 11;
+	optional sint32 BackDir = 25[default=0];
+	optional sint32 SegmentIndex = 30[default=-1];
+	optional sint32 AttackSegment = 31[default=-1];
+	optional bool IsHitGround = 32[default=false];
+
+}
+
+message  FightOfflineAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional bool IsOffline = 2[default=false];
+	optional bool IsAIDelegate = 3[default=false];
+
+}
+
+message  FightStateAction
+{
+	optional sint32 Type = 1[default=-1];
+	optional sint32 ObjId = 2[default=-1];
+	optional bytes PosInfo = 3;
+	optional bytes TargetPos = 4;
+	optional sint32 IntPara = 5[default=-1];
+	optional sint32 LadderObjId = 6[default=-1];
+
+}
+
+message  FightCharDeadAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional bytes PosInfo = 2;
+
+}
+
+message  FightCharReviveAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional bytes PosInfo = 2;
+	optional sint32 CurHp = 3[default=0];
+	optional sint32 Type = 4[default=-1];
+	optional sint32 Time = 5[default=-1];
+	optional sint32 ManualRevive = 6[default=0];
+	optional sint32 RemainTimes = 7[default=-1];
+	optional sint32 NeedMoney = 8[default=-1];
+	optional sint32 MaxHP = 10[default=0];
+	optional sint32 TotalTimes = 11[default=-1];
+
+}
+
+message  FightHitTargetInfo
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional bytes PosInfo = 2;
+	optional sint32 Flag = 3[default=0];
+	optional sint32 EnemyIndex = 5[default=-1];
+
+}
+
+message  FightComboSkillAction
+{
+	optional sint32 ObjId = 2[default=-1];
+	optional sint32 SkillId = 3[default=-1];
+	optional sint32 Flag = 4[default=-1];
+
+}
+
+message  FightEndSkillAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional sint32 SkillId = 2[default=-1];
+	optional bytes PosInfo = 3;
+	optional sint32 ComboSkillId = 4[default=-1];
+
+}
+
+message  FightCityAction
+{
+	optional sint32 Type = 1[default=-1];
+	optional sint32 ObjId = 2[default=-1];
+	optional bytes PosInfo = 3;
+	optional bytes TargetPos = 4;
+	optional sint32 IntPara = 5[default=-1];
+
+}
+
+message  FightSnipeAction
+{
+	optional sint32 Type = 1[default=-1];
+	optional sint32 ObjId = 2[default=-1];
+	optional bytes TargetPos = 3;
+	optional sint32 CampId = 4[default=-1];
+
+}
+
+message  FightHurtAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional sint32 SkillId = 2[default=-1];
+	optional bool AttackBack = 3[default=false];
+	optional bool AttackAir = 6[default=false];
+	optional sint32 BackDir = 15[default=0];
+	optional sint32 TargetObjId = 16[default=-1];
+	optional sint32 OwnHP = 17[default=-1];
+	optional sint32 TargetHP = 18[default=-1];
+	optional sint32 OwnHPChange = 19[default=-1];
+	optional sint32 TargetHPChange = 20[default=-1];
+	optional bool IsCrit = 23[default=false];
+	optional sint32 TotalDamage = 24[default=-1];
+	optional sint32 SegmentIndex = 30[default=-1];
+	optional sint32 HurtType = 31[default=-1];
+	optional sint32 AttackSegment = 32[default=-1];
+	optional bool IsHitGround = 33[default=false];
+	optional sint32 TargetMaxHP = 34[default=-1];
+	optional sint32 EnemyIndex = 35[default=-1];
+
+}
+
+message  FightDodgeAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional sint32 SkillId = 2[default=-1];
+	optional sint32 AttackerObjId = 3[default=-1];
+	optional sint32 Type = 4[default=1];
+
+}
+
+message  FightRemoveObjAction
+{
+	optional sint32 ObjId = 1[default=-1];
+
+}
+
+message  FightStormBaseAction
+{
+	optional sint32 Type = 1[default=-1];
+	optional sint32 Mark = 2[default=-1];
+	optional sint32 CampId = 3[default=-1];
+	optional sint32 ObjId = 4[default=-1];
+	optional sint32 ID = 5[default=-1];
+	optional string Name = 6;
+
+}
+
+message  FightStormResAction
+{
+	optional sint32 BaseId = 1[default=-1];
+	optional sint32 CampId = 2[default=-1];
+	optional sint32 UpdateNum = 3[default=-1];
+	optional sint32 TotalNum = 4[default=-1];
+
+}
+
+message  FightStormFlagAction
+{
+	optional sint32 Type = 1[default=1];
+	optional sint32 Time = 2[default=-1];
+	optional sint32 FlagObjId = 3[default=-1];
+	optional sint32 ObjId1 = 4[default=-1];
+	optional sint32 ObjId2 = 5[default=-1];
+	optional sint32 Result = 6[default=-1];
+
+}
+
+message  FightStormCampAction
+{
+	repeated sint32 ObjArr = 1;
+	optional sint32 CampId = 2[default=-1];
+	optional sint32 TotalNum = 3[default=0];
+	optional sint32 Color = 4[default=-1];
+	optional sint32 Type = 5[default=-1];
+
+}
+
+message  FightStormResultAction
+{
+	repeated FightStormCampInfo CampArr = 1;
+	optional bool IsSvrSend = 3[default=false];
+
+}
+
+message  FightStormCampInfo
+{
+	repeated FightStormPlayerInfo PlayerArr = 1;
+	optional sint32 CampId = 2[default=-1];
+	optional sint32 TotalNum = 3[default=-1];
+
+}
+
+message  FightStormPlayerInfo
+{
+	optional sint32 KilledNum = 1[default=0];
+	optional sint32 DeadTimes = 2[default=0];
+	optional string Name = 4;
+	optional sint32 FlagTimes = 5[default=0];
+	optional sint32 Prof = 6[default=-1];
+	optional sint64 OutputDamage = 7[default=-1];
+	optional sint64 EndureDamage = 8[default=-1];
+	optional sint64 TreatDamage = 9[default=-1];
+	optional sint32 ObjId = 10[default=-1];
+
+}
+
+message  FightCreateAction
+{
+	optional sint64 UserId = 1[default=-1];
+	optional sint32 ConfigId = 2[default=-1];
+	optional sint32 ObjId = 3[default=-1];
+	optional bytes PosInfo = 4;
+	optional sint32 ObjType = 5[default=-1];
+	optional sint32 CampId = 6[default=-1];
+	optional bytes PosInfo2 = 7;
+	repeated sint32 IntParaList = 8;
+	repeated float FloatParaList = 9;
+	optional sint32 CurState = 10[default=-1];
+	optional sint32 CurHp = 11[default=-1];
+	optional string Name = 12;
+	repeated EquipSkillBuff2 EquipBuffArr = 13;
+	repeated EquipSkillBuff2 EquipSkillArr = 14;
+	repeated KeyValue2 AttrArr = 15;
+	optional sint32 Level = 16[default=-1];
+	optional sint32 TableType = 17[default=-1];
+	optional bool IsShowEffect = 18[default=false];
+
+}
+
+message  FightQuickFinishAction
+{
+	optional sint32 Type = 1[default=0];
+
+}
+
+message  FightFinishLevelAction
+{
+	optional sint32 Result = 1[default=-1];
+	optional sint32 Type = 2[default=2];
+	optional sint32 WallObjId = 3[default=-1];
+
+}
+
+message  FightTowerLockAction
+{
+	optional sint32 TargetObjId = 1[default=-1];
+	optional sint32 ObjId = 2[default=-1];
+	optional sint32 Type = 3[default=0];
+
+}
+
+message  FightStormStartAction
+{
+	optional sint32 Type = 1[default=-1];
+	optional sint32 Time = 2[default=-1];
+
+}
+
+message  FightEscapeStartAction
+{
+	optional sint32 Type = 1[default=-1];
+	optional sint32 Time = 2[default=-1];
+
+}
+
+message  FightEscapeResultAction
+{
+	optional sint32 Result = 1[default=-1];
+
+}
+
+message  FightGMAddHpAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional sint32 AddNum = 2[default=-1];
+
+}
+
+message  FightTRandSkillAction
+{
+
+}
+
+message  FightGuildDBeginAction
+{
+	optional sint32 Type = 1[default=-1];
+	optional sint32 Time = 2[default=-1];
+
+}
+
+message  FightGuildDEndAction
+{
+	optional sint32 Time = 1[default=-1];
+
+}
+
+message  FightTransferAction
+{
+	optional sint32 DungeonId = 1[default=-1];
+	optional sint32 DungeonType = 2[default=-1];
+	optional sint32 BirthPoint = 3[default=-1];
+	optional sint32 FaceDir = 4[default=0];
+
+}
+
+message  FightHeroFightInfoAction
+{
+	repeated HeroFightInfo HeroInfoArr = 1;
+	optional sint32 FunctionId = 2[default=-1];
+	optional sint32 MyCampId = 3[default=-1];
+
+}
+
+message  FightGuildFightBeginAction
+{
+	optional sint32 Type = 1[default=-1];
+	optional sint32 Time = 2[default=-1];
+
+}
+
+message  FightGuildFightEndAction
+{
+	optional sint32 Time = 1[default=-1];
+	optional sint32 VictoryCampId = 2[default=-1];
+
+}
+
+message  FightGuildFightHpAction
+{
+	optional sint32 CampId = 1[default=-1];
+	optional sint32 MaxHp = 2[default=0];
+	optional sint32 CurHp = 3[default=0];
+
+}
+
+message  FightEffectTranslateAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional sint32 ObjType = 2[default=-1];
+	optional sint32 TargetObjId = 3[default=-1];
+	optional bytes TargetPos = 4;
+	optional sint32 Angle = 5[default=-1];
+	optional sint32 Speed = 6[default=-1];
+	optional sint32 Distance = 8[default=-1];
+	optional bytes PosInfo = 9;
+	optional sint32 Status = 10[default=0];
+	optional sint32 SkillId = 11[default=-1];
+	optional sint32 SegementIndex = 12[default=-1];
+	optional string SpriteName = 13;
+	optional sint32 BulletType = 14[default=-1];
+	optional bool IsIrregularityEffect = 15[default=false];
+	optional sint32 TranslateType = 17[default=0];
+	optional float Time = 18[default=-1];
+
+}
+
+message  FightCollectAction
+{
+	optional sint32 Status = 1[default=1];
+	optional sint32 Player_ObjId = 2[default=-1];
+	optional sint32 Collection_ObjId = 3[default=-1];
+
+}
+
+message  FightCollectionShowEffectAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional bool IsShowEffect = 2[default=false];
+
+}
+
+message  FightAutoFightAction
+{
+	optional sint32 Type = 1[default=0];
+	optional sint32 ObjId = 2[default=-1];
+
+}
+
+message  FightUseItemAction
+{
+	optional sint32 TemplateId = 1[default=-1];
+	optional sint32 Status = 2[default=1];
+	optional sint32 Player_ObjId = 3[default=-1];
+
+}
+
+message  FightStormKillEffectAction
+{
+	optional sint32 ObjId = 1[default=-1];
+	optional sint32 Num = 2[default=-1];
+
+}
+
+message  FightOneVSOneStartAction
+{
+	optional sint32 Type = 1[default=-1];
+	optional sint32 Time = 2[default=-1];
+
+}
+
+message  FightOneVSOneResultAction
+{
+	optional sint32 Result = 1[default=-1];
+
+}
+
+message  FightSightAction
+{
+	repeated bytes ActionArr = 2;
+
+}
+
+message  FightEventTriggerAction
+{
+	optional sint32 EventId = 1[default=-1];
+
+}
+
+message  FightQuitAction
+{
+	optional sint32 Type = 1[default=0];
+
+}
+
+message  FightProductAction
+{
+	optional sint32 Status = 1[default=-1];
+	optional sint32 LifeSkillId = 3[default=-1];
+	optional sint32 Player_ObjId = 5[default=-1];
+	optional sint32 ProductionId = 9[default=-1];
+
+}
+
+message  FightStartEndAction
+{
+	optional sint32 Type = 1[default=0];
+	optional sint32 Time = 2[default=0];
+
+}
+

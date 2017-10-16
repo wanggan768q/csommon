@@ -1,0 +1,11 @@
+import "PublicStruct.proto";
+
+//活动数据
+message  ActivityPlayActivityDataV1
+{
+	repeated ActivityNpcData ThiefData = 1;	//江洋大盗数据
+	repeated ActivityNpcData SubdueMonsterData = 2;	//降妖除魔数据
+	repeated WorldBossObj WorldBossData = 3;	//世界Boss数据
+	repeated WorldBossRankObj WorldBossRank = 4;	//世界Boss排名
+}
+

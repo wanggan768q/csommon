@@ -1,0 +1,20 @@
+import "PublicStruct.proto";
+
+message  ActivityScheduleActiveDateV1
+{
+	repeated ActivityScheduleActiveValueV1 Value = 1;
+	optional sint32 Time = 2[default=-1];
+
+}
+
+message  ActivityScheduleActiveValueV1
+{
+	optional sint32 ID = 1[default=0];
+	optional sint32 Num = 2[default=0];
+	optional sint32 Vitality = 3[default=0];
+	optional sint32 StartTime = 4[default=-1];
+	optional sint32 FinishTime = 5[default=-1];
+	optional sint32 ActivityMaxNum = 6[default=-1];
+
+}
+

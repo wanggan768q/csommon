@@ -1,0 +1,110 @@
+EquipmentRpcSyncDataAsk↑ 同步装备数据请求
+
+EquipmentRpcSyncDataReply↓ 同步装备数据回应
+	Result:int32 = -9999	;返回结果
+
+EquipmentRpcWearAsk↑ 穿戴装备请求
+	EquipID:string	;物品id
+	Pos:int32 = -1	;位置
+
+EquipmentRpcWearReply↓ 穿戴装备回应
+	Result:int32 = -9999	;返回结果
+	EquipID:string	;物品id
+	Pos:int32 = -1	;位置
+
+EquipmentRpcEnhanceAsk↑ 强化请求
+	Pos:int32 = -1	;位置
+	EquipID:string	;物品id
+	Type:int32 = -1	;类型
+
+EquipmentRpcEnhanceReply↓ 强化回应
+	Result:int32 = -9999	;返回结果
+	Pos:int32 = -1	;位置
+	EquipID:string	;物品id
+
+EquipmentRpcUpgradeStarAsk↑ 装备升星请求
+	Pos:int32 = -1	;位置
+	EquipID:string	;物品id
+	Type:int32 = -1	;类型
+	DiamondProtect:int32 = -1	;是否钻石保底
+
+EquipmentRpcUpgradeStarReply↓ 装备升星回应
+	Result:int32 = -9999	;返回结果
+	Pos:int32 = -1	;位置
+	EquipID:string	;物品id
+
+EquipmentRpcEquipEvolveAsk↑ 装备净化请求
+	Pos:int32 = -1	;位置
+	EquipID:string	;物品id
+
+EquipmentRpcEquipEvolveReply↓ 装备净化回应
+	Result:int32 = -9999	;返回结果
+	Pos:int32 = -1	;位置
+	EquipID:string	;物品id
+
+EquipmentEquipData
+	EquipArray:EquipInfo*	;装备数组
+	[EquipInfo]
+		EquipID:string	;程序生成的装备唯一id
+		TemplateID:int32 = -1	;配置文件中的id
+		EnhanceLv:int32 = 0	;强化等级
+		Star:int32 = 0	;星级
+		Pos:int32 = -1	;位置
+		StarLv:int32 = 0	;星阶
+		EnhanceBreakLv:int32 = 0	;强化突破等级
+		EvolveLv:int32 = 1	;进化等级
+		EnhanceResult:int32 = 0	;强化结果
+	WearEquip:EquipInfo*	;装备穿着
+	[EquipInfo]
+		EquipID:string	;程序生成的装备唯一id
+		TemplateID:int32 = -1	;配置文件中的id
+		EnhanceLv:int32 = 0	;强化等级
+		Star:int32 = 0	;星级
+		Pos:int32 = -1	;位置
+		StarLv:int32 = 0	;星阶
+		EnhanceBreakLv:int32 = 0	;强化突破等级
+		EvolveLv:int32 = 1	;进化等级
+		EnhanceResult:int32 = 0	;强化结果
+	EnhanceRank:int32 = 0	;共鸣强化等阶
+	StarRank:int32 = 0	;共鸣星阶
+
+EquipmentEquipInfo
+	EquipID:string	;程序生成的装备唯一id
+	TemplateID:int32 = -1	;配置文件中的id
+	EnhanceLv:int32 = 0	;强化等级
+	Star:int32 = 0	;星级
+	Pos:int32 = -1	;位置
+	StarLv:int32 = 0	;星阶
+	EnhanceBreakLv:int32 = 0	;强化突破等级
+	EvolveLv:int32 = 1	;进化等级
+	EnhanceResult:int32 = 0	;强化结果
+
+EquipmentRpcDecomposeAsk↑ 分解请求
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;数量
+	EquipID:string	;物品id
+
+EquipmentRpcDecomposeReply↓ 分解回应
+	Result:int32 = -9999	;返回结果
+	Pos:int32 = -1	;位置
+	Num:int32 = -1	;数量
+	EquipID:string	;物品id
+
+EquipmentRpcEnhanceBreakAsk↑ 强化突破请求
+	Pos:int32 = -1	;位置
+	EquipID:string	;物品id
+
+EquipmentRpcEnhanceBreakReply↓ 强化突破回应
+	Result:int32 = -9999	;返回结果
+	EquipID:string	;物品id
+	Pos:int32 = -1	;位置
+
+EquipmentRpcStarBreakAsk↑ 星级突破请求
+	Pos:int32 = -1	;位置
+	EquipID:string	;物品id
+
+EquipmentRpcStarBreakReply↓ 星级突破回应
+	Result:int32 = -9999	;返回结果
+	Pos:int32 = -1	;位置
+	EquipID:string	;物品id
+
