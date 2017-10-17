@@ -368,6 +368,7 @@ class XlsFile(object):
             val = '%s'%strArray
 
         elif self.colType[c] == 'LI':
+            val = str(val)
             if isinstance(val, unicode):
                 val = val.encode('utf-8')
             valArray = val.split('|')
@@ -376,7 +377,7 @@ class XlsFile(object):
             for i in range(0,valArraySize):
                 if valArray[i].find('.') != -1:
                      log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
-                strArray += valArray[i]
+                strArray += "%d" % int(round(float(valArray[i])))
                 if i < valArraySize - 1:
                     strArray += ","
             strArray += "]"
@@ -536,6 +537,7 @@ class XlsFile(object):
         
         outfile.write( "[\r\n" )
         
+
         for r in range(self.frows):
             if r < 5:
                 continue
