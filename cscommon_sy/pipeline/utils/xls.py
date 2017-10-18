@@ -360,6 +360,8 @@ class XlsFile(object):
             valArraySize = len(valArray)
             strArray = "["
             for i in range(0,valArraySize):
+                if valArray[i] == '':
+                    continue
                 strArray += "\"" + valArray[i] + "\""
                 if i < valArraySize - 1:
                     strArray += ","
@@ -375,6 +377,8 @@ class XlsFile(object):
             valArraySize = len(valArray)
             strArray = "["
             for i in range(0,valArraySize):
+                if valArray[i] == '':
+                    continue
                 if valArray[i].find('.') != -1:
                      log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
                 strArray += "%d" % int(round(float(valArray[i])))
@@ -405,9 +409,13 @@ class XlsFile(object):
             val = '"%s"'%val
             #val = '[=[%s]=]'%val
         elif self.colType[c] == 'FLOAT':
+            if val == '':
+                val = '-1'
             val = float(val)
             val = ("%.2f"%val)
         else :
+            if val == '':
+                val = '-1'
             val = int(val)
             val = ("%d"%val)
         return val
