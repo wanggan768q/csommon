@@ -245,15 +245,25 @@ class XlsFile(object):
         self.checkChkItem(val,row,col)
         if (type(val)== type(u'') or type(val)== type('')) and self.colType[col] == 'STRING':
             return self.checkStrValue(val, col)
-        elif type(val) == type(1.0) and self.colType[col] == 'INT':
-            val = int(val)
+        elif self.colType[col] == 'INT':
+            if type(val) == type(1.0):
+                val = int(val)
+            elif val == '':
+                val = '-1'
             return self.checkIntValue(val, col)
-        elif type(val) == type(1.0) and self.colType[col] == 'FLOAT':
+        elif self.colType[col] == 'FLOAT':
+            if val == '':
+                val = '-1'
+            elif type(val) != type(1.0) :
+                log.Log("%s 文件第%d行 %d列数值和类型不匹配 %s" % (self.fname1, row+1,col+1,self.colType[col]))
+                return False
             return True
         elif type(val) == type(1.0) and self.colType[col] == 'STRING':
         		return self.checkStrValue(val, col)
+        elif self.colType[col] == 'LS' or self.colType[col] == 'LI' or self.colType[col] == 'LF':
+            return True
         else:
-            log.Log("%s 文件第%d行 %d列数值和类型不匹配" % (self.fname1, row+1,col+1))
+            log.Log("%s 文件第%d行 %d列数值和类型不匹配 %s" % (self.fname1, row+1,col+1,self.colType[col]))
         return True
 
     #检查外键
@@ -379,9 +389,10 @@ class XlsFile(object):
             for i in range(0,valArraySize):
                 if valArray[i] == '':
                     continue
+                valArray[i] = "%d" % int(round(float(valArray[i])))
                 if valArray[i].find('.') != -1:
                      log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
-                strArray += "%d" % int(round(float(valArray[i])))
+                strArray += valArray[i]
                 if i < valArraySize - 1:
                     strArray += ","
             strArray += "]"
