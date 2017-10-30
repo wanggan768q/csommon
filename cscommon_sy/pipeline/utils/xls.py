@@ -537,7 +537,7 @@ class XlsFile(object):
 
             fileLine += '}'
             fileLine += "\r\n"
-            outfile.write("%s[%s] = %s" % (tableNmae,key,fileLine))
+            outfile.write("%s{%s} = %s" % (tableNmae,key,fileLine))
             #outfile.write(fileLine)
         outfile.close()
 
