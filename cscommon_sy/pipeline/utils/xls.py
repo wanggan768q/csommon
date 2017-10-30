@@ -368,14 +368,14 @@ class XlsFile(object):
 
             valArray = val.split('|')
             valArraySize = len(valArray)
-            strArray = "["
+            strArray = "{"
             for i in range(0,valArraySize):
                 if valArray[i] == '':
                     continue
                 strArray += "\"" + valArray[i] + "\""
                 if i < valArraySize - 1:
                     strArray += ","
-            strArray += "]"
+            strArray += "}"
             #print strArray
             val = '%s'%strArray
 
@@ -385,7 +385,7 @@ class XlsFile(object):
                 val = val.encode('utf-8')
             valArray = val.split('|')
             valArraySize = len(valArray)
-            strArray = "["
+            strArray = "{"
             for i in range(0,valArraySize):
                 if valArray[i] == '':
                     continue
@@ -395,19 +395,19 @@ class XlsFile(object):
                 strArray += valArray[i]
                 if i < valArraySize - 1:
                     strArray += ","
-            strArray += "]"
+            strArray += "}"
             #print strArray
             val = '%s'%strArray
         elif self.colType[c] == 'LF':
             valArray = val.split('|')
             valArraySize = len(valArray)
-            strArray = "["
+            strArray = "{"
             for i in range(0,valArraySize):
                 #print valArray[i]
                 strArray += valArray[i]
                 if i < valArraySize - 1:
                     strArray += ","
-            strArray += "]"
+            strArray += "}"
             #print strArray
             val = '%s'%strArray
             pass
@@ -537,7 +537,7 @@ class XlsFile(object):
 
             fileLine += '}'
             fileLine += "\r\n"
-            outfile.write("%s{%s} = %s" % (tableNmae,key,fileLine))
+            outfile.write("%s[%s] = %s" % (tableNmae,key,fileLine))
             #outfile.write(fileLine)
         outfile.close()
 
