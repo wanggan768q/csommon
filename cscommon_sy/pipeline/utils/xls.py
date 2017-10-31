@@ -431,6 +431,79 @@ class XlsFile(object):
             val = ("%d"%val)
         return val
 
+
+    def getCellDataLua(self,r,c):
+        val = self.table.cell(r,c).value
+        if self.colType[c] == 'LS':
+            if isinstance(val, unicode):
+                val = val.encode('utf-8')
+            val = val.replace('\r','\\r').replace('\n','\\n')
+
+            valArray = val.split('|')
+            valArraySize = len(valArray)
+            strArray = "{"
+            for i in range(0,valArraySize):
+                if valArray[i] == '':
+                    continue
+                strArray += "\"" + valArray[i] + "\""
+                if i < valArraySize - 1:
+                    strArray += ","
+            strArray += "}"
+            #print strArray
+            val = '%s'%strArray
+
+        elif self.colType[c] == 'LI':
+            val = str(val)
+            if isinstance(val, unicode):
+                val = val.encode('utf-8')
+            valArray = val.split('|')
+            valArraySize = len(valArray)
+            strArray = "{"
+            for i in range(0,valArraySize):
+                if valArray[i] == '':
+                    continue
+                valArray[i] = "%d" % int(round(float(valArray[i])))
+                if valArray[i].find('.') != -1:
+                     log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
+                strArray += valArray[i]
+                if i < valArraySize - 1:
+                    strArray += ","
+            strArray += "}"
+            #print strArray
+            val = '%s'%strArray
+        elif self.colType[c] == 'LF':
+            valArray = val.split('|')
+            valArraySize = len(valArray)
+            strArray = "{"
+            for i in range(0,valArraySize):
+                #print valArray[i]
+                strArray += valArray[i]
+                if i < valArraySize - 1:
+                    strArray += ","
+            strArray += "}"
+            #print strArray
+            val = '%s'%strArray
+            pass
+
+        elif type(val) == type(u'') or type(val) == type('') and self.colType[c] == 'STRING':
+            if isinstance(val, unicode):
+                val = val.encode('utf-8')
+            val = val.replace('\r','\\r').replace('\n','\\n')
+            val = val.replace('"','""');
+            val = '"%s"'%val
+            #val = '[=[%s]=]'%val
+        elif self.colType[c] == 'FLOAT':
+            if val == '':
+                val = '-1'
+            val = float(val)
+            val = ("%.2f"%val)
+        else :
+            if val == '':
+                val = '-1'
+            val = int(val)
+            val = ("%d"%val)
+        return val
+
     def saveClient(self, path):
         name = os.path.split(self.fname)[1]
         if len(name.split("_")) < 2:
@@ -528,7 +601,7 @@ class XlsFile(object):
                 Name = self.table.cell(2,c).value
                 if isinstance(Name, unicode):
                     Name = Name.encode('utf-8')
-                val = self.getCellData( r, c )
+                val = self.getCellDataLua( r, c )
                 #line ='"%s"=%s'%(Name,val)
                 line ='%s=%s'%(Name,val)
                 if c < self.fcols-1:
