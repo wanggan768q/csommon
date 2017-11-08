@@ -570,6 +570,7 @@ class XlsFile(object):
         outfile = open(lua,"wb")
         outfile.write(codecs.BOM_UTF8)
 
+        outfile.write("local print = print\r\n")
         outfile.write("module(...)\r\n")
         outfile.write("%s={}\r\n"%(tableNmae))
 
@@ -580,6 +581,8 @@ class XlsFile(object):
         outfile.write( "\tlocal data = %s[id]\r\n"%(tableNmae) )
         outfile.write( "\tif data ~= nil then\r\n" )
         outfile.write( "\t\treturn data\r\n" )
+        outfile.write( "\telse\r\n" )
+        outfile.write( "\t\tprint( '不存在ID => ' .. id)\r\n" )
         outfile.write( "\tend\r\n" )
         outfile.write( "end\r\n" )
 
