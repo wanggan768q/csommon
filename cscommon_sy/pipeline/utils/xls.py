@@ -568,7 +568,7 @@ class XlsFile(object):
         if not os.path.exists(os.path.dirname(lua)):
             os.makedirs(os.path.dirname(lua))
         outfile = open(lua,"wb")
-        outfile.write(codecs.BOM_UTF8)
+        #outfile.write(codecs.BOM_UTF8)
 
         outfile.write("local print = print\r\n")
         outfile.write("module(...)\r\n")
