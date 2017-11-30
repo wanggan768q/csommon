@@ -12,6 +12,12 @@ import time
 import codecs
 from data import DataMgr
 
+# import sys
+
+# reload(sys)
+# sys.setdefaultencoding('utf8')
+
+
 class XlsFile(object):
     "excel文件操作类"
     #带路径的文件名
@@ -399,18 +405,20 @@ class XlsFile(object):
             #print strArray
             val = '%s'%strArray
         elif self.colType[c] == 'LF':
+            if isinstance(val, unicode):
+                val = val.encode('utf-8')
             valArray = val.split('|')
             valArraySize = len(valArray)
             strArray = "["
             for i in range(0,valArraySize):
                 #print valArray[i]
+
                 strArray += valArray[i]
                 if i < valArraySize - 1:
                     strArray += ","
             strArray += "]"
             #print strArray
             val = '%s'%strArray
-            pass
 
         elif type(val) == type(u'') or type(val) == type('') and self.colType[c] == 'STRING':
             if isinstance(val, unicode):
@@ -609,6 +617,8 @@ class XlsFile(object):
                 line ='%s=%s'%(Name,val)
                 if c < self.fcols-1:
                     line += ","
+                if isinstance(line, unicode):
+                    line = line.encode('utf-8')
                 fileLine += line
 
             fileLine += '}'
