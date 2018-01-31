@@ -64,6 +64,10 @@ class XlsFile(object):
         if len(self.tabName.split("_")) < 2:
             log.Log("%s 文件名格式错误" % self.fname1)
         self.tabName = self.tabName.split("_")[0]
+
+        self.isLanguage = False
+        if self.tabName.find("String") == 0:
+            self.isLanguage = True
         
         self.primaryKey = []
         self.table = []
@@ -578,6 +582,9 @@ class XlsFile(object):
         outfile = open(lua,"wb")
         #outfile.write(codecs.BOM_UTF8)
 
+        if self.isLanguage == True:
+            outfile.write("require( 'Common/ConstDefine' )\r\n")
+            outfile.write("local ConstDefine = ConstDefine\r\n")
         outfile.write("local print = print\r\n")
         outfile.write("module(...)\r\n")
         outfile.write("%s={}\r\n"%(tableNmae))
@@ -588,7 +595,10 @@ class XlsFile(object):
         outfile.write( "function get(id)\r\n" )
         outfile.write( "\tlocal data = %s[id]\r\n"%(tableNmae) )
         outfile.write( "\tif data ~= nil then\r\n" )
-        outfile.write( "\t\treturn data\r\n" )
+        if self.isLanguage == True:
+            outfile.write( "\t\treturn data[ConstDefine.C_LANGUAGE]\r\n" )
+        else:
+            outfile.write( "\t\treturn data\r\n" )
         outfile.write( "\telse\r\n" )
         outfile.write( "\t\tprint( '不存在ID => ' .. id)\r\n" )
         outfile.write( "\tend\r\n" )
