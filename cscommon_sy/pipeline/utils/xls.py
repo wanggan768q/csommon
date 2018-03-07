@@ -409,6 +409,7 @@ class XlsFile(object):
             #print strArray
             val = '%s'%strArray
         elif self.colType[c] == 'LF':
+            val = str(val)
             if isinstance(val, unicode):
                 val = val.encode('utf-8')
             valArray = val.split('|')
