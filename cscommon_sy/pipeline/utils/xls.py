@@ -485,6 +485,7 @@ class XlsFile(object):
             #print strArray
             val = '%s'%strArray
         elif self.colType[c] == 'LF':
+            val = str(val)
             valArray = val.split('|')
             valArraySize = len(valArray)
             strArray = "{"
