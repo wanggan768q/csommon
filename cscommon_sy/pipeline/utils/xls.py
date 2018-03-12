@@ -399,6 +399,11 @@ class XlsFile(object):
             for i in range(0,valArraySize):
                 if valArray[i] == '':
                     continue
+                try:
+                    valArray[i] = "%d" % int(round(float(valArray[i])))
+                except Exception as e:
+                    log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
+                    print("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
                 valArray[i] = "%d" % int(round(float(valArray[i])))
                 if valArray[i].find('.') != -1:
                      log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
