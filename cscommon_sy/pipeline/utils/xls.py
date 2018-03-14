@@ -372,6 +372,7 @@ class XlsFile(object):
     def getCellData(self,r,c):
         val = self.table.cell(r,c).value
         if self.colType[c] == 'LS':
+            val = str(val)
             if isinstance(val, unicode):
                 val = val.encode('utf-8')
             val = val.replace('\r','\\r').replace('\n','\\n')
@@ -453,6 +454,7 @@ class XlsFile(object):
     def getCellDataLua(self,r,c):
         val = self.table.cell(r,c).value
         if self.colType[c] == 'LS':
+            val = str(val)
             if isinstance(val, unicode):
                 val = val.encode('utf-8')
             val = val.replace('\r','\\r').replace('\n','\\n')
