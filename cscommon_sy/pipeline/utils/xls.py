@@ -646,6 +646,86 @@ class XlsFile(object):
             #outfile.write(fileLine)
         outfile.close()
 
+    def saveLuaOptimize(self, path):
+        name = os.path.split(self.fname)[1]
+        if len(name.split("_")) < 2:
+            log.Log("%s 文件名格式错误" % self.fname1)
+        tableNmae = name.split("_")[0]
+        lua = "%s/%s.lua"%(path,name.split("_")[0])
+        print lua
+        if not os.path.exists(os.path.dirname(lua)):
+            os.makedirs(os.path.dirname(lua))
+        outfile = open(lua,"wb")
+        #outfile.write(codecs.BOM_UTF8)
+
+        if self.isLanguage == True:
+            outfile.write("require( 'Common/ConstDefine' )\r\n")
+            outfile.write("local ConstDefine = ConstDefine\r\n")
+        outfile.write("local print = print\r\n")
+        outfile.write("module(...)\r\n")
+        outfile.write("%s={}\r\n"%(tableNmae))
+
+        outfile.write( "\r\n" )
+        outfile.write( "\r\n" )
+
+        outfile.write( "function get(id)\r\n" )
+        outfile.write( "\tlocal data = %s[id]\r\n"%(tableNmae) )
+        outfile.write( "\tif data ~= nil then\r\n" )
+        if self.isLanguage == True:
+            outfile.write( "\t\treturn data[ConstDefine.C_LANGUAGE]\r\n" )
+        else:
+            outfile.write( "\t\treturn data\r\n" )
+        outfile.write( "\telse\r\n" )
+        outfile.write( "\t\tprint( '不存在ID => ' .. id)\r\n" )
+        outfile.write( "\tend\r\n" )
+        outfile.write( "end\r\n" )
+
+        outfile.write( "\r\n" )
+        outfile.write( "\r\n" )
+
+        Names = []
+        IsAddName = True
+
+        for r in range(self.frows):
+            if r < 5:
+                continue
+            if self.skipRow(r):
+                continue
+            val = self.getCellData( r, 0 )
+
+            key = val
+
+
+            fileLine = "{"
+
+            for c in range(self.fcols):
+                Name = self.table.cell(2,c).value
+                if isinstance(Name, unicode):
+                    Name = Name.encode('utf-8')
+                val = self.getCellDataLua( r, c )
+                #line ='"%s"=%s'%(Name,val)
+                if IsAddName == True:
+                    Names.append(Name)
+                #line ='%s=%s'%(Name,val)
+                line = '%s' % (val)
+                if c < self.fcols-1:
+                    line += ","
+                if isinstance(line, unicode):
+                    line = line.encode('utf-8')
+                fileLine += line
+
+            IsAddName = False
+            fileLine += '}'
+            fileLine += "\r\n"
+            outfile.write("%s[%s] = %s" % (tableNmae,key,fileLine))
+            #outfile.write(fileLine)
+
+        keyLine = '{'
+        for k,v in enumerate(Names):
+            keyLine += '%s=%d,' % (v, k+1)
+        keyLine += '}'
+        outfile.write("%s[%s] = %s" % (tableNmae, '\'__KEY__\'', keyLine))
+        outfile.close()
 
 
     def saveJson(self, path):
