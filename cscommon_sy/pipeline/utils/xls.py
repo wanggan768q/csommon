@@ -737,7 +737,7 @@ class XlsFile(object):
         if not os.path.exists(os.path.dirname(csv)):
             os.makedirs(os.path.dirname(csv))
         outfile = open(csv,"wb")
-        outfile.write(codecs.BOM_UTF8)
+        #outfile.write(codecs.BOM_UTF8)
         
         outfile.write( "[\r\n" )
         
