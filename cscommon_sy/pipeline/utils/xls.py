@@ -112,8 +112,11 @@ class XlsFile(object):
                 continue
             str = self.table.cell(r,0).value
             if type(str) != type(1.0):
-                log.Log("%s 文件第%d行 1列有非整数类型的主键"%(self.fname1, r+1))
-                continue
+                try:
+                    str = int(str) 
+                except Exception as e:
+                    log.Log("%s 文件第%d行 1列有非整数类型的主键"%(self.fname1, r+1))
+                    continue
             str = int(str) 
             self.primaryKey.append(str)
 
