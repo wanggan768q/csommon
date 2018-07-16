@@ -510,7 +510,7 @@ class XlsFile(object):
             if isinstance(val, unicode):
                 val = val.encode('utf-8')
             val = val.replace('\r','\\r').replace('\n','\\n')
-            val = val.replace('"','""');
+            val = val.replace('"','\\"');
             val = '"%s"'%val
             #val = '[=[%s]=]'%val
         elif self.colType[c] == 'FLOAT':
