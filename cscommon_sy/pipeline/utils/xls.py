@@ -629,6 +629,8 @@ class XlsFile(object):
             fileLine = "{"
 
             for c in range(self.fcols):
+            	if self.skipClient(c):
+            		continue
                 Name = self.table.cell(2,c).value
                 if isinstance(Name, unicode):
                     Name = Name.encode('utf-8')
@@ -751,6 +753,8 @@ class XlsFile(object):
             val = self.getCellData( r, 0 )    
             fileLine = "{"
             for c in range(self.fcols):
+            	if self.skipServer(c):
+            		continue
                 Name = self.table.cell(2,c).value
                 if isinstance(Name, unicode):
                     Name = Name.encode('utf-8')
