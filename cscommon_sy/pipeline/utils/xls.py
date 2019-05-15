@@ -696,7 +696,7 @@ class XlsFile(object):
         outfile.write( "}\r\n\r\n" )
 
         outfile.write( "function get(id)\r\n" )
-        outfile.write( "\tif id == -1 then\r\n" )
+        outfile.write( "\tif id == -1 or id == nil then\r\n" )
         outfile.write( "\t\treturn nil\r\n" )
         outfile.write( "\tend\r\n" )
         outfile.write( "\tlocal data = %s[id]\r\n" % (tableNmae) )
@@ -714,6 +714,7 @@ class XlsFile(object):
         outfile.write( "\t\tlog:Error( '不存在ID => ' , id)\r\n" )
         outfile.write( "\tend\r\n" )
         outfile.write( "end\r\n" )
+        outfile.write( "\r\n" )
 
         outfile.write( "function All()\r\n" )
         outfile.write( "\tif not __All then\r\n")
@@ -724,6 +725,11 @@ class XlsFile(object):
         outfile.write( "\t\tend\r\n" )
         outfile.write( "\tend\r\n" )
         outfile.write( "\treturn __All\r\n" )
+        outfile.write( "end\r\n" )
+        outfile.write( "\r\n" )
+
+        outfile.write( "function Size()\r\n" )
+        outfile.write( "\treturn #__IDS__\r\n" )
         outfile.write( "end\r\n" )
 
 
