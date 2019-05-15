@@ -696,6 +696,9 @@ class XlsFile(object):
         outfile.write( "}\r\n\r\n" )
 
         outfile.write( "function get(id)\r\n" )
+        outfile.write( "\tif id == -1 then\r\n" )
+        outfile.write( "\t\treturn nil\r\n" )
+        outfile.write( "\tend\r\n" )
         outfile.write( "\tlocal data = %s[id]\r\n" % (tableNmae) )
         outfile.write( "\tif data ~= nil then\r\n" )
         outfile.write( "\t\tif not data.__base then\r\n" )
@@ -751,10 +754,8 @@ class XlsFile(object):
                 if isinstance(Name, unicode):
                     Name = Name.encode('utf-8')
                 val = self.getCellDataLua( r, c )
-                #line ='"%s"=%s'%(Name,val)
                 if IsAddName == True:
                     Names.append(Name)
-                #line ='%s=%s'%(Name,val)
                 line = '%s' % (val)
                 if c < self.fcols-1:
                     line += ","
@@ -770,9 +771,7 @@ class XlsFile(object):
 
         keyLine = '{'
         for k,v in enumerate(Names):
-            if self.skipClient(k):
-                    continue
-            keyLine += '%s=%d,' % (v, k+1)
+            keyLine += '%s=%d,' % (v, k + 1)
         keyLine += '}\r\n'
         outfile.write("__KEYS__ = %s" % (keyLine))
 
