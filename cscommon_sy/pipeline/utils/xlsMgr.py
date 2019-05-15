@@ -46,6 +46,7 @@ class XlsFileMgr(object):
             #xFile.saveServer(env.CLIENT_CONFIG_PATH)
             #xFile.saveClient(env.CLIENT_CONFIG_PATH)
             xFile.saveJson(env.SERVER_CONFIG_PATH)
-            xFile.saveLua(env.CLIENT_CONFIG_PATH)
+            #xFile.saveLua(env.CLIENT_CONFIG_PATH)
+            xFile.saveLuaOptimize(env.CLIENT_CONFIG_PATH)
             #xFile.saveCsFile(env.I18N_MESSAGE_PATH)
 
