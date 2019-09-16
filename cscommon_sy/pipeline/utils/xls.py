@@ -432,12 +432,18 @@ class XlsFile(object):
             #print strArray
             val = '%s'%strArray
 
-        elif type(val) == type(u'') or type(val) == type('') and self.colType[c] == 'STRING':
-            if isinstance(val, unicode):
-                val = val.encode('utf-8')
+        elif self.colType[c] == 'STRING':
+            unicodeVar = val
+            if type(val) == type(u'') or type(val) == type('')  :
+                if isinstance(val, unicode):
+                    val = val.encode('utf-8')
+            val = str(val)
             val = val.replace('\r','\\r').replace('\n','\\n')
-            val = val.replace('"','\\"');
-            val = '"%s"'%val
+            val = val.replace('"','\\"')
+            # val = ('"%s"' + "") % val
+            if val.endswith(".0"):
+                val = val.replace(".0","")
+            val = '\"' + val + '\"'
             #val = '[=[%s]=]'%val
         elif self.colType[c] == 'FLOAT':
             if val == '':
@@ -507,13 +513,17 @@ class XlsFile(object):
             val = '%s'%strArray
             pass
 
-        elif type(val) == type(u'') or type(val) == type('') and self.colType[c] == 'STRING':
-            if isinstance(val, unicode):
-                val = val.encode('utf-8')
+        elif self.colType[c] == 'STRING':
+            if type(val) == type(u'') or type(val) == type('')  :
+                if isinstance(val, unicode):
+                    val = val.encode('utf-8')
+            val = str(val)
             val = val.replace('\r','\\r').replace('\n','\\n')
             val = val.replace('"','\\"');
-            val = '"%s"'%val
-            #val = '[=[%s]=]'%val
+            #val = '"%s"'%val
+            if val.endswith(".0"):
+                val = val.replace(".0","")
+            val = '\"' + val + '\"'
         elif self.colType[c] == 'FLOAT':
             if val == '':
                 val = '-1'
