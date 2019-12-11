@@ -284,6 +284,8 @@ class XlsFile(object):
             return True
         findKey = False
         findVal = False
+        if str(val) == '':
+            return True
         if type(val) != type(1.0):
             log.Log("%s 文件第%d行 %d列使用外键关联，外键值类型错误" % (self.fname1, row+1,col+1))
             return False
