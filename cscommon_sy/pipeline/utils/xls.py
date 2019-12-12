@@ -270,7 +270,10 @@ class XlsFile(object):
             return True
         elif type(val) == type(1.0) and self.colType[col] == 'STRING':
         		return self.checkStrValue(val, col)
-        elif self.colType[col] == 'LS' or self.colType[col] == 'LI' or self.colType[col] == 'LF':
+        elif self.colType[col] == 'LI':
+
+            return True
+        elif self.colType[col] == 'LS' or self.colType[col] == 'LF':
             return True
         else:
             log.Log("%s 文件第%d行 %d列数值和类型不匹配 %s" % (self.fname1, row+1,col+1,self.colType[col]))
@@ -278,6 +281,26 @@ class XlsFile(object):
 
     #检查外键
     def checkChkItem(self, val, row, col):
+        if self.colType[col] == 'LI':
+            val = str(val)
+            if isinstance(val, unicode):
+                val = val.encode('utf-8')
+            valArray = val.split('|')
+            valArraySize = len(valArray)
+            for i in range(0, valArraySize):
+                if valArray[i] == '':
+                    continue
+                try:
+                    if self.checkChkItemVal(float(valArray[i]), row, col) == False:
+                        return False
+                except Exception as e:
+                    log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, row, col))
+                    print("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1,row, col))
+            return True
+        return self.checkChkItemVal(val,row,col)
+
+    def checkChkItemVal(self,val, row, col):
+        data = DataMgr()
         data = DataMgr()
         chk = self.checkItems[col]['chk']
         if chk == None:
@@ -287,9 +310,9 @@ class XlsFile(object):
         if str(val) == '':
             return True
         if type(val) != type(1.0):
-            log.Log("%s 文件第%d行 %d列使用外键关联，外键值类型错误" % (self.fname1, row+1,col+1))
+            log.Log("%s 文件第%d行 %d列使用外键关联，外键值类型错误%s --- %s " % (self.fname1, row + 1, col + 1, type(val), val.__str__()))
             return False
-        #默认-1除外
+        # 默认-1除外
         if int(val) == -1:
             return True
         for key in chk:
@@ -298,13 +321,14 @@ class XlsFile(object):
                 if val in data.priKeys[key]:
                     findVal = True
         if not findKey:
-            log.Log("%s 文件第%d行 %d列使用外键关联，关联名错误" % (self.fname1, row+1,col+1))
+            log.Log("%s 文件第%d行 %d列使用外键关联，关联名错误" % (self.fname1, row + 1, col + 1))
             return False
 
         if not findVal:
-            log.Log("%s 文件第%d行 %d列使用外键关联，外键值错误" % (self.fname1, row+1,col+1))
+            log.Log("%s 文件第%d行 %d列使用外键关联，外键值错误" % (self.fname1, row + 1, col + 1))
             return False
         return True
+
 
     def checkStrValue(self, val, col):
         if self.checkItems[col]['max'] != None or self.checkItems[col]['min'] != None:
@@ -411,6 +435,7 @@ class XlsFile(object):
                 valArray[i] = "%d" % int(round(float(valArray[i])))
                 if valArray[i].find('.') != -1:
                      log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
+                #self.checkChkItem(float(valArray[i]),r,c)
                 strArray += valArray[i]
                 if i < valArraySize - 1:
                     strArray += ","
@@ -497,6 +522,7 @@ class XlsFile(object):
                 strArray += valArray[i]
                 if i < valArraySize - 1:
                     strArray += ","
+                    #self.checkChkItem(valArray[i],r,c)
             strArray += "}"
             #print strArray
             val = '%s'%strArray
