@@ -640,7 +640,7 @@ class XlsFile(object):
         outfile.write( "\r\n" )
         outfile.write( "\r\n" )
 
-        outfile.write( "function get(id)\r\n" )
+        outfile.write( "function Get(id)\r\n" )
         outfile.write( "\tlocal data = %s[id]\r\n"%(tableNmae) )
         outfile.write( "\tif data ~= nil then\r\n" )
         if self.isLanguage == True:
@@ -733,7 +733,7 @@ class XlsFile(object):
         outfile.write( "\t__base = true,\r\n" )
         outfile.write( "}\r\n\r\n" )
 
-        outfile.write( "function get(id)\r\n" )
+        outfile.write( "function Get(id)\r\n" )
         outfile.write( "\tif id == -1 or id == nil then\r\n" )
         outfile.write( "\t\treturn nil\r\n" )
         outfile.write( "\tend\r\n" )
