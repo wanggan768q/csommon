@@ -759,7 +759,7 @@ class XlsFile(object):
         outfile.write( "\t\t__All = {}\r\n")
         outfile.write( "\t\tfor i = 1, #__IDS__ do\r\n")
         outfile.write( "\t\t\tlocal id = __IDS__[i]\r\n" )
-        outfile.write( "\t\t\t__All[id] = get(id)\r\n" )
+        outfile.write( "\t\t\t__All[id] = Get(id)\r\n" )
         outfile.write( "\t\tend\r\n" )
         outfile.write( "\tend\r\n" )
         outfile.write( "\treturn __All\r\n" )
