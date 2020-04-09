@@ -421,6 +421,9 @@ class XlsFile(object):
             val = str(val)
             if isinstance(val, unicode):
                 val = val.encode('utf-8')
+            if val.rstrip().endswith('|'):
+            	log.Log("%s 文件第%d行 %d列使用 存在多余符号" % (self.fname1, r+1,c+1))
+
             valArray = val.split('|')
             valArraySize = len(valArray)
             strArray = "["
