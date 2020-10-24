@@ -282,7 +282,11 @@ class XlsFile(object):
     #检查外键
     def checkChkItem(self, val, row, col):
         if self.colType[col] == 'LI':
-            val = str(val)
+            try:
+                val = str(val)
+            except Exception as e:
+                log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, row, col))
+                print("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1,row, col))
             if isinstance(val, unicode):
                 val = val.encode('utf-8')
             valArray = val.split('|')
@@ -422,7 +426,7 @@ class XlsFile(object):
             if isinstance(val, unicode):
                 val = val.encode('utf-8')
             if val.rstrip().endswith('|'):
-            	log.Log("%s 文件第%d行 %d列使用 存在多余符号" % (self.fname1, r+1,c+1))
+                log.Log("%s 文件第%d行 %d列使用 存在多余符号" % (self.fname1, r+1,c+1))
 
             valArray = val.split('|')
             valArraySize = len(valArray)
@@ -700,7 +704,7 @@ class XlsFile(object):
         print lua
         if not os.path.exists(os.path.dirname(lua)):
             os.makedirs(os.path.dirname(lua))
-        outfile = open(lua,"wb")
+        outfile = open(lua,"w")
         #outfile.write(codecs.BOM_UTF8)
 
         if self.isLanguage == True:
@@ -772,6 +776,18 @@ class XlsFile(object):
         outfile.write( "function Size()\r\n" )
         outfile.write( "\treturn #__IDS__\r\n" )
         outfile.write( "end\r\n" )
+
+        outfile.write( "function ForeachKV(func)\r\n" )
+        outfile.write( "\tif func == nil then\r\n" )
+        outfile.write( "\t\treturn\r\n" )
+        outfile.write( "\tend\r\n" )
+        outfile.write( "\tfor i=1,Size() do\r\n" )
+        outfile.write( "\t\tlocal key = __IDS__[i]\r\n" )
+        outfile.write( "\t\tfunc(key,Get(key))\r\n" )
+        outfile.write( "\tend\r\n" )
+
+        outfile.write( "end\r\n" )
+
 
 
         outfile.write( "\r\n" )
