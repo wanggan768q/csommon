@@ -57,3 +57,5 @@ PWD_240 = 'bling&*('
 PATH_240 = '/home/jiangwang/server/trunk/bin/'
 #客户端场景配置路径
 CLIENT_LEVELCONFIG_PATH = '%s/client/GameProj/Assets/Resources/BlingARPG/Scenes/LevelConfig' %(ROOT_PATH)
+
+LUA_PAGE_MAX_CELL = 500000

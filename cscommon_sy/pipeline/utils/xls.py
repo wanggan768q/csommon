@@ -700,127 +700,147 @@ class XlsFile(object):
         if len(name.split("_")) < 2:
             log.Log("%s 文件名格式错误" % self.fname1)
         tableNmae = name.split("_")[0]
-        lua = "%s/%s.lua"%(path,name.split("_")[0])
-        print lua
+
+        maxcount = env.LUA_PAGE_MAX_CELL
+        pagelinesize = maxcount/self.fcols # 一页多少行
+
+        pagecount = self.frows / pagelinesize #
+        if self.frows > (pagecount * pagelinesize):
+            pagecount += 1
+        #写第一页
+        if pagecount > 1:
+            self.saveMainPage(path, tableNmae, pagecount, pagelinesize)
+            #写后面几页
+            n = self.frows - pagelinesize  # 剩余多少行没写`
+            i = 1  # 计算后总页数
+            while (True):
+                n -= pagelinesize
+                if n <= 0:
+                    # 说明后面没了，这是最后一页
+                    self.savePageData(i * pagelinesize, pagelinesize + n, i, path, tableNmae)
+                    break
+                else:
+                    self.savePageData(i * pagelinesize, pagelinesize, i, path, tableNmae)
+                    i += 1
+        else:
+            self.saveMainPage(path, tableNmae, pagecount, self.frows)
+
+    def saveMainPage(self,path, tableNmae, pageCount, size):
+        lua = "%s/%s.lua" % (path, tableNmae)
         if not os.path.exists(os.path.dirname(lua)):
             os.makedirs(os.path.dirname(lua))
-        outfile = open(lua,"w")
-        #outfile.write(codecs.BOM_UTF8)
+        outfile = open(lua, "w")
+        # outfile.write(codecs.BOM_UTF8)
 
         if self.isLanguage == True:
-            #outfile.write("require('Common/ConstDefine')\r\n")
+            # outfile.write("require('Common/ConstDefine')\r\n")
             outfile.write("local ConstDefine = ConstDefine\r\n")
-        #outfile.write("local print = print\r\n")
+        # outfile.write("local print = print\r\n")
         outfile.write("local log = Log.Create('%s')\r\n" % (tableNmae))
         outfile.write("local setmetatable = setmetatable\r\n")
+        outfile.write("local table = table\r\n")
+        outfile.write("local ipairs = ipairs\r\n")
+        outfile.write("local require = require\r\n")
         outfile.write("module(...)\r\n")
-        outfile.write("%s = {}\r\n"%(tableNmae))
+        outfile.write("%s = {}\r\n" % (tableNmae))
         outfile.write("local __KEYS__ = {}\r\n")
         outfile.write("local __IDS__ = {}\r\n")
 
-        outfile.write( "\r\n" )
-        outfile.write( "\r\n" )
+        outfile.write("\r\n")
+        outfile.write("\r\n")
 
-        outfile.write( "local base = {\r\n" )
-        outfile.write( "\t__index = function ( t,k )\r\n" )
-        outfile.write( "\t\tif k == '__base' then\r\n" )
-        outfile.write( "\t\t\treturn __base\r\n" )
-        outfile.write( "\t\tend\r\n" )
-        outfile.write( "\t\tlocal key = __KEYS__[k]\r\n" )
-        outfile.write( "\t\tif key == nil then\r\n" )
-        outfile.write( "\t\t\tlog:Error('配置表没有此 Key => ' .. k)\r\n" )
-        outfile.write( "\t\t\treturn nil\r\n" )
-        outfile.write( "\t\tend\r\n" )
-        outfile.write( "\t\treturn t[key]\r\n" )
-        outfile.write( "\tend,\r\n" )
-        outfile.write( "\t__newindex = function ( t,k )\r\n" )
-        outfile.write( "\t\tlog:Error('配置表数据禁止修改')\r\n" )
-        outfile.write( "\tend,\r\n" )
-        #outfile.write( "\t__metatable = false,\r\n" )
-        outfile.write( "\t__base = true,\r\n" )
-        outfile.write( "}\r\n\r\n" )
+        outfile.write("local base = {\r\n")
+        outfile.write("\t__index = function ( t,k )\r\n")
+        outfile.write("\t\tif k == '__base' then\r\n")
+        outfile.write("\t\t\treturn __base\r\n")
+        outfile.write("\t\tend\r\n")
+        outfile.write("\t\tlocal key = __KEYS__[k]\r\n")
+        outfile.write("\t\tif key == nil then\r\n")
+        outfile.write("\t\t\tlog:Error('配置表没有此 Key => ' .. k)\r\n")
+        outfile.write("\t\t\treturn nil\r\n")
+        outfile.write("\t\tend\r\n")
+        outfile.write("\t\treturn t[key]\r\n")
+        outfile.write("\tend,\r\n")
+        outfile.write("\t__newindex = function ( t,k )\r\n")
+        outfile.write("\t\tlog:Error('配置表数据禁止修改')\r\n")
+        outfile.write("\tend,\r\n")
+        # outfile.write( "\t__metatable = false,\r\n" )
+        outfile.write("\t__base = true,\r\n")
+        outfile.write("}\r\n\r\n")
 
-        outfile.write( "function Get(id)\r\n" )
-        outfile.write( "\tif id == -1 or id == nil then\r\n" )
-        outfile.write( "\t\treturn nil\r\n" )
-        outfile.write( "\tend\r\n" )
-        outfile.write( "\tlocal data = %s[id]\r\n" % (tableNmae) )
-        outfile.write( "\tif data ~= nil then\r\n" )
-        outfile.write( "\t\tif not data.__base then\r\n" )
-        #outfile.write( "\t\t\tdata.__base = true,\r\n" )
-        outfile.write( "\t\t\tsetmetatable( data, base )\r\n" )
-        outfile.write( "\t\tend\r\n" )
+        outfile.write("function Get(id)\r\n")
+        outfile.write("\tif id == -1 or id == nil then\r\n")
+        outfile.write("\t\treturn nil\r\n")
+        outfile.write("\tend\r\n")
+        outfile.write("\tlocal data = %s[id]\r\n" % (tableNmae))
+        outfile.write("\tif data ~= nil then\r\n")
+        outfile.write("\t\tif not data.__base then\r\n")
+        # outfile.write( "\t\t\tdata.__base = true,\r\n" )
+        outfile.write("\t\t\tsetmetatable( data, base )\r\n")
+        outfile.write("\t\tend\r\n")
         if self.isLanguage == True:
-            outfile.write( "\t\treturn data[ConstDefine.C_LANGUAGE]\r\n" )
+            outfile.write("\t\treturn data[ConstDefine.C_LANGUAGE]\r\n")
         else:
-            outfile.write( "\t\treturn data\r\n" )
-        outfile.write( "\telse\r\n" )
-        #outfile.write( "\t\tprint( '不存在ID => ' .. id)\r\n" )
-        outfile.write( "\t\tlog:Error( '不存在ID => ' , id)\r\n" )
-        outfile.write( "\tend\r\n" )
-        outfile.write( "end\r\n" )
-        outfile.write( "\r\n" )
+            outfile.write("\t\treturn data\r\n")
+        outfile.write("\telse\r\n")
+        # outfile.write( "\t\tprint( '不存在ID => ' .. id)\r\n" )
+        outfile.write("\t\tlog:Error( '不存在ID => ' , id)\r\n")
+        outfile.write("\tend\r\n")
+        outfile.write("end\r\n")
+        outfile.write("\r\n")
 
-        outfile.write( "function All()\r\n" )
-        outfile.write( "\tif not __All then\r\n")
-        outfile.write( "\t\t__All = {}\r\n")
-        outfile.write( "\t\tfor i = 1, #__IDS__ do\r\n")
-        outfile.write( "\t\t\tlocal id = __IDS__[i]\r\n" )
-        outfile.write( "\t\t\t__All[id] = Get(id)\r\n" )
-        outfile.write( "\t\tend\r\n" )
-        outfile.write( "\tend\r\n" )
-        outfile.write( "\treturn __All\r\n" )
-        outfile.write( "end\r\n" )
-        outfile.write( "\r\n" )
+        outfile.write("function All()\r\n")
+        outfile.write("\tif not __All then\r\n")
+        outfile.write("\t\t__All = {}\r\n")
+        outfile.write("\t\tfor i = 1, #__IDS__ do\r\n")
+        outfile.write("\t\t\tlocal id = __IDS__[i]\r\n")
+        outfile.write("\t\t\t__All[id] = Get(id)\r\n")
+        outfile.write("\t\tend\r\n")
+        outfile.write("\tend\r\n")
+        outfile.write("\treturn __All\r\n")
+        outfile.write("end\r\n")
+        outfile.write("\r\n")
 
-        outfile.write( "function Size()\r\n" )
-        outfile.write( "\treturn #__IDS__\r\n" )
-        outfile.write( "end\r\n" )
+        outfile.write("function Size()\r\n")
+        outfile.write("\treturn #__IDS__\r\n")
+        outfile.write("end\r\n")
 
-        outfile.write( "function ForeachKV(func)\r\n" )
-        outfile.write( "\tif func == nil then\r\n" )
-        outfile.write( "\t\treturn\r\n" )
-        outfile.write( "\tend\r\n" )
-        outfile.write( "\tfor i=1,Size() do\r\n" )
-        outfile.write( "\t\tlocal key = __IDS__[i]\r\n" )
-        outfile.write( "\t\tfunc(key,Get(key))\r\n" )
-        outfile.write( "\tend\r\n" )
-
-        outfile.write( "end\r\n" )
-
-
-
-        outfile.write( "\r\n" )
-        outfile.write( "\r\n" )
+        outfile.write("function ForeachKV(func)\r\n")
+        outfile.write("\tif func == nil then\r\n")
+        outfile.write("\t\treturn\r\n")
+        outfile.write("\tend\r\n")
+        outfile.write("\tfor i=1,Size() do\r\n")
+        outfile.write("\t\tlocal key = __IDS__[i]\r\n")
+        outfile.write("\t\tfunc(key,Get(key))\r\n")
+        outfile.write("\tend\r\n")
+        outfile.write("end\r\n")
 
         Names = []
         Ids = []
         IsAddName = True
-
-        for r in range(self.frows):
+        for r in range(size):
             if r < 5:
                 continue
             if self.skipRow(r):
                 continue
-            val = self.getCellData( r, 0 )
+            val = self.getCellData(r, 0)
 
             key = val
             Ids.append(key)
-
 
             fileLine = "{"
 
             for c in range(self.fcols):
                 if self.skipClient(c):
                     continue
-                Name = self.table.cell(2,c).value
+                Name = self.table.cell(2, c).value
                 if isinstance(Name, unicode):
                     Name = Name.encode('utf-8')
-                val = self.getCellDataLua( r, c )
+                val = self.getCellDataLua(r, c)
                 if IsAddName == True:
                     Names.append(Name)
                 line = '%s' % (val)
-                if c < self.fcols-1:
+                if c < self.fcols - 1:
                     line += ","
                 if isinstance(line, unicode):
                     line = line.encode('utf-8')
@@ -829,21 +849,69 @@ class XlsFile(object):
             IsAddName = False
             fileLine += '}'
             fileLine += "\r\n"
-            outfile.write("%s[%s] = %s" % (tableNmae,key,fileLine))
-            #outfile.write(fileLine)
+            outfile.write("%s[%s] = %s" % (tableNmae, key, fileLine))
+            # outfile.write(fileLine)
 
         keyLine = '{'
-        for k,v in enumerate(Names):
+        for k, v in enumerate(Names):
             keyLine += '%s=%d,' % (v, k + 1)
         keyLine += '}\r\n'
         outfile.write("__KEYS__ = %s" % (keyLine))
 
         idLine = '{'
-        for k,v in enumerate(Ids):
+        for k, v in enumerate(Ids):
             idLine += '%s,' % (v)
         idLine += '}'
-        outfile.write("__IDS__ = %s" % (idLine))
+        outfile.write("__IDS__ = %s\r\n" % (idLine))
 
+        if pageCount > 1:
+            outfile.write("local pagelinesize = " + str(pageCount - 1) + "\r\n")
+            outfile.write("for i=1,pagelinesize do\r\n")
+            outfile.write("\tlocal page = require('Config/Table/" + tableNmae + "_' .. i)\r\n")
+            outfile.write("\tfor _,lineData in ipairs(page.data) do\r\n")
+            outfile.write("\t\tlocal id = lineData[1]\r\n")
+            outfile.write("\t\t" + tableNmae + "[id] = lineData\r\n")
+            outfile.write("\t\ttable.insert(__IDS__,id)\r\n")
+            outfile.write("\tend\r\n")
+            outfile.write("end\r\n")
+
+        outfile.write("\r\n")
+        outfile.write("\r\n")
+        outfile.close()
+
+    def savePageData(self, rowindex, size, pageindex, path, name):
+        lua = "%s/%s_%d.lua" % (path, name, pageindex)
+        if not os.path.exists(os.path.dirname(lua)):
+            os.makedirs(os.path.dirname(lua))
+        outfile = open(lua, "w")
+        Ids = []
+        outfile.write('module(...)\r\n')
+        outfile.write('data={\r\n')
+        for r in range(rowindex, rowindex + size):
+            if self.skipRow(r):
+                return
+            val = self.getCellData(r, 0)
+            key = val
+            Ids.append(key)
+
+            fileLine = "{"
+
+            for c in range(self.fcols):
+                if self.skipClient(c):
+                    continue
+                val = self.getCellDataLua(r, c)
+                line = '%s' % (val)
+                if c < self.fcols - 1:
+                    line += ","
+                if isinstance(line, unicode):
+                    line = line.encode('utf-8')
+                fileLine += line
+
+            fileLine += '},'
+            fileLine += "\r\n"
+            outfile.write(" %s" % (fileLine))
+
+        outfile.write('}\r\n')
         outfile.close()
 
 

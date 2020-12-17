@@ -32,6 +32,7 @@ class XlsFileMgr(object):
         for root,dirs,files in os.walk(configDir):
             for i in files:
                 if re.match(r'\b.*.xls$', i) or re.match(r'\b.*.xlsx$', i):
+                    print('_' + i)
                     excelFile = '%s/%s' %(root, i)
                     xFile = XlsFile(excelFile)
                     xFile.read()
@@ -49,4 +50,9 @@ class XlsFileMgr(object):
             #xFile.saveLua(env.CLIENT_CONFIG_PATH)
             xFile.saveLuaOptimize(env.CLIENT_CONFIG_PATH)
             #xFile.saveCsFile(env.I18N_MESSAGE_PATH)
+
+
+
+
+
 
