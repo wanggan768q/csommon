@@ -789,6 +789,26 @@ class XlsFile(object):
         outfile.write("end\r\n")
         outfile.write("\r\n")
 
+        if self.isLanguage == True:
+            outfile.write("function GetRaw(id)\r\n")
+            outfile.write("\tif id == -1 or id == nil then\r\n")
+            outfile.write("\t\treturn nil\r\n")
+            outfile.write("\tend\r\n")
+            outfile.write("\tlocal data = %s[id]\r\n" % (tableNmae))
+            outfile.write("\tif data ~= nil then\r\n")
+            outfile.write("\t\tif not data.__base then\r\n")
+            # outfile.write( "\t\t\tdata.__base = true,\r\n" )
+            outfile.write("\t\t\tsetmetatable( data, base )\r\n")
+            outfile.write("\t\tend\r\n")
+            outfile.write("\t\treturn data\r\n")
+            outfile.write("\telse\r\n")
+            # outfile.write( "\t\tprint( '不存在ID => ' .. id)\r\n" )
+            outfile.write("\t\tlog:Error( '不存在ID => ' , id)\r\n")
+            outfile.write("\tend\r\n")
+            outfile.write("end\r\n")
+            outfile.write("\r\n")
+
+
         outfile.write("function All()\r\n")
         outfile.write("\tif not __All then\r\n")
         outfile.write("\t\t__All = {}\r\n")
