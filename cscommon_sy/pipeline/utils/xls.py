@@ -480,15 +480,24 @@ class XlsFile(object):
             val = '\"' + val + '\"'
             #val = '[=[%s]=]'%val
         elif self.colType[c] == 'FLOAT':
-            if val == '':
-                val = '-1'
-            val = float(val)
-            val = ("%.2f"%val)
+            try:
+                if val == '':
+                    val = '-1'
+                val = float(val)
+                val = ("%.2f"%val)
+            except Exception as e:
+                log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
+                print("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
         else :
-            if val == '':
-                val = '-1'
-            val = int(val)
-            val = ("%d"%val)
+            try:
+                if val == '':
+                    val = '-1'
+                val = int(val)
+                val = ("%d"%val)
+            except Exception as e:
+                log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
+                print("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
+            
         return val
 
 
@@ -560,15 +569,23 @@ class XlsFile(object):
                 val = val.replace(".0","")
             val = '\"' + val + '\"'
         elif self.colType[c] == 'FLOAT':
-            if val == '':
-                val = '-1'
-            val = float(val)
-            val = ("%.2f"%val)
+            try:
+                if val == '':
+                    val = '-1'
+                val = float(val)
+                val = ("%.2f"%val)
+            except Exception as e:
+                log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
+                print("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
         else :
-            if val == '':
-                val = '-1'
-            val = int(val)
-            val = ("%d"%val)
+            try:
+                if val == '':
+                    val = '-1'
+                val = int(val)
+                val = ("%d"%val)
+            except Exception as e:
+                log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
+                print("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
         return val
 
     def saveClient(self, path):
