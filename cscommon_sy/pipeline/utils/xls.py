@@ -497,7 +497,6 @@ class XlsFile(object):
             except Exception as e:
                 log.Log("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
                 print("%s 文件第%d行 %d列使用 数据类型错误" % (self.fname1, r+1,c+1))
-            
         return val
 
 
@@ -759,6 +758,11 @@ class XlsFile(object):
         outfile.write("local ipairs = ipairs\r\n")
         outfile.write("local require = require\r\n")
         outfile.write("module(...)\r\n")
+        outfile.write("local C_Z = 0\r\n")
+        outfile.write("local C_F = -1.00\r\n")
+        outfile.write("local C_I = 1\r\n")
+        outfile.write("local C_S = \"\"\r\n")
+        outfile.write("local C_T = {}\r\n")
         outfile.write("%s = {}\r\n" % (tableNmae))
         outfile.write("local __KEYS__ = {}\r\n")
         outfile.write("local __IDS__ = {}\r\n")
@@ -874,6 +878,15 @@ class XlsFile(object):
                 if isinstance(Name, unicode):
                     Name = Name.encode('utf-8')
                 val = self.getCellDataLua(r, c)
+                if str(val) == '0':
+                    val = 'C_Z'
+                elif str(val) == '-1' or str(val) == '-1.00':
+                    val = 'C_F'
+                elif str(val) == '''""''' :
+                    val = 'C_S'
+                elif str(val) ==  '{}' :
+                    val = 'C_T'
+
                 if IsAddName == True:
                     Names.append(Name)
                 line = '%s' % (val)
@@ -937,6 +950,15 @@ class XlsFile(object):
                 if self.skipClient(c):
                     continue
                 val = self.getCellDataLua(r, c)
+                if str(val) == '0':
+                    val = 'C_Z'
+                elif str(val) == '-1' or str(val) == '-1.00':
+                    val = 'C_F'
+                elif str(val) == '''""''' :
+                    val = 'C_S'
+                elif str(val) ==  '{}' :
+                    val = 'C_T'
+
                 line = '%s' % (val)
                 if c < self.fcols - 1:
                     line += ","
