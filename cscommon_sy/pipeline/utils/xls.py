@@ -936,6 +936,11 @@ class XlsFile(object):
         outfile = open(lua, "w")
         Ids = []
         outfile.write('module(...)\r\n')
+        outfile.write("local C_Z = 0\r\n")
+        outfile.write("local C_F = -1.00\r\n")
+        outfile.write("local C_I = 1\r\n")
+        outfile.write("local C_S = \"\"\r\n")
+        outfile.write("local C_T = {}\r\n")
         outfile.write('data={\r\n')
         for r in range(rowindex, rowindex + size):
             if self.skipRow(r):
