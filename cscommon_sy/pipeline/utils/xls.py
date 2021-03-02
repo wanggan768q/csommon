@@ -759,7 +759,7 @@ class XlsFile(object):
         outfile.write("local require = require\r\n")
         outfile.write("module(...)\r\n")
         outfile.write("local C_Z = 0\r\n")
-        outfile.write("local C_F = -1.00\r\n")
+        outfile.write("local C_F = -1\r\n")
         outfile.write("local C_I = 1\r\n")
         outfile.write("local C_S = \"\"\r\n")
         outfile.write("local C_T = {}\r\n")
@@ -937,7 +937,7 @@ class XlsFile(object):
         Ids = []
         outfile.write('module(...)\r\n')
         outfile.write("local C_Z = 0\r\n")
-        outfile.write("local C_F = -1.00\r\n")
+        outfile.write("local C_F = -1\r\n")
         outfile.write("local C_I = 1\r\n")
         outfile.write("local C_S = \"\"\r\n")
         outfile.write("local C_T = {}\r\n")
