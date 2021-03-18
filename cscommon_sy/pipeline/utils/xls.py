@@ -809,7 +809,7 @@ class XlsFile(object):
         outfile.write("}\r\n\r\n")
 
         if self.isLanguage == True:
-            outfile.write("---@return string\n" % (tableNmae))
+            outfile.write("---@return string\n")
         else:
             outfile.write("---@return GameConfig.%s\n" % (tableNmae))
         outfile.write("function Get(id)\r\n")
