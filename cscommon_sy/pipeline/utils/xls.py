@@ -757,6 +757,25 @@ class XlsFile(object):
         outfile.write("local table = table\r\n")
         outfile.write("local ipairs = ipairs\r\n")
         outfile.write("local require = require\r\n")
+        
+        outfile.write("---@alias %s.ForeachKV_Action fun(id:number,data:GameConfig.%s):void\r\n" % (tableNmae,tableNmae) )
+        outfile.write("---@module GameConfig.%s\n" % (tableNmae))
+        
+        fieldNames = []
+        
+        for c in range(self.fcols):
+            if self.skipClient(c):
+                continue
+            Name = self.table.cell(2, c).value
+            if isinstance(Name, unicode):
+                Name = Name.encode('utf-8')
+            fieldNames.append(Name)
+        
+        FieldDefine = ''
+        for k, v in enumerate(fieldNames):
+            FieldDefine += '---@field %s %s\n' % (v,self.getLuaTypeName(self.colType[k])) 
+        outfile.write(FieldDefine)
+        
         outfile.write("module(...)\r\n")
         outfile.write("local C_Z = 0\r\n")
         outfile.write("local C_F = -1\r\n")
@@ -789,6 +808,10 @@ class XlsFile(object):
         outfile.write("\t__base = true,\r\n")
         outfile.write("}\r\n\r\n")
 
+        if self.isLanguage == True:
+            outfile.write("---@return string\n" % (tableNmae))
+        else:
+            outfile.write("---@return GameConfig.%s\n" % (tableNmae))
         outfile.write("function Get(id)\r\n")
         outfile.write("\tif id == -1 or id == nil then\r\n")
         outfile.write("\t\treturn nil\r\n")
@@ -811,6 +834,7 @@ class XlsFile(object):
         outfile.write("\r\n")
 
         if self.isLanguage == True:
+            outfile.write("---@return GameConfig.%s\n" % (tableNmae))
             outfile.write("function GetRaw(id)\r\n")
             outfile.write("\tif id == -1 or id == nil then\r\n")
             outfile.write("\t\treturn nil\r\n")
@@ -829,7 +853,7 @@ class XlsFile(object):
             outfile.write("end\r\n")
             outfile.write("\r\n")
 
-
+        outfile.write("---@return GameConfig.%s[]\n" % (tableNmae))
         outfile.write("function All()\r\n")
         outfile.write("\tif not __All then\r\n")
         outfile.write("\t\t__All = {}\r\n")
@@ -842,10 +866,12 @@ class XlsFile(object):
         outfile.write("end\r\n")
         outfile.write("\r\n")
 
+        outfile.write("---@return number\n")
         outfile.write("function Size()\r\n")
         outfile.write("\treturn #__IDS__\r\n")
         outfile.write("end\r\n")
 
+        outfile.write("---@param func %s.ForeachKV_Action\n" % (tableNmae))
         outfile.write("function ForeachKV(func)\r\n")
         outfile.write("\tif func == nil then\r\n")
         outfile.write("\t\treturn\r\n")
@@ -859,6 +885,7 @@ class XlsFile(object):
         Names = []
         Ids = []
         IsAddName = True
+        
         for r in range(size):
             if r < 5:
                 continue
@@ -1078,6 +1105,13 @@ class XlsFile(object):
         if not self.checkItems[col]['i18n']:
             return True
         return False
-
-
-
+        
+    def getLuaTypeName(self, ConfigTypeName):
+        if ConfigTypeName == 'INT' or ConfigTypeName == 'FLOAT' :
+            return 'number'
+        elif ConfigTypeName == 'STRING' :
+            return 'string'
+        elif ConfigTypeName == 'LS' :
+            return 'string[]'
+        elif ConfigTypeName == 'LI' or ConfigTypeName == 'LF' :
+            return 'number[]'
