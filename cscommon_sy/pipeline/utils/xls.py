@@ -11,6 +11,8 @@ import data
 import time
 import codecs
 from data import DataMgr
+from xlsConfigMgr import xlsConfigMgr
+#import
 
 # import sys
 
@@ -43,7 +45,6 @@ class XlsFile(object):
 
     def __init__(self, fileName):
         self.fname = fileName
-
         #utf8编码格式的文件名
         self.fname1 = ""
         names = os.path.split(self.fname)
@@ -252,7 +253,9 @@ class XlsFile(object):
         val = self.table.cell(row,col).value
 
         #print type(val)
-        self.checkChkItem(val,row,col)
+        xls_config = xlsConfigMgr()
+        if xls_config.get_compile_xls_count() == 0:
+            self.checkChkItem(val,row,col)
         if (type(val)== type(u'') or type(val)== type('')) and self.colType[col] == 'STRING':
             return self.checkStrValue(val, col)
         elif self.colType[col] == 'INT':
@@ -304,7 +307,6 @@ class XlsFile(object):
         return self.checkChkItemVal(val,row,col)
 
     def checkChkItemVal(self,val, row, col):
-        data = DataMgr()
         data = DataMgr()
         chk = self.checkItems[col]['chk']
         if chk == None:
@@ -717,10 +719,15 @@ class XlsFile(object):
             log.Log("%s 文件名格式错误" % self.fname1)
         tableNmae = name.split("_")[0]
 
-        maxcount = env.LUA_PAGE_MAX_CELL
-        pagelinesize = maxcount/self.fcols # 一页多少行
+        xls_config = xlsConfigMgr()
 
-        pagecount = self.frows / pagelinesize #
+        maxcount = env.LUA_PAGE_MAX_CELL
+        if not xls_config.get_lua_page_count(tableNmae):
+            maxcount = 500000
+
+        pagelinesize = maxcount / self.fcols # 一页多少行
+
+        pagecount = self.frows / pagelinesize
         if self.frows > (pagecount * pagelinesize):
             pagecount += 1
         #写第一页
